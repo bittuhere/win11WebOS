@@ -1,0 +1,777 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Windows 11 / Microsoft setup motion: fluent deceleration, no bounce */
+$fluent: cubic-bezier(0.16, 1, 0.3, 1);
+$fluent-out: cubic-bezier(0.33, 1, 0.68, 1);
+
+.oobe-root {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  overflow: hidden;
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  color: #fff;
+  user-select: none;
+}
+
+.oobe-blue {
+  background: #0067c0;
+  background: radial-gradient(120% 80% at 50% -10%, #3aa0ea 0%, #0067c0 42%, #004a8f 100%);
+}
+
+.oobe-mslogin {
+  background: #fff;
+  color: #1b1b1b;
+}
+
+.oobe-bloom {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 18% 88%, rgba(0, 120, 215, 0.35), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 88% 12%, rgba(136, 84, 208, 0.22), transparent 70%),
+    radial-gradient(ellipse 30% 28% at 70% 80%, rgba(0, 153, 188, 0.18), transparent 70%);
+  animation: oobeBloom 18s $fluent-out infinite alternate;
+}
+
+@keyframes oobeBloom {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1.06) translate3d(-1.5%, 1%, 0);
+    opacity: 1;
+  }
+}
+
+.oobe-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.oobe-page {
+  width: min(720px, calc(100vw - 64px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: oobeIn 520ms $fluent both;
+}
+
+@keyframes oobeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.oobe-page.leave {
+  animation: oobeOut 280ms $fluent-out both;
+}
+
+@keyframes oobeOut {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.win11-logo {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 36px;
+}
+
+.win11-logo.sm {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+}
+
+.oobe-kicker {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.oobe-title {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.oobe-sub {
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: 0.92;
+  max-width: 520px;
+  font-weight: 400;
+}
+
+.oobe-actions {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.oobe-btn {
+  min-width: 118px;
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition:
+    background 160ms $fluent-out,
+    border-color 160ms $fluent-out,
+    color 160ms $fluent-out,
+    opacity 160ms $fluent-out;
+}
+
+.oobe-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.oobe-btn.primary {
+  background: #fff;
+  color: #0067c0;
+  border-color: #fff;
+}
+.oobe-btn.primary:hover {
+  background: #f3f8fd;
+}
+.oobe-btn.primary:active {
+  background: #e6f1fb;
+}
+
+.oobe-btn.ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.oobe-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.oobe-btn.accent {
+  background: #0067c0;
+  color: #fff;
+  border-color: #0067c0;
+}
+.oobe-btn.accent:hover {
+  background: #005a9e;
+}
+.oobe-btn.accent:active {
+  background: #004e8c;
+}
+.oobe-btn.accent:focus-visible {
+  outline-color: #0067c0;
+}
+
+.oobe-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Info cards */
+.oobe-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: min(680px, 100%);
+  margin-top: 28px;
+  text-align: left;
+}
+
+.oobe-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 18px 18px 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: oobeIn 560ms $fluent both;
+}
+
+.oobe-card:nth-child(1) {
+  animation-delay: 60ms;
+}
+.oobe-card:nth-child(2) {
+  animation-delay: 140ms;
+}
+.oobe-card:nth-child(3) {
+  animation-delay: 220ms;
+}
+.oobe-card:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.oobe-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 6px;
+}
+.oobe-card p {
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.9;
+  margin: 0;
+}
+.oobe-card .ico {
+  width: 28px;
+  height: 28px;
+}
+
+.oobe-lockhint {
+  margin-top: 14px;
+  font-size: 12px;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+}
+
+/* Microsoft account login card */
+.ms-wrap {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: #f2f2f2;
+  position: relative;
+}
+
+.ms-card {
+  width: min(440px, calc(100vw - 32px));
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  padding: 44px 44px 36px;
+  animation: oobeIn 480ms $fluent both;
+  text-align: left;
+  color: #1b1b1b;
+}
+
+.ms-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+.ms-squares {
+  width: 21px;
+  height: 21px;
+}
+
+.ms-card h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #1b1b1b;
+}
+
+.ms-card .ms-desc {
+  font-size: 15px;
+  color: #616161;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+
+.ms-field {
+  position: relative;
+  margin: 8px 0 20px;
+}
+
+.ms-field input {
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-bottom: 1px solid #666;
+  background: transparent;
+  font-size: 15px;
+  padding: 4px 0 6px;
+  color: #1b1b1b;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.ms-field input:focus {
+  border-bottom: 2px solid #0067c0;
+  padding-bottom: 5px;
+}
+
+.ms-field input::placeholder {
+  color: #666;
+}
+
+.ms-error {
+  color: #c42b1c;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 14px;
+  min-height: 16px;
+}
+
+.ms-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 28px;
+}
+
+.ms-footer {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+  color: #616161;
+}
+
+.ms-footer span {
+  cursor: default;
+}
+
+/* Working / progress */
+.oobe-working .oobe-title {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.oobe-ring {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 28px;
+}
+
+.progressRing circle {
+  stroke: white;
+  fill: none;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  animation: 2s linear 0s infinite normal none running spin-infinite;
+}
+
+.oobe-mslogin .progressRing circle {
+  stroke: #0067c0;
+}
+
+@keyframes spin-infinite {
+  0% {
+    stroke-dasharray: 0.01px, 43.97px;
+    transform: rotate(0deg);
+  }
+  50% {
+    stroke-dasharray: 21.99px, 21.99px;
+    transform: rotate(450deg);
+  }
+  100% {
+    stroke-dasharray: 0.01px, 43.97px;
+    transform: rotate(1080deg);
+  }
+}
+
+.oobe-skip {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  font-size: 12px;
+  opacity: 0.55;
+  z-index: 2;
+}
+
+@media (max-width: 640px) {
+  .oobe-cards {
+    grid-template-columns: 1fr;
+  }
+  .oobe-title {
+    font-size: 26px;
+  }
+  .ms-card {
+    padding: 28px 22px;
+  }
+}
+
+/* ==================================================================
+   The browser-helper extension step (between screen 2 and screen 3)
+   ================================================================== */
+
+.extExplainer {
+  width: min(660px, 100%);
+  margin-top: 26px;
+  padding: 20px 22px 18px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  text-align: left;
+  animation: oobeIn 520ms $fluent both;
+}
+
+.extExplainer > p {
+  margin: 16px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  opacity: 0.94;
+}
+
+.extDiagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 6px 0 2px;
+}
+
+.extNode {
+  min-width: 132px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.extNode b {
+  font-size: 13px;
+  font-weight: 600;
+}
+.extNode i {
+  font-size: 11px;
+  font-style: normal;
+  opacity: 0.7;
+}
+.extDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6ee7a8;
+  margin-bottom: 5px;
+  box-shadow: 0 0 8px #6ee7a8;
+}
+.extNode.web .extDot {
+  background: #ffd166;
+  box-shadow: 0 0 8px #ffd166;
+}
+
+.extLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #ffb3ab;
+}
+.extLink em {
+  font-style: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  opacity: 0.95;
+}
+.extLink.blocked {
+  animation: extPulse 2.6s ease-in-out infinite;
+}
+@keyframes extPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.extFacts {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+.extFacts b {
+  font-weight: 600;
+}
+
+.oobe-backlink {
+  margin-top: 18px;
+}
+.oobe-backlink button {
+  background: none;
+  border: none;
+  color: #fff;
+  opacity: 0.66;
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.oobe-backlink button:hover {
+  opacity: 1;
+}
+
+/* ---- choose your browser ---- */
+
+.extPickPage {
+  width: min(760px, calc(100vw - 48px));
+}
+
+.extGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.extCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 22px 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 200ms $fluent,
+    background 180ms $fluent-out,
+    border-color 180ms $fluent-out,
+    box-shadow 200ms $fluent;
+  animation: oobeIn 480ms $fluent both;
+}
+.extCard:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.42);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+}
+.extCard:active {
+  transform: translateY(-1px) scale(0.985);
+}
+.extCard b {
+  font-size: 14px;
+  font-weight: 600;
+}
+.extCard i {
+  font-style: normal;
+  font-size: 10.5px;
+  opacity: 0.68;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  word-break: break-all;
+  text-align: center;
+}
+
+/* ---- instructions + verify ---- */
+
+.extHelpPage {
+  width: min(680px, calc(100vw - 48px));
+  text-align: left;
+  align-items: stretch;
+}
+.extHelpPage .oobe-title {
+  font-size: 26px;
+  margin-bottom: 0;
+}
+.extHelpPage .oobe-actions {
+  justify-content: flex-start;
+  margin-top: 26px;
+}
+
+.extHelpHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.extHelpHead > div {
+  text-align: left;
+}
+
+.extSteps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  counter-reset: extstep;
+}
+.extSteps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: oobeIn 460ms $fluent both;
+}
+.extSteps p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  opacity: 0.95;
+}
+.extStepNo {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0067c0;
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+}
+
+.extNote {
+  margin-top: 14px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+.extNote svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.extPath {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.extPath code {
+  flex: 1;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12.5px;
+  color: #cfe9ff;
+  word-break: break-all;
+}
+.extPath button {
+  flex: none;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+.extPath button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.extVerifyMsg {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  animation: oobeIn 340ms $fluent both;
+}
+.extVerifyMsg svg {
+  flex: none;
+  margin-top: 1px;
+}
+.extVerifyMsg.ok {
+  background: rgba(46, 204, 113, 0.18);
+  border: 1px solid rgba(110, 231, 168, 0.5);
+  color: #d8ffe9;
+}
+.extVerifyMsg.no {
+  background: rgba(255, 99, 71, 0.16);
+  border: 1px solid rgba(255, 154, 138, 0.55);
+  color: #ffe1dc;
+}
+
+.extSpin {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 60, 120, 0.28);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .extGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .extDiagram {
+    flex-direction: column;
+  }
+  .extLink svg {
+    transform: rotate(90deg);
+  }
+}

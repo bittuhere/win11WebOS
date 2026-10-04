@@ -1,0 +1,14 @@
+{
+  "name": "Windows 11 WebOS",
+  "description": "The Windows 11 desktop experience, rebuilt on the web with React, Redux and SCSS.",
+  "repository": "https://github.com/bittuhere/win11WebOS",
+  "keywords": [
+    "Windows11",
+    "web-os",
+    "React",
+    "open-source"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

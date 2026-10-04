@@ -1,0 +1,415 @@
+/* Copyright 2026 bittuhere (anurag670singh@gmail.com)
+   Licensed under the Apache License, Version 2.0 */
+
+/* ==================================================================
+   The phone ratio — phones shrink the OS by an adjustable factor.
+   JS (utils/os/mob.js) tags <html data-wos-mob="1"> on real phones
+   only, so a PC NEVER matches any rule in this file. The ratio scales
+   every rem-based size (spacing + text) in one motion; tune it with
+   localStorage.setItem("wos.mobRatio", "0.8").
+   ================================================================== */
+
+html[data-wos-mob="1"] {
+  font-size: calc(100% * var(--wos-ratio, 0.85));
+}
+
+/* the same tag compresses the pixel-based gaps the rem ratio can't
+   reach — setup screen, start sheet — so phones read tight, not sparse */
+html[data-wos-mob="1"] .oobe-page {
+  gap: 0;
+}
+
+html[data-wos-mob="1"] .win11-logo.sm {
+  margin-bottom: 10px;
+}
+
+html[data-wos-mob="1"] .oobe-kicker {
+  margin-bottom: 5px;
+}
+
+html[data-wos-mob="1"] .oobe-title {
+  margin: 0 0 7px;
+}
+
+html[data-wos-mob="1"] .oobe-cards {
+  margin-top: 12px;
+  gap: 8px;
+}
+
+html[data-wos-mob="1"] .oobe-actions {
+  margin-top: 12px;
+}
+
+html[data-wos-mob="1"] .menuUp {
+  padding-top: 12px;
+  padding-bottom: 8px;
+}
+
+html[data-wos-mob="1"] .stAcbar {
+  padding: 0 16px;
+}
+
+/* ==================================================================
+   Mobile — PHONES only, BOTH orientations.
+   Philosophy: the phone gets THE SAME desktop UI at THE SAME sizes —
+   nothing is enlarged, nothing is rescaled. These rules only make the
+   desktop FIT the screen: windows never hang off-screen, menus never
+   overflow, and setup buttons are always reachable.
+   portrait:  coarse pointer + narrow (≤740px width)
+   landscape: coarse pointer + short screen (≤520px height)
+   Tablets never match: an iPad mini is 768×1024 (too wide, too tall).
+   ================================================================== */
+
+@media (pointer: coarse) and ((max-width: 740px) or (max-height: 520px)) {
+  /* ---------- desktop icon area covers the wallpaper (same everywhere) ---------- */
+  .desktopCont {
+    width: 100%;
+  }
+
+  /* ---------- windows: same window, fitted to the screen ----------
+     identical chrome and sizes — only the geometry changes so a window
+     can never hang off the phone. .desktop is ALREADY 48px short (the
+     taskbar overlays below it), so the window simply FILLS it — never
+     subtract the taskbar again or you get the wallpaper gap. */
+  .floatTab {
+    left: 0 !important;
+    top: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100vw !important;
+    height: 100% !important;
+    max-width: 100vw !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .aboutApp .content {
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  /* ---------- start menu: the same menu, fitted + scrollable ---------- */
+  .startMenu {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important; /* .desktop already ends at the taskbar */
+    top: auto !important;
+    /* exactly a PC's menu (640px) whenever the screen allows it — a wider
+       phone must not stretch the tiles past their desktop size */
+    width: min(640px, 100vw) !important;
+    max-width: min(640px, 100vw) !important;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto !important;
+    max-height: calc(100% - 6px) !important;
+    overflow-y: auto;
+    border-radius: 10px 10px 0 0;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+  }
+
+  /* keep the pinned/all-app areas bounded so they scroll, never overflow */
+  .pnApps,
+  .allApps {
+    max-height: 46vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* the A–Z rail costs a whole column on a narrow screen — drop it */
+  .alphaBox {
+    display: none !important;
+  }
+
+  /* the user/power bar stays visible at the bottom of the sheet */
+  .menuBar {
+    position: sticky;
+    bottom: 0;
+    background: inherit;
+    z-index: 2;
+  }
+
+  /* ---------- panels ---------- */
+  .searchPane,
+  .sidePane,
+  .widPane,
+  .calnPane {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* the quick-settings side pane is 360px on a PC — keep it that size and
+     centre it instead of stretching it across a landscape phone */
+  .sidePane {
+    width: min(360px, 100vw) !important;
+    max-width: min(360px, 100vw) !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- dialogs never leave the screen ---------- */
+  .wosDlg {
+    max-width: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+  }
+
+  .wosFlyout {
+    max-width: calc(100vw - 16px) !important;
+  }
+
+  .powerCont {
+    left: auto !important;
+    right: 8px !important;
+    top: auto !important;
+    bottom: 52px !important;
+  }
+
+  .actmenu {
+    max-width: calc(100vw - 16px);
+  }
+
+  /* ---------- OOBE: same page, fitted — Next is ALWAYS reachable ---------- */
+  .oobe-stage {
+    justify-content: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .oobe-page {
+    width: calc(100vw - 24px);
+  }
+
+  /* same 2-column card grid as the desktop — just tighter, not rescaled */
+  .oobe-cards {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .oobe-card {
+    padding: 10px 12px;
+    border-radius: 6px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    h3 {
+      font-size: 12px;
+      margin: 4px 0 2px;
+    }
+
+    p {
+      font-size: 10.5px;
+      line-height: 1.35;
+    }
+  }
+
+  /* Back/Next stick to the visible bottom while the page scrolls */
+  .oobe-actions {
+    position: sticky;
+    bottom: 0;
+    margin-top: 14px;
+    padding: 10px 0 max(10px, env(safe-area-inset-bottom));
+    background: linear-gradient(rgba(9, 24, 48, 0), rgba(9, 24, 48, 0.72));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+  }
+
+  /* ---------- weather: same UI, stacked so both halves fit ---------- */
+  .weatherPad {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .wxSide {
+    width: 100% !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    border-right: 0 !important;
+    padding-right: 0 !important;
+
+    .wxPlaces {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+  }
+
+  /* ---------- calculator keys span the fitted window ---------- */
+  .calcApp .opcont,
+  .calcApp .msrCont {
+    width: 100% !important;
+  }
+
+  /* ---------- app grids keep the desktop pattern, just narrower ---------- */
+  .extraGrid,
+  .stGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+  }
+}
+
+/* ==================================================================
+   PORTRAIT PHONES — the same interface, fitted.
+   A phone in portrait now runs the real desktop layout: the desktop
+   grid, the taskbar, the start menu and every window are simply laid
+   out for a narrow screen. Nothing is rescaled and no icon is
+   enlarged — the icons and controls keep their desktop pixel sizes
+   (or shrink a step), and only the container changes.
+   ================================================================== */
+
+@media (pointer: coarse) and (max-width: 740px) and (orientation: portrait) {
+  /* ---------- desktop: the same tiles, the label never runs away ---------- */
+  .dskApp {
+    width: 72px;
+    height: 82px;
+    margin: 3px;
+
+    .appName {
+      /* the SAME font as the desktop (the tile only inherits 0.8em) — the
+         phone pass fits the container, it never rescales the interface */
+      line-height: 1.15;
+      margin-top: 3px;
+      /* two lines, then ellipsis — the tile stays a tile */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+    }
+  }
+
+  /* ---------- taskbar: icons keep their size and scroll if they must ----------
+     the tray (clock, volume, wifi) is laid out, not absolutely positioned, so
+     a long row of running apps can never slide underneath it */
+  .taskcont {
+    display: flex;
+    align-items: center;
+  }
+
+  .tasksCont {
+    width: auto !important;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .tsbar {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tsbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tsIcon {
+    flex: none;
+  }
+
+  /* the widgets button is pinned to the far left on a desktop (absolute);
+     with the tray laid out in-flow there is no "far left" to pin to, so it
+     takes its place in the strip instead of sitting on the Start button */
+  .tasksCont[data-side="center"] .widget {
+    position: static;
+  }
+
+  .taskright {
+    position: static !important;
+    margin-left: 4px;
+    flex: 0 0 auto;
+  }
+
+  .taskDate {
+    padding: 0 6px;
+    font-size: 10.5px;
+  }
+
+  /* while the widgets/band pane button row is up it wraps instead of clipping */
+  .taskright > div {
+    flex: none;
+  }
+
+  /* ---------- start menu: desktop's 6×N grid, tiles narrowed to fit ----------
+     the tile is a container — its icon (32px) and label are untouched, so a
+     phone shows the SAME grid as a PC, never a stretched one. The panel's
+     desktop gutters are trimmed so each column is as wide as it can be and
+     names wrap instead of being cut. */
+  .startMenu .menuUp {
+    padding: 8px 0 0;
+  }
+
+  .startMenu .pnApps {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    row-gap: 0;
+    padding: 8px 0 4px;
+  }
+
+  .startMenu .stAcbar {
+    padding: 0 10px;
+  }
+
+  .startMenu .menuBar {
+    padding: 0 20px;
+  }
+
+  .startMenu .appCont {
+    padding: 18px 10px 0;
+  }
+
+  .startMenu .pnApp {
+    padding: 0 2px;
+
+    .pnIcon {
+      width: 32px;
+      height: 32px;
+      flex: none;
+    }
+
+    .appName {
+      max-width: 100%;
+      font-size: 11px;
+      line-height: 1.12;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-word;
+    }
+  }
+
+  /* the "All apps" list: compact rows, same 3-column rhythm as a PC window */
+  .allApps .allApp {
+    .appName {
+      font-size: 11.5px;
+    }
+  }
+
+  /* recommended row and the search box keep desktop sizes, just tighter */
+  .startMenu .stAcbar {
+    padding: 0 12px;
+  }
+
+  /* ---------- windows: content that is wider than the screen may scroll ---------- */
+  .floatTab .windowScreen .restWindow,
+  .floatTab .windowScreen {
+    max-width: 100vw;
+  }
+
+  /* an app whose toolbar is a long row: let it wrap instead of clipping */
+  .solitaireWin .solBar {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  .solitaireWin .solMeta {
+    margin-left: 0;
+  }
+}

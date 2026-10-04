@@ -1,0 +1,47 @@
+{
+  "build": {
+    "beforeDevCommand": "npm start",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../build",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "Windows 11 WebOS",
+    "version": "1.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/icon.ico"
+      ],
+      "identifier": "com.bittuhere.win11webos",
+      "targets": "all"
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Windows 11 WebOS",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 1024,
+        "minHeight": 640
+      }
+    ]
+  }
+}

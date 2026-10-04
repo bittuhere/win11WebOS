@@ -1,0 +1,156 @@
+<!doctype html>
+
+<!--
+  Copyright 2026 bittuhere
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+  404 — served by GitHub Pages (and most static hosts) for unknown paths.
+  It is deliberately SELF-CONTAINED: a 404 page that pulls styles or images
+  from another host breaks the moment that host changes. Everything below is
+  inline + same-origin, and the only link out is this project's own issue
+  tracker.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>404 — Windows 11 WebOS</title>
+    <link rel="icon" href="./favicon.png" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #0078d7;
+        color: #fff;
+        font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+      }
+      #page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+        padding: 40px 24px;
+      }
+      #container {
+        max-width: 720px;
+        width: 100%;
+      }
+      h1 {
+        font-size: 96px;
+        line-height: 1;
+        margin: 0 0 24px;
+        font-weight: 200;
+      }
+      h2 {
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1.45;
+        margin: 0 0 18px;
+      }
+      #percentage {
+        font-weight: 600;
+      }
+      #details {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 34px;
+      }
+      #qr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 120px;
+        height: 120px;
+        background: #fff;
+        border-radius: 4px;
+        flex: 0 0 auto;
+      }
+      #qr img {
+        width: 96px;
+        height: 96px;
+      }
+      #stopcode {
+        flex: 1 1 320px;
+        min-width: 260px;
+      }
+      h4,
+      h5 {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0 0 12px;
+        word-break: break-word;
+      }
+      a {
+        color: #fff;
+      }
+      #home {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 8px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 13px;
+        transition: background 120ms ease, color 120ms ease;
+      }
+      #home:hover {
+        background: #fff;
+        color: #0078d7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div id="container">
+        <h1>:(</h1>
+        <h2>
+          Your PC ran into a problem and needs to find a different page.
+          We're collecting some error info, and then we'll take you back to the
+          desktop.
+        </h2>
+        <h2><span id="percentage">0</span>% complete</h2>
+        <div id="details">
+          <div id="qr">
+            <img src="./img/logo.png" alt="Windows 11 WebOS" />
+          </div>
+          <div id="stopcode">
+            <h4>
+              For more information about this issue and possible fixes, visit
+              <br />
+              <a href="https://github.com/bittuhere/win11WebOS/issues"
+                >https://github.com/bittuhere/win11WebOS/issues</a
+              >
+            </h4>
+            <h5>
+              If you call a support person, give them this info: <br />Stop Code:
+              404_PAGE_NOT_FOUND
+            </h5>
+            <a id="home" href="./">Return to the desktop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

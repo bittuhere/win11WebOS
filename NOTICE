@@ -1,0 +1,63 @@
+Windows 11 WebOS
+Copyright 2026 bittuhere
+
+This product includes software developed as part of the
+Windows 11 WebOS project.
+
+Project home: https://github.com/bittuhere/win11WebOS
+
+--------------------------------------------------------------------------------
+Third-party components
+--------------------------------------------------------------------------------
+
+Solitaire engine — AashishChakravarty/solitaire (Klondike)
+  Source:      https://github.com/AashishChakravarty/solitaire
+  Author:      Aashish Chakravarty
+  Licence:     MIT — Copyright (c) 2025 Aashish Chakravarty
+  Vendored at: src/containers/applications/apps/solitaire-aashish/
+               (engine.js + engine.css, adapted for the OS window)
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+  The engine ships as a single-page HTML file upstream; here its rules, scoring,
+  rendering and animation logic were re-expressed as an ES module and its
+  stylesheet was scoped to the OS window. Every adaptation and every improvement
+  over upstream is listed in solitaire-aashish/README.md.
+
+  No card artwork is bundled: the deck is drawn with CSS and Unicode suit
+  glyphs, so there is no third-party card library in the package.
+
+--------------------------------------------------------------------------------
+Keyboard easter eggs (public/react-pwa.js)
+--------------------------------------------------------------------------------
+
+  The "type pikachu / mario / ohhh" amusements are adapted from the
+  easter-egg-collection by Wei-Chia Chang (MIT):
+  https://github.com/WeiChiaChang/easter-egg-collection
+
+  They are loaded lazily, after the desktop is on screen, so they never sit on
+  the boot path.
+
+--------------------------------------------------------------------------------
+Previously used components
+--------------------------------------------------------------------------------
+
+An earlier build of this project shipped a hand-written Klondike engine, then a
+port of cango91/solitaire. Neither is part of this release; both were removed
+together with their assets. The current engine (above) replaces them.

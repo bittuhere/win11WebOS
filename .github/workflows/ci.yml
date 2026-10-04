@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build + smoke
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run smoke
+      - name: Offline driver (jsdom, no browser, no network)
+        run: node --experimental-vm-modules scripts/drive.cjs
+
+  suites:
+    name: Browser suites
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - run: npm run build
+      - name: Playwright + Chromium
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Serve the production build on :4180
+        run: |
+          python -m http.server 4180 --directory build &
+          sleep 2
+      - name: Core shell regressions (About, links, Solitaire, windows)
+        run: python tests/verify.py
+      - name: Handed-over Github links and the integrated browser
+        run: python tests/iframe_flow_test.py
+      - name: File types, associations, icons and the Notepad open/close path
+        run: python tests/file_types.py
+      - name: Phone layout and the landscape gate, device by device
+        run: python tests/rotate_gate_devices.py
+      - name: The fitted phone interface and the gate switch in Settings
+        run: python tests/mobile_layout.py
+      - name: Solitaire end to end
+        run: python tests/solitaire_aash.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: suite-screenshots
+          path: tests/*.png
+          if-no-files-found: ignore

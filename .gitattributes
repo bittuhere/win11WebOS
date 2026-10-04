@@ -1,0 +1,36 @@
+# Normalise line endings for everyone, and keep binaries out of diffs.
+# https://git-scm.com/docs/gitattributes
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Source
+*.{js,jsx,json,scss,css,html,md,yml,yaml,py} text
+
+# Lockfiles: generated, but they must diff cleanly
+package-lock.json text eol=lf -diff
+
+# Binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mp3 binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+
+# Keep the GitHub language bar honest — vendored/static things are not source
+public/locales/** linguist-vendored
+public/storeCatalog.json linguist-generated
+public/dycalendar.js linguist-vendored
+public/react-pwa.js linguist-vendored
+build/** linguist-generated

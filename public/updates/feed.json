@@ -1,0 +1,32 @@
+{
+  "feed": 1,
+  "channel": "stable",
+  "latest": {
+    "version": "1.01",
+    "major": 1,
+    "build": 1,
+    "released": "2026-10-04",
+    "title": "WebOS 1, version 1.01, Build 1",
+    "kind": "quality",
+    "size": 2350000,
+    "url": "/updates/",
+    "notes": "updates/notes/1.01.md",
+    "highlights": [
+      "Local .html files open in Edge and finish loading — no more \"this page cannot be displayed\"",
+      "Ctrl+C / Ctrl+V / Ctrl+X belong to the window in front, so typing in Notepad is never hijacked",
+      "Copying a file onto an existing name asks first: Replace, Keep both, or Cancel",
+      "Every Store app icon ships with the PC — the Store no longer loads logos from other sites"
+    ],
+    "mandatory": false
+  },
+  "history": [
+    {
+      "version": "1.01",
+      "major": 1,
+      "build": 1,
+      "released": "2026-10-04",
+      "kind": "quality",
+      "title": "Quality update"
+    }
+  ]
+}

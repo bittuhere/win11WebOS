@@ -1,0 +1,9 @@
+# Windows 11 WebOS — https://github.com/bittuhere/win11WebOS
+# A static, single-page web desktop. Everything here is public; crawl freely.
+
+User-agent: *
+Allow: /
+Disallow: /storeCatalog.user.json
+
+# Sitemap
+Sitemap: https://win11webos.pages.dev/sitemap.xml

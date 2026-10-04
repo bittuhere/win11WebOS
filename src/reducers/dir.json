@@ -1,0 +1,155 @@
+{
+  "C:": {
+    "type": "folder",
+    "name": "C:",
+    "info": {
+      "size": "104000000000",
+      "used": "90000000000",
+      "spid": "%cdrive%"
+    },
+    "data": {
+      "backup": {
+        "type": "folder",
+        "name": "backup",
+        "data": {
+          "config": {
+            "type": "folder",
+            "name": "config"
+          }
+        }
+      },
+      "Microsoft": {},
+      "Program Files": {
+        "data": {
+          "7-Zip": {},
+          "Adobe": {},
+          "AMD": {},
+          "BraveSoftware": {},
+          "Common Files": {},
+          "Dell": {},
+          "dotnet": {},
+          "Git": {},
+          "Goodix": {},
+          "heroku": {},
+          "Intel": {},
+          "Internet Explorer": {},
+          "mcafee": {},
+          "Microsoft Office 15": {},
+          "Microsoft OneDrive": {},
+          "Microsoft Update Health Tools": {},
+          "ModifiableWindowsApps": {},
+          "MongoDB": {},
+          "MSBuild": {},
+          "MySQL": {},
+          "nodejs": {},
+          "OpenVPN": {},
+          "PCHealthCheck": {},
+          "PowerShell": {},
+          "PowerToys": {},
+          "Realtek": {},
+          "Reference Assemblies": {},
+          "Riot Vanguard": {},
+          "Rivet Networks": {},
+          "Waves": {},
+          "Windows Defender": {},
+          "Windows Mail": {},
+          "Windows Media Player": {},
+          "Windows NT": {},
+          "Windows Photo Viewer": {},
+          "WindowsPowerShell": {},
+          "WinRAR": {}
+        }
+      },
+      "temp": {},
+      "Users": {
+        "type": "folder",
+        "name": "Users",
+        "data": {
+          "Public": {
+            "data": {
+              "Public Documents": {},
+              "Public Downloads": {},
+              "Public Music": {},
+              "Public Pictures": {},
+              "Public Videos": {}
+            }
+          },
+          "Tester": {
+            "type": "folder",
+            "name": "Tester",
+            "info": {
+              "spid": "%user%",
+              "icon": "user"
+            },
+            "data": {
+              "Desktop": {
+                "info": {
+                  "spid": "%desktop%",
+                  "icon": "desk"
+                }
+              },
+              "Documents": {
+                "info": {
+                  "spid": "%documents%",
+                  "icon": "documents"
+                }
+              },
+              "Downloads": {
+                "info": {
+                  "spid": "%downloads%",
+                  "icon": "download"
+                }
+              },
+              "Music": {
+                "info": {
+                  "spid": "%music%",
+                  "icon": "spotify"
+                }
+              },
+              "Pictures": {
+                "info": {
+                  "spid": "%pictures%",
+                  "icon": "pics"
+                },
+                "data": {
+                  "Saved pictures": {}
+                }
+              },
+              "Videos": {
+                "info": {
+                  "spid": "%videos%",
+                  "icon": "vid"
+                }
+              },
+              "OneDrive": {
+                "info": {
+                  "spid": "%onedrive%",
+                  "icon": "onedrive"
+                },
+                "data": {
+                  "Desktop": {},
+                  "Documents": {},
+                  "Pictures": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "Windows": {}
+    }
+  },
+  "D:": {
+    "name": "D:",
+    "info": {
+      "spid": "%ddrive%"
+    },
+    "data": {
+      "Adobe": {},
+      "Programs": {},
+      "Unity": {},
+      "WindowsApp": {},
+      "Temp": {}
+    }
+  }
+}

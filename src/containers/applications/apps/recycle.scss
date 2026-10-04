@@ -1,0 +1,225 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ==================================================================
+   Recycle Bin — File Explorer chrome reused for the bin
+   ================================================================== */
+
+.recycleApp {
+  --rb-bg: #ffffff;
+  --rb-chrome: #f3f3f3;
+  --rb-stroke: rgba(0, 0, 0, 0.07);
+  --rb-txt: #1b1b1f;
+  --rb-txt2: #5d6169;
+  --rb-txt3: #8b8f96;
+  --rb-hover: rgba(0, 0, 0, 0.045);
+  --rb-sel: rgba(0, 103, 192, 0.14);
+  --rb-accent: #0067c0;
+
+  background: var(--rb-bg);
+  color: var(--rb-txt);
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+body[data-theme="dark"] .recycleApp {
+  --rb-bg: #191919;
+  --rb-chrome: #1f1f1f;
+  --rb-stroke: rgba(255, 255, 255, 0.07);
+  --rb-txt: #f2f2f5;
+  --rb-txt2: #b4b6bd;
+  --rb-txt3: #86888f;
+  --rb-hover: rgba(255, 255, 255, 0.055);
+  --rb-sel: rgba(76, 194, 255, 0.18);
+  --rb-accent: #4cc2ff;
+}
+
+.recycleApp .windowScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.rbCmd {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 44px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--rb-stroke);
+}
+.rbBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--rb-txt);
+  font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 110ms ease,
+    transform 80ms ease;
+}
+.rbBtn:hover:not(:disabled) {
+  background: var(--rb-hover);
+}
+.rbBtn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+.rbBtn:disabled {
+  opacity: 0.34;
+  cursor: default;
+}
+.rbBtn.ico {
+  width: 34px;
+  padding: 0;
+  justify-content: center;
+}
+.rbBtn.danger:hover:not(:disabled) {
+  background: rgba(196, 43, 28, 0.12);
+  color: #c42b1c;
+}
+body[data-theme="dark"] .rbBtn.danger:hover:not(:disabled) {
+  color: #ff99a4;
+}
+.rbSep {
+  flex: none;
+  width: 1px;
+  height: 20px;
+  margin: 0 6px;
+  background: var(--rb-stroke);
+}
+.rbSpacer {
+  flex: 1;
+}
+
+.rbBody {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 6px;
+}
+
+.rbEmpty {
+  min-height: 240px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  color: var(--rb-txt3);
+  padding: 24px;
+}
+.rbEmpty svg {
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+.rbEmpty h2 {
+  margin: 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--rb-txt);
+}
+.rbEmpty p {
+  margin: 0;
+  max-width: 400px;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.rbTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.rbTable th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  text-align: left;
+  font-weight: 500;
+  color: var(--rb-txt2);
+  padding: 7px 10px;
+  background: var(--rb-bg);
+  border-bottom: 1px solid var(--rb-stroke);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+.rbTable th:hover {
+  background: var(--rb-hover);
+}
+.rbArr {
+  font-style: normal;
+  color: var(--rb-accent);
+  font-size: 9px;
+  margin-left: 4px;
+}
+.rbTable td {
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.09);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+.rbTable td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.rbTable td img {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+.rbTable tbody tr {
+  cursor: default;
+}
+.rbTable tbody tr:hover {
+  background: var(--rb-hover);
+}
+.rbTable tbody tr[data-sel="true"] {
+  background: var(--rb-sel);
+}
+.rbDim {
+  color: var(--rb-txt2);
+}
+
+.rbStatus {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 26px;
+  padding: 0 10px;
+  border-top: 1px solid var(--rb-stroke);
+  background: var(--rb-chrome);
+  font-size: 11.5px;
+  color: var(--rb-txt2);
+}

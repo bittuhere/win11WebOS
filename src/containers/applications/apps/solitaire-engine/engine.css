@@ -1,0 +1,616 @@
+/*
+ * engine.css — the vendored Klondike engine's stylesheet, adapted for WebOS.
+ *
+ * Source: cango91/solitaire (src/css/main.css), https://github.com/cango91/solitaire
+ *
+ * Adaptation: every selector is prefixed with `#solitaireApp` and the
+ * page-level `html` / `body` rules are dropped so the game lives inside an OS
+ * window without repainting the desktop. The `:root` custom properties are
+ * re-declared on the window. Values are unchanged.
+ */
+#solitaireApp {
+    --classic-green-bg: #006400;
+    --light-pink-bg: #d9d9d9;
+
+    --light-green: #5ba94b;
+
+    --icon-base: #f8ebcd;
+    --icon-highlight: #ffcd66;
+    --icon-stroke: #917c55;
+
+    --options-icon-fill: #24693D;
+    --options-icon-hover-fill: #398A5E;
+    --options-icon-active-fill: #306C4B;
+
+    --undo-icon-fill: #54A77B;
+    --undo-icon-hover-fill: #3D8061;
+    --undo-icon-active-fill: #3B6A44;
+
+    --about-icon-fill: #7BD3A4;
+    --about-icon-hover-fill: #5CBE8E;
+    --about-icon-active-fill: #669D76;
+
+    --button-bg: #6AA2BD;
+    --button-border: whitesmoke;
+
+    --drag-border-size: 5px;
+
+    --drag-border-valid: #5CBE8E;
+    --drag-border-invalid: #ff0000;
+
+    --foundation-bg: #b1b1a0;
+    --waste-bg: #9a88a0;
+
+    --bright-red-color: #FF4500;
+    --electric-blue-color: #7DF9FF;
+
+    --score-increase-color: #7DF9FF;
+    --score-decrease-color: #FF4500;
+
+    --scored-game-color: #8c1d88;
+
+}
+#solitaireApp button {
+    background-color: var(--icon-base);
+    border: 0.5vmin solid var(--icon-stroke);
+    border-radius: 1vmin;
+    outline: none;
+    padding: 1vmin 3vmin;
+    color: var(--icon-stroke);
+    margin-left: 5px;
+}
+#solitaireApp button:hover {
+    background-color: var(--icon-stroke);
+    border-color: var(--icon-base);
+    color: white;
+    box-shadow: .25rem .25rem 0.35rem var(--icon-stroke);
+    filter: drop-shadow(.25rem .25rem 0.35rem var(--icon-stroke));
+    cursor: pointer;
+}
+#solitaireApp button:active {
+    background-color: var(--icon-base);
+    border-color: var(--icon-stroke);
+    color: var(--icon-stroke);
+    box-shadow: none;
+    filter: none;
+}
+#solitaireApp #new-game {
+    display: none;
+    opacity: 0;
+    transition: opacity ease-in-out 0.3s;
+
+}
+#solitaireApp #new-game.show {
+    display: inline;
+    transition: opacity ease-in-out 0.3s;
+
+}
+#solitaireApp .blur {
+    filter: blur(0.5em);
+}
+#solitaireApp .game-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    margin: 0;
+    padding: 0;
+    background-color: var(--classic-green-bg);
+    background-image: linear-gradient(var(--classic-green-bg), var(--light-green));
+    height: 100vh;
+    width: 100vw;
+}
+@media screen and (min-width:1200px) {
+    #solitaireApp .game-container {
+        margin: 0 auto;
+        padding: 0 55px;
+    }
+    #solitaireApp button {
+        margin-left: 0;
+    }
+}
+#solitaireApp .card.back.red {
+    background-image: url('./card-library/images/backs/red.svg');
+}
+#solitaireApp .upper-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 0 50px;
+}
+#solitaireApp .lower-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 10px;
+    align-items: flex-start;
+}
+#solitaireApp .slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: none;
+    padding: 0;
+    border: 0.15em dashed #245A11;
+    width: 4.0em;
+    height: 5.5em;
+}
+#solitaireApp .slot.foundation {
+    display: block;
+    background-color: var(--foundation-bg);
+}
+#solitaireApp .slot.foundation .card {
+    position: absolute;
+    margin-top: 0;
+}
+#solitaireApp .slot.foundation:hover .card:last-child:not(:only-child) {
+    box-shadow: -.25rem .0 0.35rem var(--icon-stroke);
+    transform: translate(15px, 5px);
+}
+#solitaireApp .slot.foundation:hover .card:last-child {
+    box-shadow: -.25rem .0 0.35rem var(--icon-stroke);
+    scale: 1.05;
+    ;
+}
+#solitaireApp .slot.large {
+    font-size: 26px;
+}
+#solitaireApp #waste-slot {
+    background-color: var(--waste-bg);
+}
+#solitaireApp .tableau {
+    flex-direction: column-reverse;
+}
+#solitaireApp .clone-pile {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    background-image: none;
+    padding: 0;
+    border: none;
+    width: 4.0em;
+    height: 5.5em;
+    font-size: 26px;
+    pointer-events: none;
+    opacity: 0.9;
+}
+#solitaireApp .card {
+    margin-left: 0;
+    transition: all 0.2s;
+}
+#solitaireApp .card:first-child {
+    margin-top: 0;
+}
+#solitaireApp #deck-slot:not(:has(:first-child)):hover {
+    cursor: pointer;
+    border-color: var(--icon-base);
+}
+#solitaireApp #deck-slot:hover .card:last-child {
+    box-shadow: -.25rem .25rem 0.35rem var(--icon-stroke);
+    transform: translate(15px, -5px);
+}
+#solitaireApp .card.large.on-tableau {
+    margin-top: -170px;
+    position: relative !important;
+    margin-bottom: 0;
+}
+#solitaireApp .card.large.on-tableau:not(.back):not(:only-child):hover {
+
+    transform: scale(1.1);
+    box-shadow: .25rem .25rem 0.35rem var(--icon-stroke);
+}
+#solitaireApp .card.large.on-tableau:not(:only-child):not(:last-child):not(.back):hover {
+    translate: -15px;
+}
+#solitaireApp .card.large.on-tableau:not(.back):is(:last-child):hover {
+    box-shadow: .25rem .25rem 0.35rem var(--icon-stroke);
+    transform: scale(1.05);
+}
+#solitaireApp .card.large.on-tableau:not(.back):is(:only-child):hover {
+    box-shadow: .25rem .25rem 0.35rem var(--icon-stroke);
+    transform: scale(1.05);
+}
+#solitaireApp .card.large.on-tableau.back {
+    margin-top: -155px;
+    margin-bottom: 0;
+}
+#solitaireApp .card.large.on-waste {
+    margin-bottom: calc(-5.5em * 0.9);
+    position: relative;
+}
+#solitaireApp .card.large.on-waste:not(:only-child):not(:last-child):hover {
+    /* transform: translateX(-15px); */
+    translate: -15px;
+}
+#solitaireApp .card.large.on-waste:is(:last-child):hover {
+    scale: 1.05;
+}
+#solitaireApp .card.large.on-waste:hover {
+    scale: 1.1;
+}
+#solitaireApp .on-waste:nth-last-child(4):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(5):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(6):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(7):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(8):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(9):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(10):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(11):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(12):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(13):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(14):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(15):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(16):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(17):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(18):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(19):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(20):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(21):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(22):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(23):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(24):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(25):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(26):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(27):not(:nth-last-child(-n+3)),
+#solitaireApp .on-waste:nth-last-child(28):not(:nth-last-child(-n+3)) {
+    position: fixed;
+    margin-bottom: 0;
+}
+#solitaireApp .card.large.on-waste:nth-last-child(4):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(5):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(6):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(7):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(8):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(9):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(10):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(11):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(12):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(13):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(14):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(15):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(16):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(17):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(18):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(19):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(20):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(21):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(22):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(23):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(24):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(25):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(26):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(27):not(:nth-last-child(-n+3)):hover,
+#solitaireApp .card.large.on-waste:nth-last-child(28):not(:nth-last-child(-n+3)):hover {
+    box-shadow: none;
+    transform: none;
+    translate: 0;
+    scale: 1;
+}
+#solitaireApp .card.large.on-waste:last-child:hover {
+    box-shadow: .25rem .25rem 0.35rem var(--icon-stroke);
+}
+#solitaireApp .card.back.deck {
+    margin-bottom: -89.8px;
+}
+#solitaireApp .card.large.back.deck {
+    /* margin-bottom: -146px; */
+    margin-bottom: calc(-5.5em * 1.025);
+}
+#solitaireApp .card:nth-child(n) {
+    z-index: calc(100-n);
+}
+#solitaireApp .card.face-up {
+    z-index: 2;
+}
+#solitaireApp .header,
+#solitaireApp .footer {
+    height: 100px;
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+}
+#solitaireApp #fake-drag {
+    opacity: 0;
+}
+#solitaireApp .slot .card:not(.back).feedback,
+#solitaireApp .card.dragged {
+    border-left: var(--drag-border-size) solid var(--icon-highlight);
+    border-right: var(--drag-border-size) solid var(--icon-highlight);
+}
+#solitaireApp .slot .card:not(.back).feedback.pile-head,
+#solitaireApp .card.dragged.pile-head {
+    border-top: var(--drag-border-size) solid var(--icon-highlight);
+}
+#solitaireApp .slot .card:not(.back).feedback.pile-end,
+#solitaireApp .card.dragged.pile-end {
+    border-bottom: var(--drag-border-size) solid var(--icon-highlight);
+}
+#solitaireApp .slot .card:not(.back).feedback.valid,
+#solitaireApp .card.dragged.valid {
+    border-color: var(--drag-border-valid);
+}
+#solitaireApp .slot .card:not(.back).feedback.invalid,
+#solitaireApp .card.dragged.invalid {
+    border-color: var(--drag-border-invalid);
+    cursor: no-drop;
+}
+#solitaireApp .slot .card:not(.back) .slot .card:not(.back).feedback:not(.invalid) {
+    scale: 1.1;
+}
+#solitaireApp .slot.foundation .card.feedback:last-of-type {
+    border-width: var(--drag-border-size);
+}
+#solitaireApp .slot.feedback.valid:empty {
+    border-color: var(--drag-border-valid);
+}
+#solitaireApp .slot.feedback.invalid:empty {
+    border-color: var(--drag-border-invalid);
+}
+#solitaireApp .card:not(.back).valid {
+    scale: 1.1;
+}
+#solitaireApp .header {
+    flex-direction: row-reverse;
+}
+#solitaireApp .header>div:last-child {
+    margin-right: auto;
+}
+#solitaireApp .icon {
+    padding: 10px 5px;
+    margin-left: 5px;
+}
+#solitaireApp .icon:not(.disabled):hover {
+    cursor: pointer;
+}
+#solitaireApp .icon svg {
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(--icon-stroke);
+    border-radius: 50%;
+    padding: 3px;
+    background: radial-gradient(circle, var(--icon-base) 30%, var(--icon-highlight) 100%);
+}
+#solitaireApp .icon:hover svg {
+    filter: drop-shadow(.15rem .15rem 0.35rem var(--icon-stroke));
+}
+#solitaireApp .icon:active svg {
+    filter: none;
+}
+#solitaireApp .about-icon {
+    stroke: var(--icon-stroke);
+    stroke-width: 1;
+}
+#solitaireApp .about-icon path {
+    fill: var(--about-icon-fill);
+}
+#solitaireApp .about-icon:hover path {
+    fill: var(--about-icon-hover-fill);
+}
+#solitaireApp .about-icon:active path {
+    fill: var(--about-icon-active-fill);
+}
+#solitaireApp .undo-icon {
+    stroke-width: 20;
+    stroke: var(--icon-stroke);
+}
+#solitaireApp .undo-icon path {
+    fill: var(--undo-icon-fill);
+}
+#solitaireApp .undo-icon:hover path {
+    fill: var(--undo-icon-hover-fill);
+}
+#solitaireApp .undo-icon:active path {
+    fill: var(--undo-icon-active-fill);
+}
+#solitaireApp .ff-icon {
+    stroke: var(--icon-highlight);
+    fill: var(--icon-stroke);
+}
+#solitaireApp .ff-icon:hover {
+    stroke: var(--icon-stroke);
+    fill: var(--icon-base);
+}
+#solitaireApp .ff-icon:active {
+    fill: var(--icon-highlight)
+}
+#solitaireApp .options-icon {
+    stroke-width: 1;
+    stroke: var(--icon-stroke);
+}
+#solitaireApp .options-icon path {
+    fill: var(--options-icon-fill);
+}
+#solitaireApp .options-icon:hover path {
+    fill: var(--options-icon-hover-fill);
+}
+#solitaireApp .options-icon:active path {
+    fill: var(--options-icon-active-fill);
+}
+#solitaireApp .fill-inside {
+    fill: var(--icon-base);
+}
+#solitaireApp .fill-inside-bg {
+    fill: var(--icon-base);
+}
+#solitaireApp #redo {
+    transform: scaleX(-1);
+    opacity: 0;
+    display: none;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp #undo {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp #undo.show {
+
+    display: inline;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp #redo.show {
+
+    display: inline;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp #fast-forward {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp #fast-forward.show {
+    display: inline;
+    transition: opacity 0.1s ease-in-out;
+}
+#solitaireApp .message-box {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    color: black;
+    background-image: linear-gradient(to bottom, var(--light-pink-bg), transparent);
+    width: 50%;
+    max-width: 600px;
+    height: 30vh;
+    border-radius: 5vmin;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+#solitaireApp .message-box.show {
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+#solitaireApp .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+#solitaireApp .popup {
+    z-index: 1500;
+    border-radius: 5vmin;
+    background-color: var(--classic-green-bg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    overflow: auto;
+    min-width: 70%;
+    min-height: 50vh;
+    color: whitesmoke;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#solitaireApp .popup a {
+    color: var(--icon-base);
+}
+#solitaireApp .overlay.show {
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+#solitaireApp .options-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto;
+}
+#solitaireApp .visuals {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#solitaireApp .visuals * {
+    padding: 5px;
+}
+#solitaireApp .game {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#solitaireApp .game * {
+    padding: 5px;
+}
+#solitaireApp .audio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#solitaireApp .audio * {
+    padding: 5px;
+}
+#solitaireApp .hide {
+    display: none;
+}
+#solitaireApp #about-popup p {
+    font-size: small;
+}
+#solitaireApp .top-message {
+    color: var(--icon-base);
+}
+#solitaireApp #score.pulse-it {
+    animation: pulse-size 0.5s ease-in-out alternate infinite;
+}
+#solitaireApp .winner-score {
+    animation: pulse-size-sm 2s ease-in-out alternate infinite;
+    color: var(--scored-game-color);
+}
+#solitaireApp .top-message span {
+    font-size: medium;
+    vertical-align: middle;
+    transition: color 0.1s ease-in-out;
+}
+#solitaireApp .top-message span.score-increased {
+    color: var(--score-increase-color);
+}
+#solitaireApp .top-message span.score-decreased {
+    color: var(--score-decrease-color);
+}
+@keyframes pulse-size-sm {
+
+    0% {
+        font-size: 1em;
+    }
+
+    50% {
+        font-size: 1.3em;
+    }
+
+    100% {
+        font-size: 1em;
+    }
+}
+@keyframes pulse-size {
+
+    0% {
+        font-size: 1em;
+    }
+
+    50% {
+        font-size: 1.5em;
+    }
+
+    100% {
+        font-size: 1em;
+    }
+}
+#solitaireApp .red-deck {
+    color: var(--bright-red-color);
+}
+#solitaireApp .blue-deck {
+    color: var(--electric-blue-color);
+}
+#solitaireApp .scored-game {
+    color: var(--scored-game-color);
+    font-size: 1.5em;
+}
+#solitaireApp .unscored-game {
+    color: var(--electric-blue-color);
+    font-size: 1.5em;
+}

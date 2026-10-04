@@ -1,0 +1,429 @@
+/* ------------------------------------------------------------------
+   Windows Update — the window. Follows the Settings look: a hero with
+   the version facts on the left, the buttons on the right, then cards.
+   ------------------------------------------------------------------ */
+$line: rgba(128, 128, 128, 0.28);
+
+.wnupd {
+  --upd-accent: #0067c0;
+  &.floatTab {
+    overflow: hidden;
+  }
+}
+
+.updScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--wintheme);
+}
+
+.updHero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border-bottom: 1px solid $line;
+  background: rgba(128, 128, 128, 0.05);
+  flex-wrap: wrap;
+}
+
+.updHeroArt {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+}
+.updHeroArt img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.updRing {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--upd-accent);
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.updRing[data-busy="true"] {
+  opacity: 1;
+  animation: updSpin 900ms linear infinite;
+}
+@keyframes updSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.updHeroCopy {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+.updHeroCopy h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+.updSub {
+  font-size: 12.5px;
+  opacity: 0.72;
+  margin: 0 0 8px;
+}
+.updBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.updBadge {
+  font-size: 10.5px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(128, 128, 128, 0.16);
+  opacity: 0.9;
+}
+
+.updHeroActs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.updBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid $line;
+  background: rgba(128, 128, 128, 0.08);
+  color: inherit;
+  border-radius: 5px;
+  font-size: 12.5px;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+}
+.updBtn:hover:not(:disabled) {
+  background: rgba(128, 128, 128, 0.18);
+}
+.updBtn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.updBtn.accent {
+  background: var(--upd-accent);
+  border-color: var(--upd-accent);
+  color: #fff;
+  font-weight: 600;
+}
+.updBtn.accent:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.updBtn.ghost {
+  background: transparent;
+}
+
+.updProgress {
+  padding: 14px 22px 4px;
+}
+.updProgressBar {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(128, 128, 128, 0.22);
+  overflow: hidden;
+}
+.updProgressBar span {
+  display: block;
+  height: 100%;
+  background: var(--upd-accent);
+  border-radius: 3px;
+  transition: width 420ms ease;
+}
+.updProgress p {
+  font-size: 12px;
+  opacity: 0.75;
+  margin: 8px 0 0;
+}
+
+.updError {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 14px 22px 0;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(196, 43, 28, 0.12);
+  border: 1px solid rgba(196, 43, 28, 0.4);
+  font-size: 12.5px;
+}
+.updErrorCode {
+  font-size: 11px;
+  opacity: 0.65;
+  margin-top: 3px;
+  font-family: Consolas, monospace;
+}
+
+.updNotice {
+  margin: 12px 22px 0;
+  font-size: 12.5px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: rgba(128, 128, 128, 0.12);
+}
+.updLink {
+  border: none;
+  background: transparent;
+  color: var(--upd-accent);
+  cursor: pointer;
+  font-size: 12.5px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.updBody {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 18px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.updCard {
+  border: 1px solid $line;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: rgba(128, 128, 128, 0.05);
+}
+.updCard.quiet {
+  background: transparent;
+}
+.updCard h2 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+.updCard p {
+  font-size: 12.5px;
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.65;
+}
+.updCardHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.updCardHead h2 {
+  margin: 0;
+}
+
+.updKind {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9px;
+  background: rgba(128, 128, 128, 0.2);
+}
+.updKind.feature {
+  background: rgba(0, 103, 192, 0.2);
+  color: #0067c0;
+}
+.updKind.quality {
+  background: rgba(16, 124, 16, 0.18);
+  color: #107c10;
+}
+
+.updHighlights {
+  margin: 6px 0 12px;
+  padding-left: 18px;
+}
+.updHighlights li {
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.updMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.updMeta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: rgba(128, 128, 128, 0.09);
+}
+.updMeta span {
+  opacity: 0.66;
+  font-size: 11px;
+}
+.updMeta b {
+  font-weight: 600;
+}
+.updFine {
+  font-size: 11.5px !important;
+  opacity: 0.7 !important;
+  border-top: 1px solid $line;
+  padding-top: 10px;
+}
+
+.updRowBtns {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.updNotes h2 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.updNotesErr {
+  font-weight: 400;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.updNotesLoading {
+  font-size: 12.5px;
+  opacity: 0.7;
+}
+.updNotesBody {
+  font-size: 12.8px;
+  line-height: 1.7;
+  border: 1px solid $line;
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: rgba(128, 128, 128, 0.04);
+}
+.updNotesBody.clamped {
+  position: relative;
+  max-height: 320px;
+  overflow: hidden;
+}
+.updNotesBody.clamped::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  background: linear-gradient(transparent, var(--wintheme));
+}
+.updNotesBody h1 {
+  font-size: 18px;
+  margin: 2px 0 8px;
+}
+.updNotesBody h2 {
+  font-size: 15px;
+  margin: 18px 0 6px;
+}
+.updNotesBody h3 {
+  font-size: 13.5px;
+  margin: 14px 0 5px;
+}
+.updNotesBody p {
+  margin: 0 0 10px;
+}
+.updNotesBody ul,
+.updNotesBody ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+.updNotesBody li {
+  margin-bottom: 3px;
+}
+.updNotesBody a {
+  color: var(--upd-accent);
+}
+.updNotesBody code {
+  font-family: Consolas, ui-monospace, monospace;
+  font-size: 11.8px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(128, 128, 128, 0.16);
+}
+.updNotesBody pre.mdPre {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid $line;
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow: auto;
+  margin: 0 0 12px;
+}
+.updNotesBody pre.mdPre code {
+  background: none;
+  padding: 0;
+}
+.updNotesBody img {
+  max-width: 100%;
+  border-radius: 7px;
+  border: 1px solid $line;
+  margin: 6px 0 12px;
+  display: block;
+}
+.updNotesBody blockquote.mdQuote {
+  margin: 0 0 12px;
+  padding: 8px 14px;
+  border-left: 3px solid var(--upd-accent);
+  background: rgba(128, 128, 128, 0.08);
+  border-radius: 0 6px 6px 0;
+}
+.updNotesBody hr.mdHr {
+  border: none;
+  border-top: 1px solid $line;
+  margin: 16px 0;
+}
+.updNotesBody table.mdTable {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 12px;
+  font-size: 12px;
+}
+.updNotesBody table.mdTable th,
+.updNotesBody table.mdTable td {
+  border: 1px solid $line;
+  padding: 5px 8px;
+  text-align: left;
+}
+.updNotesBody table.mdTable th {
+  background: rgba(128, 128, 128, 0.12);
+}
+
+.updHistory h3 {
+  font-size: 12.5px;
+  margin: 0 0 8px;
+}
+.updHistList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.updHistRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(128, 128, 128, 0.08);
+}
+.updHistWhen {
+  opacity: 0.62;
+  margin-left: auto;
+  font-size: 11.5px;
+}

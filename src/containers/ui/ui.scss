@@ -1,0 +1,1197 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ==================================================================
+   Windows 11 shell UI — toasts, content dialogs, dropdowns, menus.
+   Written against the same CSS custom properties the rest of the OS
+   uses (--fakeMica, --dark-txt, --clrPrm ...) so both themes work.
+   ================================================================== */
+
+:root {
+  --wos-acrylic: rgba(243, 243, 243, 0.97);
+  --wos-acrylic-brd: rgba(0, 0, 0, 0.06);
+  --wos-card: #fbfbfb;
+  --wos-sub: #5c5c5c;
+  --wos-hover: rgba(0, 0, 0, 0.045);
+  --wos-press: rgba(0, 0, 0, 0.028);
+  --wos-stroke: rgba(0, 0, 0, 0.09);
+}
+
+body[data-theme="dark"] {
+  --wos-acrylic: rgba(43, 43, 43, 0.97);
+  --wos-acrylic-brd: rgba(255, 255, 255, 0.07);
+  --wos-card: #2b2b2b;
+  --wos-sub: #a9a9a9;
+  --wos-hover: rgba(255, 255, 255, 0.06);
+  --wos-press: rgba(255, 255, 255, 0.035);
+  --wos-stroke: rgba(255, 255, 255, 0.09);
+}
+
+/* ------------------------- toasts -------------------------------- */
+
+.wosToastStack {
+  position: fixed;
+  right: 12px;
+  bottom: 60px;
+  z-index: 12000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 360px;
+  pointer-events: none;
+}
+
+.wosToast {
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  background: var(--wos-acrylic);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid var(--wos-acrylic-brd);
+  border-radius: 8px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18),
+    0 2px 6px rgba(0, 0, 0, 0.12);
+  color: var(--dark-txt);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  cursor: default;
+  transform-origin: 100% 100%;
+}
+
+.wosToast.in {
+  animation: wosToastIn 320ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.wosToast.out {
+  animation: wosToastOut 300ms cubic-bezier(0.7, 0, 1, 1) both;
+}
+
+@keyframes wosToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(110%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes wosToastOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    max-height: 220px;
+    margin-bottom: 0;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(60%) scale(0.9);
+    max-height: 0;
+    margin-bottom: -8px;
+  }
+}
+
+.wosToastTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 0 14px;
+}
+
+.wosToastApp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--wos-sub);
+  min-width: 0;
+}
+.wosToastApp img {
+  border-radius: 3px;
+  flex: none;
+}
+.wosToastAppName {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wosToastNow {
+  font-weight: 400;
+  opacity: 0.7;
+  flex: none;
+}
+
+.wosToastX {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--wos-sub);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.wosToastX:hover {
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+}
+
+.wosToastBody {
+  display: flex;
+  gap: 10px;
+  padding: 8px 14px 12px;
+  align-items: flex-start;
+}
+
+.wosToastKind {
+  flex: none;
+  margin-top: 1px;
+  color: var(--clrPrm);
+}
+.wosToast.kind-success .wosToastKind {
+  color: #0f7b0f;
+}
+.wosToast.kind-warn .wosToastKind {
+  color: #9d5d00;
+}
+.wosToast.kind-error .wosToastKind {
+  color: #c42b1c;
+}
+body[data-theme="dark"] .wosToast.kind-success .wosToastKind {
+  color: #6ccb5f;
+}
+body[data-theme="dark"] .wosToast.kind-warn .wosToastKind {
+  color: #fce100;
+}
+body[data-theme="dark"] .wosToast.kind-error .wosToastKind {
+  color: #ff99a4;
+}
+
+.wosToastText {
+  min-width: 0;
+  flex: 1;
+}
+.wosToastTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wosToastMsg {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--wos-sub);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-line;
+}
+
+.wosToastHero {
+  display: block;
+  width: 100%;
+  max-height: 140px;
+  object-fit: cover;
+}
+
+.wosToastActs {
+  display: flex;
+  gap: 6px;
+  padding: 0 12px 12px;
+}
+.wosToastActs button {
+  flex: 1;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid var(--wos-stroke);
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.wosToastActs button:hover {
+  background: var(--wos-press);
+}
+
+.wosToastTimer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(128, 128, 128, 0.16);
+}
+.wosToastTimer i {
+  display: block;
+  height: 100%;
+  background: var(--clrPrm);
+  transform-origin: 0 50%;
+  opacity: 0.75;
+}
+
+/* --------------------- content dialog ---------------------------- */
+
+.wosDlgHost {
+  position: fixed;
+  inset: 0;
+  z-index: 13000;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.wosDlgScrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.28);
+  animation: wosFade 160ms ease both;
+}
+.wosDlgScrim[data-top="false"] {
+  display: none;
+}
+
+@keyframes wosFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wosDlg {
+  position: relative;
+  width: min(440px, calc(100vw - 48px));
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid var(--wos-acrylic-brd);
+  border-bottom-color: rgba(0, 0, 0, 0.14);
+  background: var(--wos-card);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.32);
+  color: var(--dark-txt);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  animation: wosDlgIn 240ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  scrollbar-width: thin;
+}
+
+@keyframes wosDlgIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wosDlgHead {
+  display: flex;
+  gap: 14px;
+  padding: 24px 24px 12px;
+  align-items: flex-start;
+}
+.dlgGlyph {
+  flex: none;
+  color: var(--clrPrm);
+}
+.dlgGlyph.warn {
+  color: #c42b1c;
+}
+body[data-theme="dark"] .dlgGlyph.warn {
+  color: #ff99a4;
+}
+
+.wosDlgTitles {
+  min-width: 0;
+}
+.wosDlgTitles h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+.wosDlgTitles p {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--dark-txt);
+  opacity: 0.86;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.wosDlgBody {
+  padding: 0 24px 8px;
+  font-size: 13.5px;
+}
+
+.wosDlgField {
+  padding: 4px 24px 8px;
+}
+.wosDlgField input,
+.wosDlgField textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--wos-hover);
+  border: 1px solid var(--wos-stroke);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+  color: var(--dark-txt);
+  font-size: 14px;
+  font-family: inherit;
+  padding: 7px 10px;
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease;
+}
+body[data-theme="dark"] .wosDlgField input,
+body[data-theme="dark"] .wosDlgField textarea {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+.wosDlgField input:focus,
+.wosDlgField textarea:focus {
+  border-bottom-color: var(--clrPrm);
+  background: var(--wos-card);
+}
+.wosDlgField input::placeholder,
+.wosDlgField textarea::placeholder {
+  color: var(--wos-sub);
+  opacity: 0.8;
+}
+
+.wosDlgOpts {
+  padding: 4px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 260px;
+  overflow: auto;
+}
+.wosDlgOpts button {
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--dark-txt);
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+.wosDlgOpts button:hover {
+  background: var(--wos-hover);
+}
+.wosDlgOpts button.on {
+  background: var(--wos-hover);
+  font-weight: 600;
+}
+
+.wosDlgActs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px 24px;
+}
+
+/* ------------------------- buttons ------------------------------- */
+
+.wosBtn {
+  min-width: 96px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 4px;
+  border: 1px solid var(--wos-stroke);
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+  font-size: 13.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 100ms ease,
+    transform 60ms ease;
+}
+body[data-theme="dark"] .wosBtn {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.wosBtn:hover {
+  background: var(--wos-press);
+}
+.wosBtn:active {
+  transform: scale(0.985);
+  background: var(--wos-hover);
+}
+
+.wosBtn.accent {
+  background: var(--clrPrm);
+  border-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+body[data-theme="dark"] .wosBtn.accent {
+  color: #1b1b1b;
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+}
+.wosBtn.accent:hover {
+  filter: brightness(1.08);
+  background: var(--clrPrm);
+}
+.wosBtn.accent:active {
+  filter: brightness(0.95);
+}
+.wosBtn.danger {
+  background: #c42b1c;
+  border-color: transparent;
+  color: #fff;
+}
+.wosBtn.danger:hover {
+  filter: brightness(1.08);
+}
+
+/* ------------------- Win11 drop down (select) -------------------- */
+
+.wosSelect {
+  position: relative;
+  display: inline-flex;
+  min-width: 160px;
+  max-width: 100%;
+}
+.wosSelectBtn {
+  width: 100%;
+  box-sizing: border-box;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px 0 11px;
+  border-radius: 4px;
+  border: 1px solid var(--wos-stroke);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.32);
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+  font-size: 13.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: background 100ms ease;
+}
+body[data-theme="dark"] .wosSelectBtn {
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+.wosSelectBtn:hover {
+  background: var(--wos-press);
+}
+.wosSelectBtn > span:first-child {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wosSelectBtn svg {
+  flex: none;
+  opacity: 0.75;
+  transition: transform 160ms ease;
+}
+.wosSelect.open .wosSelectBtn svg {
+  transform: rotate(180deg);
+}
+.wosSelect.open .wosSelectBtn {
+  border-bottom-color: var(--clrPrm);
+}
+
+.wosSelectPop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 280px;
+  overflow: auto;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid var(--wos-acrylic-brd);
+  background: var(--wos-acrylic);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  backdrop-filter: blur(40px) saturate(150%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  animation: wosPopIn 160ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  scrollbar-width: thin;
+}
+.wosSelect.up .wosSelectPop {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+@keyframes wosPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wosSelectItem {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--dark-txt);
+  font-size: 13.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.wosSelectItem:hover {
+  background: var(--wos-hover);
+}
+.wosSelectItem.on {
+  background: var(--wos-hover);
+  font-weight: 600;
+}
+.wosSelectItem .tick {
+  width: 12px;
+  flex: none;
+  color: var(--clrPrm);
+  opacity: 0;
+}
+.wosSelectItem.on .tick {
+  opacity: 1;
+}
+
+/* --------------------- Win11 flyout / menu ----------------------- */
+
+.wosFlyout {
+  position: absolute;
+  z-index: 60;
+  min-width: 200px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--wos-acrylic-brd);
+  background: var(--wos-acrylic);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  backdrop-filter: blur(40px) saturate(150%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  color: var(--dark-txt);
+  animation: wosPopIn 140ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.wosFlyItem {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+}
+.wosFlyItem:hover:not(:disabled) {
+  background: var(--wos-hover);
+}
+.wosFlyItem:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.wosFlyItem .glyph {
+  width: 16px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  opacity: 0.85;
+}
+.wosFlyItem .lbl {
+  flex: 1;
+}
+.wosFlyItem .kbd {
+  flex: none;
+  font-size: 11px;
+  opacity: 0.55;
+  font-family: "Segoe UI", sans-serif;
+}
+/* File Explorer's "Open with" rows and the "Always use …" line under them.
+   They are .wosFlyItem buttons: these rules mark the default app and keep the
+   association group visually separate from the clipboard commands below. */
+.fxCtxApp .lbl {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fxCtxApp[data-default="1"] .lbl {
+  font-weight: 600;
+}
+.fxCtxApp[data-default="1"] .glyph {
+  opacity: 1;
+}
+.fxCtxAlways {
+  border-top: 1px solid var(--wos-stroke);
+  border-radius: 0 0 4px 4px;
+}
+.fxCtxAlways .glyph {
+  opacity: 0.7;
+}
+
+.wosFlySep {
+  height: 1px;
+  margin: 4px 8px;
+  background: var(--wos-stroke);
+}
+.wosFlyHead {
+  padding: 6px 10px 4px;
+  font-size: 11.5px;
+  font-weight: 600;
+  opacity: 0.6;
+  letter-spacing: 0.2px;
+}
+
+/* --------------------------- tooltip ----------------------------- */
+
+.wosTip {
+  position: fixed;
+  z-index: 14000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--wos-acrylic-brd);
+  background: var(--wos-acrylic);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  color: var(--dark-txt);
+  font-size: 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: wosFade 120ms ease both;
+}
+
+@media (max-width: 480px) {
+  .wosToastStack {
+    width: calc(100vw - 24px);
+    right: 12px;
+  }
+}
+
+/* ---------------------- Win11 toggle switch ---------------------- */
+
+.wosToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--dark-txt);
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.wosToggle i {
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--wos-stroke);
+  background: var(--wos-hover);
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+.wosToggle i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--wos-sub);
+  transform: translateY(-50%);
+  transition:
+    left 180ms cubic-bezier(0.1, 0.9, 0.2, 1),
+    width 180ms ease,
+    height 180ms ease,
+    background 160ms ease;
+}
+.wosToggle:hover i::after {
+  width: 12px;
+  height: 12px;
+  left: 4px;
+}
+.wosToggle[data-on="true"] i {
+  background: var(--clrPrm);
+  border-color: var(--clrPrm);
+}
+.wosToggle[data-on="true"] i::after {
+  left: 22px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+}
+.wosToggle[data-on="true"]:hover i::after {
+  left: 21px;
+  width: 13px;
+  height: 13px;
+}
+.wosToggle:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ------------------- Save-As file dialog ------------------- */
+.wosDlg.wosSave {
+  width: min(620px, 92vw);
+}
+.wosSaveBody {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 4px;
+  min-height: 260px;
+}
+.wosSaveRail {
+  flex: none;
+  width: 150px;
+  border: 1px solid var(--wos-stroke, rgba(128, 128, 128, 0.25));
+  border-radius: 7px;
+  padding: 6px;
+  overflow-y: auto;
+  font-size: 12.5px;
+}
+.wosSaveHome,
+.wosSaveLoc {
+  padding: 6px 9px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wosSaveHome {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.wosSaveHome:hover,
+.wosSaveLoc:hover {
+  background: rgba(128, 128, 128, 0.15);
+}
+.wosSaveLoc.on {
+  background: rgba(0, 120, 212, 0.14);
+  color: #0067c0;
+}
+.wosSaveMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--wos-stroke, rgba(128, 128, 128, 0.25));
+  border-radius: 7px;
+  overflow: hidden;
+}
+.wosSaveCrumb {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--wos-stroke, rgba(128, 128, 128, 0.25));
+}
+.wosSaveUp {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+.wosSaveUp:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+.wosSavePath {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+}
+.wosSaveList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px;
+}
+.wosSaveEmpty {
+  padding: 18px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.6;
+}
+.wosSaveRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-size: 12.5px;
+  cursor: default;
+}
+.wosSaveRow.dir {
+  cursor: pointer;
+}
+.wosSaveRow:hover {
+  background: rgba(128, 128, 128, 0.14);
+}
+.wosSaveIco {
+  flex: none;
+  width: 18px;
+  text-align: center;
+  font-size: 13px;
+}
+.wosSaveName {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============ the Win11 file dialog ============ */
+.wosDlg.wosSave {
+  width: min(704px, 94vw);
+  padding: 0;
+  overflow: visible;
+}
+.wosDlg.wosSave .wosDlgHead {
+  display: none;
+}
+
+.fdTitleBar {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding-left: 10px;
+  gap: 7px;
+  background: var(--wos-card);
+  border-bottom: 1px solid var(--wos-stroke);
+  user-select: none;
+}
+.fdTitleIco {
+  display: inline-flex;
+  opacity: 0.9;
+}
+.fdTitle {
+  font-size: 12px;
+  color: var(--dark-txt);
+  opacity: 0.9;
+  flex: 1;
+  text-align: left;
+}
+.fdClose {
+  width: 42px;
+  height: 33px;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--dark-txt);
+  display: grid;
+  place-items: center;
+  border-radius: 0 7px 0 0;
+}
+.fdClose:hover {
+  background: #c42b1c;
+  color: #fff;
+}
+
+.fdBar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px 6px;
+}
+.fdNav {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--dark-txt);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.fdNav:hover:not(:disabled) {
+  background: var(--wos-hover);
+}
+.fdNav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.fdCrumb {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--wos-hover);
+  border: 1px solid var(--wos-stroke);
+  border-radius: 4px;
+  padding: 0 8px;
+  overflow: hidden;
+}
+.fdCrumbSeg {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+.fdCrumbSeg button {
+  border: none;
+  background: none;
+  color: var(--dark-txt);
+  font-size: 12.5px;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+.fdCrumbSeg button:hover {
+  background: var(--wos-hover);
+}
+.fdCrumbChev {
+  opacity: 0.5;
+  margin: 0 1px;
+}
+.fdSearch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  width: 170px;
+  flex: none;
+  background: var(--wos-hover);
+  border: 1px solid var(--wos-stroke);
+  border-radius: 4px;
+  padding: 0 8px;
+  color: var(--med-txt, #666);
+}
+.fdSearch input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  font-size: 12px;
+  color: var(--dark-txt);
+}
+
+.fdMain {
+  flex: 1;
+  min-width: 0;
+}
+.fdCols,
+.fdRow {
+  display: grid;
+  grid-template-columns: 1fr 150px 110px;
+  gap: 10px;
+  align-items: center;
+}
+.fdCols {
+  padding: 4px 12px 6px;
+  font-size: 11.5px;
+  color: var(--sat-txt);
+  border-bottom: 1px solid var(--wos-stroke);
+}
+.fdList {
+  min-height: 210px;
+  max-height: 260px;
+  padding: 2px 4px;
+}
+.fdRow {
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: default;
+  font-size: 12.5px;
+}
+.fdRow:hover {
+  background: var(--wos-hover);
+}
+.fdRow.on {
+  background: rgba(0, 120, 212, 0.14);
+  outline: 1px solid rgba(0, 120, 212, 0.35);
+  outline-offset: -1px;
+}
+.fdName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.fdName i {
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fdWhen,
+.fdKind {
+  font-size: 11.5px;
+  color: var(--sat-txt);
+  white-space: nowrap;
+}
+
+.fdRailHead {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sat-txt);
+  padding: 2px 10px 6px;
+}
+.wosSaveRail .wosSaveLoc {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.wosSaveRail .wosSaveLoc:hover {
+  background: var(--wos-hover);
+}
+.wosSaveRail .wosSaveLoc.on {
+  background: rgba(0, 120, 212, 0.12);
+}
+
+.fdFoot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 4px;
+  border-top: 1px solid var(--wos-stroke);
+  margin-top: 10px;
+}
+.fdLbl {
+  font-size: 12.5px;
+  color: var(--dark-txt);
+  flex: none;
+  width: 74px;
+}
+.fdNameIn {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  border: 1px solid var(--wos-stroke);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.35);
+  border-radius: 4px;
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+  font-size: 12.5px;
+  padding: 0 8px;
+  outline: none;
+}
+.fdNameIn:focus {
+  border-bottom-color: var(--clrPrm);
+  background: var(--wos-card);
+}
+.fdType {
+  position: relative;
+  width: 150px;
+  flex: none;
+}
+.fdType > button {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  border: 1px solid var(--wos-stroke);
+  border-radius: 4px;
+  background: var(--wos-hover);
+  color: var(--dark-txt);
+  font-size: 12px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.fdTypePop {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: var(--wos-card);
+  border: 1px solid var(--wos-stroke);
+  border-radius: 6px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  padding: 3px;
+  animation: wosFade 120ms ease both;
+}
+.fdTypePop button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--dark-txt);
+  padding: 6px 9px;
+  border-radius: 4px;
+}
+.fdTypePop button:hover {
+  background: var(--wos-hover);
+}
+.fdTypePop button.on {
+  background: rgba(0, 120, 212, 0.14);
+}
+.fdActs {
+  padding: 8px 12px 12px;
+}
