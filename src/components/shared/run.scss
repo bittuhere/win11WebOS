@@ -1,0 +1,115 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ------------------- Run dialog (Win+R) ------------------- */
+.runScrim {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+.runBox {
+  position: fixed;
+  top: 26%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(540px, 92vw);
+  border-radius: 10px;
+  background: var(--wintheme, #f3f3f3);
+  border: 1px solid rgba(128, 128, 128, 0.35);
+  padding: 16px 18px 12px;
+  animation: runIn 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes runIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) none;
+  }
+}
+.runHead {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.runRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 6px;
+  padding: 0 12px;
+  background: var(--txt-col, #fff);
+}
+.runRow:focus-within {
+  border-color: #0067c0;
+}
+.runRow input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 40px;
+  font-size: 13px;
+  color: inherit;
+}
+.runHits {
+  margin-top: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.runHit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.runHit:hover {
+  background: rgba(0, 120, 212, 0.1);
+}
+.runActs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.runBtn {
+  min-width: 88px;
+  padding: 7px 0;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 5px;
+  background: var(--txt-col, #fff);
+  color: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.runBtn:hover {
+  background: rgba(0, 120, 212, 0.08);
+  border-color: #0067c0;
+}
+.runHint {
+  margin-top: 10px;
+  font-size: 11px;
+  opacity: 0.55;
+}

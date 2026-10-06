@@ -1,0 +1,504 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ==================================================================
+   Microsoft Whiteboard — light infinite canvas, top bar and a
+   floating tool dock like the real app.
+   ================================================================== */
+
+.wbApp {
+  background: #f4f5f7;
+  color: #1b1b1f;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.wbApp .windowScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.wbApp .restWindow {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* ------------------------------ top bar -------------------------- */
+
+.wbTop {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 46px;
+  padding: 0 10px;
+  background: rgba(244, 245, 247, 0.94);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.wbTopL,
+.wbTopR {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.wbTopR {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.wbTopR::-webkit-scrollbar {
+  display: none;
+}
+
+.wbLogo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex: none;
+}
+.wbDoc {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+.wbDoc b {
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.wbDoc span {
+  font-size: 10.5px;
+  color: #7a7d85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wbChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  min-width: 28px;
+  padding: 0 7px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #2a2c31;
+  font-size: 11.5px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 110ms ease,
+    color 110ms ease,
+    transform 80ms ease;
+}
+.wbChip.wide {
+  padding: 0 11px;
+}
+.wbChip:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.06);
+}
+.wbChip:active:not(:disabled) {
+  transform: scale(0.95);
+}
+.wbChip:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+.wbChip[data-on="true"] {
+  background: rgba(15, 108, 189, 0.13);
+  color: #0f6cbd;
+  border-color: rgba(15, 108, 189, 0.24);
+}
+.wbChip.danger:hover:not(:disabled) {
+  background: rgba(232, 17, 45, 0.12);
+  color: #c42b1c;
+}
+.wbVr {
+  flex: none;
+  width: 1px;
+  height: 18px;
+  margin: 0 3px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.wbZoomLbl {
+  min-width: 40px;
+  text-align: center;
+  font-size: 11.5px;
+  color: #4b4e55;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------ stage ---------------------------- */
+
+.wbStage {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.wbCanvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  touch-action: none;
+  outline: none;
+}
+.wbCanvas.draw {
+  cursor: crosshair;
+}
+.wbCanvas.grab {
+  cursor: grab;
+}
+.wbCanvas.grab:active {
+  cursor: grabbing;
+}
+.wbCanvas.erase {
+  cursor: cell;
+}
+
+.wbEdit {
+  position: absolute;
+  padding: 10px 12px;
+  border: 1.5px solid #0f6cbd;
+  border-radius: 4px;
+  outline: none;
+  resize: none;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.34;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  z-index: 6;
+  overflow: hidden;
+}
+.wbEdit.note {
+  border-radius: 4px;
+}
+.wbEdit.text {
+  border-style: dashed;
+  box-shadow: none;
+}
+
+/* ------------------------------ dock ----------------------------- */
+
+.wbDock {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px) saturate(1.4);
+  z-index: 8;
+  animation: wbDockIn 260ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+@keyframes wbDockIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(14px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) none;
+  }
+}
+
+.wbDockSlot {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.wbDockDiv {
+  flex: none;
+  width: 1px;
+  height: 22px;
+  margin: 0 4px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.wbTool {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #33363c;
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    color 110ms ease,
+    transform 90ms cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+.wbTool:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+.wbTool:active {
+  transform: scale(0.92);
+}
+.wbTool.on {
+  background: rgba(15, 108, 189, 0.14);
+  border-color: rgba(15, 108, 189, 0.28);
+  color: #0f6cbd;
+}
+.wbTool.danger:hover {
+  background: rgba(232, 17, 45, 0.12);
+  color: #c42b1c;
+}
+.wbDot {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+}
+
+/* ---------------------------- popovers --------------------------- */
+
+.wbPop {
+  position: absolute;
+  bottom: 46px;
+  left: 0;
+  min-width: 236px;
+  max-width: 300px;
+  padding: 10px 12px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  animation: wbPopIn 160ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  transform-origin: bottom left;
+}
+@keyframes wbPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.wbPopHead {
+  font-size: 11px;
+  color: #6d7078;
+  margin-bottom: 8px;
+}
+
+.wbSwatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 9px;
+}
+.wbSwatches.sm {
+  margin-bottom: 0;
+  gap: 3px;
+}
+.wbSw {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.16) inset;
+  transition:
+    transform 110ms cubic-bezier(0.1, 0.9, 0.2, 1),
+    box-shadow 110ms ease;
+}
+.wbSw:hover {
+  transform: scale(1.2);
+}
+.wbSw.on {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 3.5px #0f6cbd;
+}
+.wbSwatches.sm .wbSw {
+  width: 16px;
+  height: 16px;
+}
+
+.wbPopRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #55585f;
+  margin-bottom: 8px;
+}
+.wbPopRow input[type="range"] {
+  flex: 1;
+  accent-color: #0f6cbd;
+  cursor: pointer;
+}
+.wbPopRow b {
+  min-width: 20px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.wbCheck {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 11px;
+  line-height: 1.45;
+  color: #55585f;
+  cursor: pointer;
+}
+.wbCheck input {
+  accent-color: #0f6cbd;
+  margin-top: 1px;
+}
+
+.wbShapeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.wbShape {
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.03);
+  color: #33363c;
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    transform 90ms ease,
+    border-color 110ms ease;
+}
+.wbShape:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+.wbShape:active {
+  transform: scale(0.94);
+}
+.wbShape.on {
+  background: rgba(15, 108, 189, 0.14);
+  border-color: rgba(15, 108, 189, 0.3);
+  color: #0f6cbd;
+}
+
+/* note colour popover */
+.wbNotePop {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+  font-size: 11px;
+  color: #6d7078;
+  z-index: 7;
+  animation: wbPopIn 180ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.wbNotePop > span {
+  margin-left: 4px;
+}
+
+/* selection bar */
+.wbSelBar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 9px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+  z-index: 7;
+  animation: wbSelIn 190ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+@keyframes wbSelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.wbSelN {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0f6cbd;
+  white-space: nowrap;
+}
+.wbSelW {
+  min-width: 76px;
+}
+.wbSelW .wosSelectBtn {
+  height: 26px;
+  font-size: 11.5px;
+}
+
+@media (max-width: 760px) {
+  .wbDoc span {
+    display: none;
+  }
+  .wbTopR .wbChip.wide {
+    display: none;
+  }
+  .wbDock {
+    gap: 0;
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .wbTool {
+    width: 30px;
+    height: 30px;
+  }
+}

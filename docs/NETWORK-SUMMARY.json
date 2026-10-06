@@ -1,0 +1,15 @@
+{
+  "literal_occurrences": 1827,
+  "distinct_literal_urls": 1160,
+  "distinct_hosts": 217,
+  "categories": {
+    "comment/license/reference": 195,
+    "runtime-or-navigation (review call site)": 98,
+    "namespace/not-network": 248,
+    "remote-store-catalog (URLs/icons; optional)": 884,
+    "vendored code reference (review before treating as request)": 8,
+    "legacy data/module (not imported by current app)": 138,
+    "offline fallback article outbound link": 256
+  },
+  "note": "Static literals include links, comments, XML namespaces and legacy data; dynamic URLs and remote iframe subresources are not bounded by this count."
+}

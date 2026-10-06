@@ -1,0 +1,41 @@
+{
+  "feed": 1,
+  "channel": "stable",
+  "latest": {
+    "version": "1.02",
+    "major": 1,
+    "build": 2,
+    "released": "2026-10-05",
+    "title": "WebOS 1, version 1.02, Build 2 — Smooth shell and reliable updates",
+    "kind": "quality",
+    "size": 34713001,
+    "url": "/updates/",
+    "notes": "updates/notes/1.02.md",
+    "highlights": [
+      "Search opens without moving desktop coordinates; Start stays anchored after repeated Search toggles.",
+      "Smooth upward slide and clean closing motion for Start and Quick Settings (Wi-Fi, sound and battery), with reduced-motion support.",
+      "Opaque light/dark title bars for Windows Update, Solitaire and other standard app windows.",
+      "Update discovery uses the GitHub main-branch feed; invalid feeds, missing notes and ahead-of-deployment releases show recoverable errors.",
+      "Complete verified offline installation, post-login checks on each boot and staged updates that preserve the installed desktop."
+    ],
+    "mandatory": false
+  },
+  "history": [
+    {
+      "version": "1.02",
+      "major": 1,
+      "build": 2,
+      "released": "2026-10-05",
+      "kind": "quality",
+      "title": "WebOS 1, version 1.02, Build 2 — Smooth shell and reliable updates"
+    },
+    {
+      "version": "1.01",
+      "major": 1,
+      "build": 1,
+      "released": "2026-10-04",
+      "kind": "quality",
+      "title": "Quality update"
+    }
+  ]
+}

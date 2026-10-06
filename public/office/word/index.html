@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright 2026 bittuhere
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document1 - Word</title>
+<link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="4" fill="%232B579A"/><path d="M9 9.4h2.6l2.2 9.9 2.6-9.9h2.2l2.6 9.9 2.3-9.9H26l-3.4 13.2h-2.5l-2.6-10-2.6 10h-2.5z" fill="white"/></svg>'>
+<link rel="stylesheet" href="word.css">
+</head>
+<body>
+<div id="app" class="app">
+
+  <!-- ======================= TITLE BAR ======================= -->
+  <header id="titlebar" class="tb">
+    <div class="tb-left">
+      <div class="tb-brand" title="Microsoft Word">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="3" fill="#24487F"/><path d="M9 9.6h2.5l2.2 9.7 2.6-9.7h2.1l2.6 9.7 2.3-9.7h2.5l-3.4 12.8H20.4l-2.6-9.8-2.6 9.8H12.6z" fill="#fff"/></svg>
+      </div>
+      <div class="qat" id="qat">
+        <button class="qatbtn" id="qat-save" title="Save (Ctrl+S)"><svg class="ico"><use href="#i-save"/></svg></button>
+        <button class="qatbtn" id="qat-undo" title="Undo (Ctrl+Z)"><svg class="ico"><use href="#i-undo"/></svg></button>
+        <button class="qatbtn" id="qat-redo" title="Redo (Ctrl+Y)"><svg class="ico"><use href="#i-redo"/></svg></button>
+        <button class="qatbtn qat-more" id="qat-more" title="Customize Quick Access Toolbar"><svg class="ico"><use href="#i-chev-d"/></svg></button>
+      </div>
+      <div class="autosave" id="autosave" title="AutoSave">
+        <span class="as-label">AutoSave</span>
+        <span class="as-pill" id="as-pill"><span class="as-knob"></span><span class="as-state">Off</span></span>
+      </div>
+    </div>
+
+    <div class="tb-title" id="tb-title">
+      <button class="tb-title-btn" id="tb-title-btn">
+        <span class="tb-name" id="tb-name">Document1</span>
+        <svg class="ico ico-s"><use href="#i-chev-d"/></svg>
+      </button>
+    </div>
+
+    <div class="tb-right">
+      <button class="tb-user" id="tb-user" title="Account">
+        <span class="tb-user-name">User</span>
+        <span class="tb-avatar"><svg class="ico"><use href="#i-person"/></svg></span>
+      </button>
+      <div class="wc">
+        <button class="win-btn" id="win-min" title="Minimize"><svg viewBox="0 0 12 12"><line x1="2.5" y1="9.5" x2="9.5" y2="9.5" stroke="currentColor" stroke-width="1"/></svg></button>
+        <button class="win-btn" id="win-max" title="Maximize"><svg viewBox="0 0 12 12"><rect x="2.5" y="2.5" width="7" height="7" fill="none" stroke="currentColor" stroke-width="1"/></svg></button>
+        <button class="win-btn win-close" id="win-close" title="Close"><svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" stroke-width="1"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================= TAB ROW ======================= -->
+  <div class="tabrow" id="tabrow">
+    <div class="tabs" id="tabs"></div>
+    <div class="tbr-spacer"></div>
+    <button class="tellme" id="tellme">
+      <svg class="ico"><use href="#i-bulb"/></svg>
+      <span class="tellme-txt">Tell me what you want to do</span>
+    </button>
+    <button class="ribtoggle" id="ribtoggle" title="Collapse the ribbon (Ctrl+F1)"><svg class="ico"><use href="#i-chev-up"/></svg></button>
+  </div>
+
+  <!-- ======================= RIBBON ======================= -->
+  <div class="ribbon" id="ribbon"></div>
+
+  <!-- ======================= WORKSPACE ======================= -->
+  <div class="workspace" id="workspace">
+    <div class="ws-top">
+      <div class="hr-corner"></div>
+      <div class="hr-wrap" id="hr-wrap"><div class="hr-inner" id="hr-inner"></div></div>
+    </div>
+    <div class="main-row">
+      <aside class="navpane" id="navpane" hidden></aside>
+      <div class="vr-wrap" id="vr-wrap"><div class="vr-inner" id="vr-inner"></div></div>
+      <div class="doc-scroll" id="doc-scroll">
+        <div class="docpad" id="docpad">
+          <div class="docwrap" id="docwrap">
+            <div class="pages" id="pages" contenteditable="true" spellcheck="true" autocorrect="off" autocapitalize="sentences"></div>
+            <svg class="ink-layer" id="ink-layer"></svg>
+            <div class="cm-rail" id="cm-rail" hidden></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= STATUS BAR ======================= -->
+  <footer class="statusbar" id="statusbar">
+    <button class="sb-item" id="sb-pages" title="Go To page">Page 1 of 1</button>
+    <button class="sb-item" id="sb-words" title="Word Count">Words: 0</button>
+    <button class="sb-item sb-lang" id="sb-lang" title="Language">
+      <svg class="ico ico-s2"><use href="#i-proof"/></svg><span>English (United States)</span>
+    </button>
+    <span class="sb-msg" id="sb-msg"></span>
+    <div class="tbr-spacer"></div>
+    <div class="sb-views">
+      <button class="view-btn" id="vw-read" title="Read Mode"><svg class="ico"><use href="#i-readmode"/></svg></button>
+      <button class="view-btn vw-act" id="vw-print" title="Print Layout"><svg class="ico"><use href="#i-printlayout"/></svg></button>
+      <button class="view-btn" id="vw-web" title="Web Layout"><svg class="ico"><use href="#i-weblayout"/></svg></button>
+    </div>
+    <span class="sb-sep"></span>
+    <div class="zoom-wrap">
+      <button class="zbtn" id="z-out" title="Zoom Out"><svg class="ico ico-s2"><use href="#i-minus"/></svg></button>
+      <input type="range" min="10" max="500" value="100" id="z-slider" class="z-slider" title="Zoom level">
+      <button class="zbtn" id="z-in" title="Zoom In"><svg class="ico ico-s2"><use href="#i-plus"/></svg></button>
+      <button class="sb-item" id="z-pct" title="Zoom">100%</button>
+    </div>
+  </footer>
+</div>
+
+<!-- overlays get created here -->
+<div id="overlay-root"></div>
+
+<script src="idb.js"></script>
+<script src="icons.js"></script>
+<script src="rib.js"></script>
+<script src="templates.js"></script>
+<script src="docx.js"></script>
+<script src="docx-import.js"></script>
+<script src="app.js"></script>
+<script src="app2.js"></script>
+<script src="boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "name": "win11-webos",
+  "description": "Windows 11 WebOS \u2014 the Windows 11 desktop experience, rebuilt on the web with React, Redux and SCSS. Open source under Apache-2.0.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bittuhere/win11webos.git"
+  },
+  "version": "1.2.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "i18next": "^21.10.0",
+    "i18next-browser-languagedetector": "^6.1.8",
+    "i18next-http-backend": "^4.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-error-boundary": "^3.1.4",
+    "react-i18next": "^11.18.6",
+    "react-lazy-load-image-component": "^1.6.2",
+    "react-redux": "^8.1.3",
+    "redux": "^4.2.1"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "node scripts/check-project.cjs && vite build && node scripts/build-offline.cjs && node scripts/check-deploy.cjs",
+    "preview": "node scripts/serve-production.cjs",
+    "ghbuild": "npm run build",
+    "smoke": "node --experimental-vm-modules scripts/smoke.cjs",
+    "prettier": "prettier --write .",
+    "crowdin": "crowdin",
+    "tauri": "tauri",
+    "test:release": "node --test tests/release.test.cjs",
+    "verify": "npm run build && npm run test:release && npm run smoke && npm run check:docs",
+    "check:docs": "node scripts/check-docs.cjs",
+    "test:driver": "node --experimental-vm-modules scripts/drive.cjs",
+    "audit:network": "python scripts/audit-network.py",
+    "release:feed": "npm run build && node scripts/sync-feed-size.cjs"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@crowdin/cli": "^5.3.0",
+    "@tauri-apps/cli": "^1.6.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^22.1.0",
+    "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "sass": "^1.105.1",
+    "tailwindcss": "^3.4.9",
+    "translation-check": "^1.1.0",
+    "vite": "^7.3.6"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://win11webos.pages.dev/",
+  "bugs": {
+    "url": "https://github.com/bittuhere/win11webos/issues"
+  },
+  "author": "bittuhere (https://github.com/bittuhere)",
+  "keywords": [
+    "windows-11",
+    "win11",
+    "web-os",
+    "react",
+    "redux",
+    "vite",
+    "open-source",
+    "desktop"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0",
+    "npm": ">=9"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/bittuhere"
+  }
+}

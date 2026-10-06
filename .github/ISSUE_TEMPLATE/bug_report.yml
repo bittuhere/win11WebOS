@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in the OS does not work the way it should
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! Please do **not** use this form for security problems —
+        see [SECURITY.md](https://github.com/bittuhere/win11WebOS/blob/main/SECURITY.md) instead.
+  - type: input
+    id: where
+    attributes:
+      label: Where does it happen?
+      description: App or screen, and the exact steps.
+      placeholder: "File Explorer → Documents → double-click notes.txt"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      description: The version shown in Settings ▸ About, or the commit hash.
+      placeholder: "v1.02 / Build 2, commit hash, and fresh or upgraded profile"
+    validations:
+      required: false
+  - type: input
+    id: env
+    attributes:
+      label: Browser and OS
+      placeholder: "Edge 130 on Windows 11, or Safari on iPhone 13"
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Open DevTools (F12) ▸ Console and paste anything in red.
+      render: text
+    validations:
+      required: false
+
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation / connection state
+      options:
+        - Development server (npm start)
+        - Production preview / Cloudflare, first install
+        - Production, upgraded existing profile
+        - Offline / interrupted download / storage denied
+    validations:
+      required: true

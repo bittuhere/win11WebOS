@@ -1,0 +1,289 @@
+/*
+ * cards.css — CardStarter card-face stylesheet, scoped for WebOS.
+ *
+ * Source: cango91/solitaire → src/css/card-library/css/cardstarter.css
+ * (CardStarter CSS library; the card faces are the SVGs in ../images).
+ * Generated like engine.css: selectors prefixed with `#solitaireApp`,
+ * image URLs left relative to this folder.
+ */
+#solitaireApp .card {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 5px 5px 50px 5px;
+  cursor: pointer;
+  /* Set the card's dimensions, and size it relative to
+     it's font size. */
+  font-size: inherit;
+  width: 4.0em;
+  height: 5.5em;
+  /* Add a default background color and border. */
+  background-color: #fff;
+  border-radius: 0.20em;
+  border: 1px solid #c3c3c3;
+  /* Scale and set the background settings. */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  /* "Hide" any text within the element (use text to be
+     simply compliant with screen readers, etc.). */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* Default sizes for cards (size based off the font). */
+  /* Optional styles for cards: borderless and drop shadow. */
+  /* Not a card, but a card-shaped outline to represent a
+     droppable place, like an empty pile. */ }
+#solitaireApp .card.small {
+    font-size: 12px; }
+#solitaireApp .card.large {
+    font-size: 26px; }
+#solitaireApp .card.xlarge {
+    font-size: 42px; }
+#solitaireApp .card.no-border {
+    border: 0; }
+#solitaireApp .card.shadow {
+    box-shadow: 2px 2px 3px 0 rgba(41, 41, 41, 0.75); }
+#solitaireApp .card.outline {
+    background-image: none;
+    background-color: rgba(195, 195, 195, 0.5);
+    border: 0.15em dashed #daa520; }
+#solitaireApp .card.diamonds.A,
+#solitaireApp .card.dA,
+#solitaireApp .card.♦A {
+  background-image: url("../images/diamonds/diamonds-A.svg"); }
+#solitaireApp .card.diamonds.K,
+#solitaireApp .card.dK,
+#solitaireApp .card.♦K {
+  background-image: url("../images/diamonds/diamonds-K.svg"); }
+#solitaireApp .card.diamonds.Q,
+#solitaireApp .card.dQ,
+#solitaireApp .card.♦Q {
+  background-image: url("../images/diamonds/diamonds-Q.svg"); }
+#solitaireApp .card.diamonds.J,
+#solitaireApp .card.dJ,
+#solitaireApp .card.♦J {
+  background-image: url("../images/diamonds/diamonds-J.svg"); }
+#solitaireApp .card.diamonds.r10,
+#solitaireApp .card.d10,
+#solitaireApp .card.♦10 {
+  background-image: url("../images/diamonds/diamonds-r10.svg"); }
+#solitaireApp .card.diamonds.r09,
+#solitaireApp .card.d09,
+#solitaireApp .card.♦09 {
+  background-image: url("../images/diamonds/diamonds-r09.svg"); }
+#solitaireApp .card.diamonds.r08,
+#solitaireApp .card.d08,
+#solitaireApp .card.♦08 {
+  background-image: url("../images/diamonds/diamonds-r08.svg"); }
+#solitaireApp .card.diamonds.r07,
+#solitaireApp .card.d07,
+#solitaireApp .card.♦07 {
+  background-image: url("../images/diamonds/diamonds-r07.svg"); }
+#solitaireApp .card.diamonds.r06,
+#solitaireApp .card.d06,
+#solitaireApp .card.♦06 {
+  background-image: url("../images/diamonds/diamonds-r06.svg"); }
+#solitaireApp .card.diamonds.r05,
+#solitaireApp .card.d05,
+#solitaireApp .card.♦05 {
+  background-image: url("../images/diamonds/diamonds-r05.svg"); }
+#solitaireApp .card.diamonds.r04,
+#solitaireApp .card.d04,
+#solitaireApp .card.♦04 {
+  background-image: url("../images/diamonds/diamonds-r04.svg"); }
+#solitaireApp .card.diamonds.r03,
+#solitaireApp .card.d03,
+#solitaireApp .card.♦03 {
+  background-image: url("../images/diamonds/diamonds-r03.svg"); }
+#solitaireApp .card.diamonds.r02,
+#solitaireApp .card.d02,
+#solitaireApp .card.♦02 {
+  background-image: url("../images/diamonds/diamonds-r02.svg"); }
+#solitaireApp .card.hearts.A,
+#solitaireApp .card.hA,
+#solitaireApp .card.♥A {
+  background-image: url("../images/hearts/hearts-A.svg"); }
+#solitaireApp .card.hearts.K,
+#solitaireApp .card.hK,
+#solitaireApp .card.♥K {
+  background-image: url("../images/hearts/hearts-K.svg"); }
+#solitaireApp .card.hearts.Q,
+#solitaireApp .card.hQ,
+#solitaireApp .card.♥Q {
+  background-image: url("../images/hearts/hearts-Q.svg"); }
+#solitaireApp .card.hearts.J,
+#solitaireApp .card.hJ,
+#solitaireApp .card.♥J {
+  background-image: url("../images/hearts/hearts-J.svg"); }
+#solitaireApp .card.hearts.r10,
+#solitaireApp .card.h10,
+#solitaireApp .card.♥10 {
+  background-image: url("../images/hearts/hearts-r10.svg"); }
+#solitaireApp .card.hearts.r09,
+#solitaireApp .card.h09,
+#solitaireApp .card.♥09 {
+  background-image: url("../images/hearts/hearts-r09.svg"); }
+#solitaireApp .card.hearts.r08,
+#solitaireApp .card.h08,
+#solitaireApp .card.♥08 {
+  background-image: url("../images/hearts/hearts-r08.svg"); }
+#solitaireApp .card.hearts.r07,
+#solitaireApp .card.h07,
+#solitaireApp .card.♥07 {
+  background-image: url("../images/hearts/hearts-r07.svg"); }
+#solitaireApp .card.hearts.r06,
+#solitaireApp .card.h06,
+#solitaireApp .card.♥06 {
+  background-image: url("../images/hearts/hearts-r06.svg"); }
+#solitaireApp .card.hearts.r05,
+#solitaireApp .card.h05,
+#solitaireApp .card.♥05 {
+  background-image: url("../images/hearts/hearts-r05.svg"); }
+#solitaireApp .card.hearts.r04,
+#solitaireApp .card.h04,
+#solitaireApp .card.♥04 {
+  background-image: url("../images/hearts/hearts-r04.svg"); }
+#solitaireApp .card.hearts.r03,
+#solitaireApp .card.h03,
+#solitaireApp .card.♥03 {
+  background-image: url("../images/hearts/hearts-r03.svg"); }
+#solitaireApp .card.hearts.r02,
+#solitaireApp .card.h02,
+#solitaireApp .card.♥02 {
+  background-image: url("../images/hearts/hearts-r02.svg"); }
+#solitaireApp .card.spades.A,
+#solitaireApp .card.sA,
+#solitaireApp .card.♠A {
+  background-image: url("../images/spades/spades-A.svg"); }
+#solitaireApp .card.spades.K,
+#solitaireApp .card.sK,
+#solitaireApp .card.♠K {
+  background-image: url("../images/spades/spades-K.svg"); }
+#solitaireApp .card.spades.Q,
+#solitaireApp .card.sQ,
+#solitaireApp .card.♠Q {
+  background-image: url("../images/spades/spades-Q.svg"); }
+#solitaireApp .card.spades.J,
+#solitaireApp .card.sJ,
+#solitaireApp .card.♠J {
+  background-image: url("../images/spades/spades-J.svg"); }
+#solitaireApp .card.spades.r10,
+#solitaireApp .card.s10,
+#solitaireApp .card.♠10 {
+  background-image: url("../images/spades/spades-r10.svg"); }
+#solitaireApp .card.spades.r09,
+#solitaireApp .card.s09,
+#solitaireApp .card.♠09 {
+  background-image: url("../images/spades/spades-r09.svg"); }
+#solitaireApp .card.spades.r08,
+#solitaireApp .card.s08,
+#solitaireApp .card.♠08 {
+  background-image: url("../images/spades/spades-r08.svg"); }
+#solitaireApp .card.spades.r07,
+#solitaireApp .card.s07,
+#solitaireApp .card.♠07 {
+  background-image: url("../images/spades/spades-r07.svg"); }
+#solitaireApp .card.spades.r06,
+#solitaireApp .card.s06,
+#solitaireApp .card.♠06 {
+  background-image: url("../images/spades/spades-r06.svg"); }
+#solitaireApp .card.spades.r05,
+#solitaireApp .card.s05,
+#solitaireApp .card.♠05 {
+  background-image: url("../images/spades/spades-r05.svg"); }
+#solitaireApp .card.spades.r04,
+#solitaireApp .card.s04,
+#solitaireApp .card.♠04 {
+  background-image: url("../images/spades/spades-r04.svg"); }
+#solitaireApp .card.spades.r03,
+#solitaireApp .card.s03,
+#solitaireApp .card.♠03 {
+  background-image: url("../images/spades/spades-r03.svg"); }
+#solitaireApp .card.spades.r02,
+#solitaireApp .card.s02,
+#solitaireApp .card.♠02 {
+  background-image: url("../images/spades/spades-r02.svg"); }
+#solitaireApp .card.clubs.A,
+#solitaireApp .card.cA,
+#solitaireApp .card.♣A {
+  background-image: url("../images/clubs/clubs-A.svg"); }
+#solitaireApp .card.clubs.K,
+#solitaireApp .card.cK,
+#solitaireApp .card.♣K {
+  background-image: url("../images/clubs/clubs-K.svg"); }
+#solitaireApp .card.clubs.Q,
+#solitaireApp .card.cQ,
+#solitaireApp .card.♣Q {
+  background-image: url("../images/clubs/clubs-Q.svg"); }
+#solitaireApp .card.clubs.J,
+#solitaireApp .card.cJ,
+#solitaireApp .card.♣J {
+  background-image: url("../images/clubs/clubs-J.svg"); }
+#solitaireApp .card.clubs.r10,
+#solitaireApp .card.c10,
+#solitaireApp .card.♣10 {
+  background-image: url("../images/clubs/clubs-r10.svg"); }
+#solitaireApp .card.clubs.r09,
+#solitaireApp .card.c09,
+#solitaireApp .card.♣09 {
+  background-image: url("../images/clubs/clubs-r09.svg"); }
+#solitaireApp .card.clubs.r08,
+#solitaireApp .card.c08,
+#solitaireApp .card.♣08 {
+  background-image: url("../images/clubs/clubs-r08.svg"); }
+#solitaireApp .card.clubs.r07,
+#solitaireApp .card.c07,
+#solitaireApp .card.♣07 {
+  background-image: url("../images/clubs/clubs-r07.svg"); }
+#solitaireApp .card.clubs.r06,
+#solitaireApp .card.c06,
+#solitaireApp .card.♣06 {
+  background-image: url("../images/clubs/clubs-r06.svg"); }
+#solitaireApp .card.clubs.r05,
+#solitaireApp .card.c05,
+#solitaireApp .card.♣05 {
+  background-image: url("../images/clubs/clubs-r05.svg"); }
+#solitaireApp .card.clubs.r04,
+#solitaireApp .card.c04,
+#solitaireApp .card.♣04 {
+  background-image: url("../images/clubs/clubs-r04.svg"); }
+#solitaireApp .card.clubs.r03,
+#solitaireApp .card.c03,
+#solitaireApp .card.♣03 {
+  background-image: url("../images/clubs/clubs-r03.svg"); }
+#solitaireApp .card.clubs.r02,
+#solitaireApp .card.c02,
+#solitaireApp .card.♣02 {
+  background-image: url("../images/clubs/clubs-r02.svg"); }
+#solitaireApp .card.joker {
+  background-image: url("../images/jokers/joker.svg"); }
+#solitaireApp .card.joker-black {
+  background-image: url("../images/jokers/joker-black.svg"); }
+#solitaireApp .card.joker-red {
+  background-image: url("../images/jokers/joker-red.svg"); }
+#solitaireApp .card.back {
+  background-image: url("../images/backs/blue.svg"); }
+#solitaireApp .card.back-blue {
+  background-image: url("../images/backs/blue.svg"); }
+#solitaireApp .card.back-red {
+  background-image: url("../images/backs/red.svg"); }
+#solitaireApp .card.west,
+#solitaireApp .card.W {
+  transform: rotate(90deg);
+  margin: auto 0.75em; }
+#solitaireApp .card.west.shadow,
+#solitaireApp .card.W.shadow {
+    box-shadow: 2px -2px 3px 0 rgba(41, 41, 41, 0.75); }
+#solitaireApp .card.north,
+#solitaireApp .card.N {
+  transform: rotate(180deg); }
+#solitaireApp .card.north.shadow,
+#solitaireApp .card.N.shadow {
+    box-shadow: -2px -2px 3px 0 rgba(41, 41, 41, 0.75); }
+#solitaireApp .card.east,
+#solitaireApp .card.E {
+  transform: rotate(270deg);
+  margin: auto 0.75em; }
+#solitaireApp .card.east.shadow,
+#solitaireApp .card.E.shadow {
+    box-shadow: -2px 2px 3px 0 rgba(41, 41, 41, 0.75); }

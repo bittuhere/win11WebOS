@@ -1,0 +1,2 @@
+# Browser test dependency only; not needed for npm builds or Cloudflare.
+playwright==1.63.0

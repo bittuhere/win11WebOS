@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" width="480" height="480">
+  <g fill="#1976d3">
+    <rect class="brandPane" x="60" y="60" width="170" height="170"/>
+    <rect class="brandPane" x="250" y="60" width="170" height="170"/>
+    <rect class="brandPane" x="60" y="250" width="170" height="170"/>
+    <rect class="brandPane" x="250" y="250" width="170" height="170"/>
+  </g>
+</svg>

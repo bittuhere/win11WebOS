@@ -1,0 +1,84 @@
+{
+  "id": "win11-webos",
+  "name": "Win11 WebOS by Bittu",
+  "short_name": "Win11 WebOS",
+  "description": "Windows 11 WebOS by bittuhere (Bittu) is a free, open-source browser desktop built with React, Redux and SCSS. Explore local apps, offline BitBot AI and a Windows 11-style interface.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "theme_color": "#0067c0",
+  "background_color": "#0067c0",
+  "categories": [
+    "productivity",
+    "utilities",
+    "entertainment",
+    "education"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 24x24 32x32 48x48 64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "174x174",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "The Windows 11 WebOS desktop running in a browser"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "File Explorer",
+      "short_name": "Explorer",
+      "description": "Browse the virtual file system",
+      "url": "./?app=explorer"
+    },
+    {
+      "name": "Notepad",
+      "short_name": "Notepad",
+      "description": "Write and save a text file",
+      "url": "./?app=notepad"
+    },
+    {
+      "name": "Solitaire Collection",
+      "short_name": "Solitaire",
+      "description": "Play Klondike",
+      "url": "./?app=solitaire"
+    }
+  ]
+}

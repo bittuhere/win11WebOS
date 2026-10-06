@@ -1,0 +1,3979 @@
+[
+ {
+  "id": "jspaint",
+  "name": "Paint",
+  "icon": "app-logos/jspaint.png",
+  "publisher": "Isaiah Odhner",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 5379,
+  "data": {
+   "type": "IFrame",
+   "url": "https://jspaint.app",
+   "desc": "A faithful remake of Microsoft Paint that runs in the browser."
+  }
+ },
+ {
+  "id": "photopea",
+  "name": "Photopea",
+  "icon": "app-logos/photopea.png",
+  "publisher": "Ivan Kutskir",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 6355,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.photopea.com",
+   "desc": "A full professional image editor that opens PSD, XCF, Sketch and RAW files — free, in the browser."
+  }
+ },
+ {
+  "id": "excalidraw",
+  "name": "Excalidraw",
+  "icon": "app-logos/excalidraw.png",
+  "publisher": "Excalidraw",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 8791,
+  "data": {
+   "type": "IFrame",
+   "url": "https://excalidraw.com",
+   "desc": "Virtual whiteboard with a hand-drawn feel. Sketch diagrams together in real time."
+  }
+ },
+ {
+  "id": "wikipedia",
+  "name": "Wikipedia",
+  "icon": "app-logos/wikipedia.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Encyclopedia",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 7351,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wikipedia.org",
+   "desc": "The free encyclopedia — 60 million articles in 300+ languages.",
+   "feat": "Search\nLanguages\nOffline-friendly reading",
+   "gallery": [
+    {
+     "type": "image",
+     "src": "https://upload.wikimedia.org/wikipedia/commons/8/80/Wikipedia-logo-v2.svg",
+     "alt": "Wikipedia wordmark (SVG)"
+    },
+    {
+     "type": "image",
+     "src": "https://upload.wikimedia.org/wikipedia/commons/5/51/Screenshot_of_the_Main_Page_on_the_English_Wikipedia_-_Wikipedia_25.png",
+     "alt": "English Wikipedia main page"
+    }
+   ]
+  }
+ },
+ {
+  "id": "minecraft",
+  "name": "Minecraft 1.8.8",
+  "icon": "app-logos/minecraft.jpg",
+  "publisher": "Mojang",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 7477,
+  "data": {
+   "type": "IFrame",
+   "url": "https://bittuhere.github.io/eaglercraft",
+   "desc": "The original Minecraft, playable right in the browser. Build anything in a classic world."
+  }
+ },
+ {
+  "id": "smashkarts",
+  "name": "Smash Karts",
+  "icon": "app-logos/smashkarts.png",
+  "publisher": "Tall Team",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 9009,
+  "data": {
+   "type": "IFrame",
+   "url": "https://smashkarts.io",
+   "desc": "Multiplayer kart-battling mayhem. Pick up power-ups and blast your friends."
+  }
+ },
+ {
+  "id": "krunker",
+  "name": "Krunker",
+  "icon": "app-logos/krunker.jpg",
+  "publisher": "Sidney de Vries",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 5405,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.krunker.io",
+   "desc": "A fast pixel-style FPS that runs anywhere. Hop in and shoot."
+  }
+ },
+ {
+  "id": "dino",
+  "name": "Dino Runner",
+  "icon": "app-logos/dino.png",
+  "publisher": "Chromium",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 2736,
+  "data": {
+   "type": "IFrame",
+   "url": "https://chromedino.com",
+   "desc": "The Chrome dinosaur, unlocked from offline mode. Jump the cacti forever."
+  }
+ },
+ {
+  "id": "2048",
+  "name": "2048",
+  "icon": "app-logos/2048.ico",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 1738,
+  "data": {
+   "type": "IFrame",
+   "url": "https://bittuhere.github.io/2048",
+   "desc": "Join the numbers and get to the 2048 tile — the original open-source edition."
+  },
+  "publisher": "Bittuhere"
+ },
+ {
+  "id": "lichess-tv",
+  "name": "Chess — Lichess TV",
+  "icon": "app-logos/lichess-tv.png",
+  "publisher": "Lichess",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 8467,
+  "data": {
+   "type": "IFrame",
+   "url": "https://lichess.org/tv/frame?theme=brown&bg=dark",
+   "desc": "Watch the current top-rated live games on Lichess, streamed straight into your Store."
+  }
+ },
+ {
+  "id": "hexgl",
+  "name": "HexGL Racing",
+  "icon": "app-logos/hexgl.png",
+  "publisher": "Thibaut Despoulain",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 3490,
+  "data": {
+   "type": "IFrame",
+   "url": "https://hexgl.bkcore.com/play/",
+   "desc": "A futuristic browser racer with full 3D graphics."
+  }
+ },
+ {
+  "id": "clumsy-bird",
+  "name": "Clumsy Bird",
+  "icon": "app-logos/clumsy-bird.ico",
+  "publisher": "Ellison Leão",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 9749,
+  "data": {
+   "type": "IFrame",
+   "url": "https://ellisonleao.github.io/clumsy-bird/",
+   "desc": "The infamous flapping bird, open-source edition. Tap to fly, dodge the pipes."
+  }
+ },
+ {
+  "id": "astray",
+  "name": "Astray Maze",
+  "icon": "app-logos/astray.png",
+  "publisher": "Rye Terrell",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 4462,
+  "data": {
+   "type": "IFrame",
+   "url": "https://wwwtyro.github.io/Astray/",
+   "desc": "Roll a ball through an endless 3D maze, generated just for you."
+  }
+ },
+ {
+  "id": "untrusted",
+  "name": "Untrusted — a coding adventure",
+  "icon": "app-logos/untrusted.ico",
+  "publisher": "Alex Nisnevich",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 7748,
+  "data": {
+   "type": "IFrame",
+   "url": "https://alexnisnevich.github.io/untrusted/",
+   "desc": "Escape a machine continuum by rewriting its JavaScript. A roguelike for programmers."
+  }
+ },
+ {
+  "id": "skribbl",
+  "name": "skribbl.io",
+  "icon": "app-logos/skribbl.png",
+  "publisher": "tbfly",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 5215,
+  "data": {
+   "type": "IFrame",
+   "url": "https://skribbl.io",
+   "desc": "Draw and guess words with friends in realtime lobbies."
+  }
+ },
+ {
+  "id": "slither",
+  "name": "slither.io",
+  "icon": "app-logos/slither.png",
+  "publisher": "Steve Howse",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 5360,
+  "data": {
+   "type": "IFrame",
+   "url": "https://slither.io",
+   "desc": "Grow the longest snake in the arena. Massively multiplayer."
+  }
+ },
+ {
+  "id": "spidersolitaire",
+  "name": "Spider Solitaire XP",
+  "icon": "app-logos/spidersolitaire.png",
+  "publisher": "Squidbyte",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 16912,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.squidbyte.com/games/spidersolitairewindowsxp",
+   "desc": "The nostalgic Windows XP Spider Solitaire, playable in the browser."
+  }
+ },
+ {
+  "id": "solitaire-org",
+  "name": "Solitaire.org Games",
+  "icon": "app-logos/solitaire-org.png",
+  "publisher": "Solitaire.org",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 12667,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.solitaire.org",
+   "desc": "A whole parlor of card and patience games with zero ads."
+  }
+ },
+ {
+  "id": "websudoku",
+  "name": "Web Sudoku",
+  "icon": "app-logos/websudoku.png",
+  "publisher": "Web Sudoku",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 7716,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.websudoku.com",
+   "desc": "Billions of free Sudoku puzzles, four difficulty levels."
+  }
+ },
+ {
+  "id": "bing",
+  "name": "Bing Search",
+  "icon": "app-logos/bing.png",
+  "publisher": "Microsoft",
+  "type": "app",
+  "category": "Search",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 2682,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.bing.com/search?q=web",
+   "desc": "The Bing search engine — web results, live inside WebOS."
+  }
+ },
+ {
+  "id": "bing-images",
+  "name": "Bing Images",
+  "icon": "app-logos/bing-images.png",
+  "publisher": "Microsoft",
+  "type": "app",
+  "category": "Search",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 9628,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.bing.com/images",
+   "desc": "Image search from Bing."
+  }
+ },
+ {
+  "id": "bing-videos",
+  "name": "Bing Videos",
+  "icon": "app-logos/bing-videos.png",
+  "publisher": "Microsoft",
+  "type": "app",
+  "category": "Search",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 9824,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.bing.com/videos",
+   "desc": "Video search from Bing — playable right in the results."
+  }
+ },
+ {
+  "id": "bing-news",
+  "name": "Bing News",
+  "icon": "app-logos/bing-news.png",
+  "publisher": "Microsoft",
+  "type": "app",
+  "category": "News",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 7241,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.bing.com/news",
+   "desc": "Headlines and story search from Bing News."
+  }
+ },
+ {
+  "id": "marginalia",
+  "name": "Marginalia Search",
+  "icon": "app-logos/marginalia.png",
+  "publisher": "Viktor Lofgren",
+  "type": "app",
+  "category": "Search",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 8590,
+  "data": {
+   "type": "IFrame",
+   "url": "https://search.marginalia.nu",
+   "desc": "A non-commercial search engine that surfaces the small, old, weird web."
+  }
+ },
+ {
+  "id": "wttr",
+  "name": "Weather (wttr.in)",
+  "publisher": "wttr.in",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 2885,
+  "data": {
+   "type": "IFrame",
+   "url": "https://wttr.in/?lang=en",
+   "desc": "Beautiful text-based weather for any city on Earth."
+  },
+  "icon": "app-logos/wttr.ico"
+ },
+ {
+  "id": "weathergov",
+  "name": "US Weather",
+  "icon": "app-logos/weathergov.png",
+  "publisher": "NOAA",
+  "type": "app",
+  "category": "News",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 8971,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.weather.gov",
+   "desc": "Official US National Weather Service forecasts and radar."
+  }
+ },
+ {
+  "id": "calculatornet",
+  "name": "Calculator.net",
+  "icon": "app-logos/calculatornet.png",
+  "publisher": "Calculator.net",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 13508,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.calculator.net",
+   "desc": "Every calculator you will ever need: finance, health, math, conversion."
+  }
+ },
+ {
+  "id": "urbandictionary",
+  "name": "Urban Dictionary",
+  "icon": "app-logos/urbandictionary.png",
+  "publisher": "Urban Dictionary",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 17039,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.urbandictionary.com",
+   "desc": "The dictionary of slang the other dictionaries are afraid of."
+  }
+ },
+ {
+  "id": "gutenberg",
+  "name": "Project Gutenberg",
+  "icon": "app-logos/gutenberg.png",
+  "publisher": "Project Gutenberg",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 7499,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org",
+   "desc": "70,000 free eBooks — the great works of literature, out of copyright and yours."
+  }
+ },
+ {
+  "id": "gutenberg-search",
+  "name": "Gutenberg — Search",
+  "icon": "app-logos/gutenberg-search.png",
+  "publisher": "Project Gutenberg",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 17782,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/search/?query=verne",
+   "desc": "Search the Gutenberg catalog and read instantly in the browser."
+  }
+ },
+ {
+  "id": "tetris-react",
+  "name": "Tetris",
+  "icon": "app-logos/tetris-react.jpg",
+  "publisher": "chvin",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 11202,
+  "data": {
+   "type": "IFrame",
+   "url": "https://tetris-jeffdelara.netlify.app/",
+   "desc": "Tetris with the handheld-console feel, rebuilt in React — arrow keys, hold, ghost piece."
+  }
+ },
+ {
+  "id": "flappybird",
+  "name": "Flappy Bird",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 8903,
+  "data": {
+   "type": "IFrame",
+   "url": "https://silzhu.github.io/floppybird/",
+   "desc": "The bird. The pipes. The rage. A faithful Flappy Bird clone in plain JavaScript."
+  },
+  "icon": "app-logos/flappybird.png",
+  "publisher": "Flappy Bird"
+ },
+ {
+  "id": "freepacman",
+  "name": "Free Pac-Man",
+  "icon": "app-logos/freepacman.png",
+  "publisher": "FreePacman",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 8601,
+  "data": {
+   "type": "IFrame",
+   "url": "https://freepacman.org",
+   "desc": "Play the arcade maze classic right now — no coins needed."
+  }
+ },
+ {
+  "id": "wiki-en-wikibooks",
+  "name": "Wikibooks",
+  "icon": "app-logos/wiki-en-wikibooks.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 19979,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wikibooks.org",
+   "desc": "The English edition of Wikibooks — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-en-wikinews",
+  "name": "Wikinews",
+  "icon": "app-logos/wiki-en-wikinews.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "News",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 18094,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wikinews.org",
+   "desc": "The English edition of Wikinews — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-en-wikisource",
+  "name": "Wikisource",
+  "icon": "app-logos/wiki-en-wikisource.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 22178,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wikisource.org",
+   "desc": "The English edition of Wikisource — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-en-wikivoyage",
+  "name": "Wikivoyage",
+  "icon": "app-logos/wiki-en-wikivoyage.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Travel",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 22061,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wikivoyage.org",
+   "desc": "The English edition of Wikivoyage — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-hi-wikibooks",
+  "name": "Wikibooks — Hindi",
+  "icon": "app-logos/wiki-hi-wikibooks.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 19958,
+  "data": {
+   "type": "IFrame",
+   "url": "https://hi.wikibooks.org",
+   "desc": "The Hindi edition of Wikibooks — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-hi-wikiquote",
+  "name": "Wikiquote — Hindi",
+  "icon": "app-logos/wiki-hi-wikiquote.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 20175,
+  "data": {
+   "type": "IFrame",
+   "url": "https://hi.wikiquote.org",
+   "desc": "The Hindi edition of Wikiquote — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-hi-wikisource",
+  "name": "Wikisource — Hindi",
+  "icon": "app-logos/wiki-hi-wikisource.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 22157,
+  "data": {
+   "type": "IFrame",
+   "url": "https://hi.wikisource.org",
+   "desc": "The Hindi edition of Wikisource — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-hi-wikivoyage",
+  "name": "Wikivoyage — Hindi",
+  "icon": "app-logos/wiki-hi-wikivoyage.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Travel",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 22040,
+  "data": {
+   "type": "IFrame",
+   "url": "https://hi.wikivoyage.org",
+   "desc": "The Hindi edition of Wikivoyage — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-sa-wikisource",
+  "name": "Wikisource — Sanskrit",
+  "icon": "app-logos/wiki-sa-wikisource.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 22173,
+  "data": {
+   "type": "IFrame",
+   "url": "https://sa.wikisource.org",
+   "desc": "The Sanskrit edition of Wikisource — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-simple-wikiquote",
+  "name": "Wikiquote",
+  "icon": "app-logos/wiki-simple-wikiquote.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 29350,
+  "data": {
+   "type": "IFrame",
+   "url": "https://simple.wikiquote.org",
+   "desc": "The Simple English edition of Wikiquote — free, community-written and openly licensed. Reading it inside WebOS works with no extensions."
+  }
+ },
+ {
+  "id": "wiki-wikidata",
+  "name": "Wikidata",
+  "icon": "app-logos/wiki-wikidata.png",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 12719,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.wikidata.org",
+   "desc": "The free knowledge base that Wikipedia runs on — structured data about everything."
+  }
+ },
+ {
+  "id": "wiki-metawiki",
+  "name": "Wikimedia Meta-Wiki",
+  "icon": "app-logos/wiki-metawiki.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 12931,
+  "data": {
+   "type": "IFrame",
+   "url": "https://meta.wikimedia.org",
+   "desc": "The coordination wiki for the whole Wikimedia movement."
+  }
+ },
+ {
+  "id": "wiki-species",
+  "name": "Wikispecies",
+  "icon": "app-logos/wiki-species.png",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 11267,
+  "data": {
+   "type": "IFrame",
+   "url": "https://species.wikimedia.org",
+   "desc": "The free directory of life — every species, catalogued."
+  }
+ },
+ {
+  "id": "wiki-mediawikiwiki",
+  "name": "MediaWiki.org",
+  "icon": "app-logos/wiki-mediawikiwiki.png",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 22505,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.mediawiki.org",
+   "desc": "The home of the software that powers Wikipedia and thousands of wikis."
+  }
+ },
+ {
+  "id": "wiki-incubatorwiki",
+  "name": "Wikimedia Incubator",
+  "icon": "app-logos/wiki-incubatorwiki.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 22760,
+  "data": {
+   "type": "IFrame",
+   "url": "https://incubator.wikimedia.org",
+   "desc": "Where new language editions of Wikimedia projects are born."
+  }
+ },
+ {
+  "id": "github1s",
+  "name": "Visual Studio Code",
+  "icon": "app-logos/github1s.png",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 5927,
+  "data": {
+   "type": "IFrame",
+   "url": "https://github1s.com/win11/win11/",
+   "desc": "Read any GitHub repository in VS Code's familiar interface, without cloning. Open a repo, get an editor.",
+   "feat": "VS Code in the browser for any repo\nNo clone, no setup\nFast code navigation"
+  },
+  "publisher": "Microsoft"
+ },
+ {
+  "id": "wsa",
+  "name": "WSA — Android inside",
+  "icon": "app-logos/wsa.ico",
+  "publisher": "blueedge",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 2102,
+  "data": {
+   "type": "IFrame",
+   "url": "https://android.blueedge.me",
+   "desc": "A recreation of Android that runs right here — Android inside of Windows 11.",
+   "feat": "Use Android inside of Windows 11."
+  }
+ },
+ {
+  "id": "jitsi",
+  "name": "Jitsi Meet",
+  "icon": "app-logos/jitsi.png",
+  "publisher": "8x8 / Jitsi",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 3543,
+  "data": {
+   "type": "IFrame",
+   "url": "https://meet.jit.si/",
+   "desc": "A fully encrypted, 100% open source video conferencing solution — start a meeting in one click.",
+   "feat": "Video conferencing\nEncrypted\nNo account needed"
+  }
+ },
+ {
+  "id": "cstimer",
+  "name": "CSTimer",
+  "icon": "app-logos/cstimer.jpg",
+  "publisher": "CSTimer",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 5364,
+  "data": {
+   "type": "IFrame",
+   "url": "https://cstimer.net",
+   "desc": "Professional timing program for Rubik's Cube speed solvers.",
+   "feat": "All WCA official events\nTwisty puzzle scrambles\nTraining steps (F2L, OLL, PLL, ZBLL)"
+  }
+ },
+ {
+  "id": "fnaf1",
+  "name": "FNAF 1",
+  "icon": "app-logos/fnaf1.jpg",
+  "publisher": "Ported",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 2986,
+  "data": {
+   "type": "IFrame",
+   "url": "https://run3.io/popgame/fnaf/fnaf1/",
+   "desc": "Welcome to your new summer job at Freddy Fazbear's Pizza, where the animatronics get unpredictable at night.",
+   "feat": "Ported by people.\nSurvive five nights."
+  }
+ },
+ {
+  "id": "candy-crush",
+  "name": "Candy Crush",
+  "icon": "app-logos/candy-crush.png",
+  "publisher": "Svelte build",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 9892,
+  "data": {
+   "type": "IFrame",
+   "url": "https://svelte-candy-crush.vercel.app/",
+   "desc": "A free match-three puzzle: swap candies, chain combos, crush the level.",
+   "feat": "Candy beans."
+  }
+ },
+ {
+  "id": "windows96",
+  "name": "windows96",
+  "icon": "app-logos/windows96.jpg",
+  "publisher": "Community",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 6655,
+  "data": {
+   "type": "IFrame",
+   "url": "https://windows96.net/",
+   "desc": "Windows 96 recreation — a whole retro desktop in a window.",
+   "feat": "The OS older then your mother."
+  }
+ },
+ {
+  "id": "mdown",
+  "name": "MDown Editor",
+  "icon": "app-logos/mdown.png",
+  "publisher": "RedEdge967",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 3566,
+  "data": {
+   "type": "IFrame",
+   "url": "https://rededge967.github.io/mdown-editor/",
+   "desc": "A free open source markdown editor with a live preview panel.",
+   "feat": "Markdown playground with preview\nHTML/CSS/JS friendly"
+  }
+ },
+ {
+  "id": "doodle-cricket",
+  "name": "Google Cricket",
+  "icon": "app-logos/doodle-cricket.png",
+  "publisher": "Google Doodle",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 14328,
+  "data": {
+   "type": "IFrame",
+   "url": "https://doodlecricket.github.io/#/",
+   "desc": "The beloved Google Doodle cricket game — batting, bowling and a very patient snail fielding team.",
+   "feat": "Virtual cricket"
+  }
+ },
+ {
+  "id": "shellshockers",
+  "name": "Shell Shockers",
+  "icon": "app-logos/shellshockers.png",
+  "publisher": "Blue Wizard",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 13443,
+  "data": {
+   "type": "IFrame",
+   "url": "https://eggcombat.com/",
+   "desc": "3D multiplayer egg-based shooter. Cracked or be cracked.",
+   "feat": "Fried Eggs, Anyone?"
+  }
+ },
+ {
+  "id": "venge",
+  "name": "Venge.io",
+  "icon": "app-logos/venge.png",
+  "publisher": "Cem Demir",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 3433,
+  "data": {
+   "type": "IFrame",
+   "url": "https://venge.io/",
+   "desc": "An objective-based first-person shooter with ability cards — every match is intense and unique.",
+   "feat": "Fast matches\nOnline community\nFirst person shooter"
+  }
+ },
+ {
+  "id": "doctor-strange",
+  "name": "Doctor Strange: The Game",
+  "icon": "app-logos/doctor-strange.png",
+  "publisher": "RedEdge967",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 14585,
+  "data": {
+   "type": "IFrame",
+   "url": "https://rededge.is-a.dev/Doctor-Strange",
+   "desc": "Fight monsters as Doctor Strange.",
+   "feat": "Play as Doctor Strange, Defender, Sinister, Supreme or Zombie Strange."
+  }
+ },
+ {
+  "id": "super-mario",
+  "name": "Super Mario Bros.",
+  "icon": "app-logos/super-mario.png",
+  "publisher": "Nintendo (fan port)",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 9845,
+  "data": {
+   "type": "IFrame",
+   "url": "https://supermario-game.com/mario-game/mario.html",
+   "desc": "The classic platform adventure — run, jump and stomp through the Mushroom Kingdom.",
+   "feat": "Mario Bros. is a 1983 platform game developed and published for arcades by Nintendo"
+  }
+ },
+ {
+  "id": "mk-wiki",
+  "name": "Mortal Kombat Wiki",
+  "icon": "app-logos/mk-wiki.svg",
+  "publisher": "Community",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 5030,
+  "data": {
+   "type": "IFrame",
+   "url": "https://mk-wiki.vercel.app",
+   "desc": "An open source Mortal Kombat game wiki — fighters, moves and lore.",
+   "feat": "A open source mortal kombat game based wiki"
+  }
+ },
+ {
+  "id": "othello",
+  "name": "Othello",
+  "icon": "app-logos/othello.png",
+  "publisher": "blueedge",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 5342,
+  "data": {
+   "type": "IFrame",
+   "url": "https://othello.blueedge.me",
+   "desc": "Othello (Reversi) — the classic 8x8 strategy board game, invented 1883.",
+   "feat": "Board game"
+  }
+ },
+ {
+  "id": "flappy-playcanvas",
+  "name": "Buzz Bee",
+  "icon": "app-logos/flappy-playcanvas.png",
+  "publisher": "PlayCanvas",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 20435,
+  "data": {
+   "type": "IFrame",
+   "url": "https://playcanv.as/p/2OlkUaxF/",
+   "desc": "The side-scroller legend — flap between the green pipes. One tap, infinite frustration. Based on flappy bird",
+   "feat": "fly, dodge, score"
+  }
+ },
+ {
+  "id": "bluelab",
+  "name": "bluelab",
+  "icon": "app-logos/bluelab.png",
+  "publisher": "blueedge",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 5131,
+  "data": {
+   "type": "IFrame",
+   "url": "https://bluelab.blueedge.me",
+   "desc": "Interactive math visualizations — inverse kinematics, bezier curves and more.",
+   "feat": "Interactive math playgrounds"
+  }
+ },
+ {
+  "id": "osu-web",
+  "name": "osu!web",
+  "icon": "app-logos/osu-web.png",
+  "publisher": "joshua-usi",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 4971,
+  "data": {
+   "type": "IFrame",
+   "url": "https://joshua-usi.github.io/osw/",
+   "desc": "osu! — the free-to-play rhythm game; upload your own beatmaps and click to the beat.",
+   "feat": "fun game with alot of beatmaps"
+  }
+ },
+ {
+  "id": "dash-clicker",
+  "name": "Dash Clicker",
+  "icon": "app-logos/dash-clicker.png",
+  "publisher": "armn",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 11098,
+  "data": {
+   "type": "IFrame",
+   "url": "https://dashclicker.com/",
+   "desc": "A clicker game for nerds — dash, click, upgrade, repeat.",
+   "feat": "A clicker game for nerds"
+  }
+ },
+ {
+  "id": "space-shooter",
+  "name": "Space Shooter",
+  "icon": "app-logos/space-shooter.png",
+  "publisher": "RedEdge967",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 12999,
+  "data": {
+   "type": "IFrame",
+   "url": "https://react-shooter.vercel.app/",
+   "desc": "A shooting game to have some fun alone — arrows to move, space to shoot.",
+   "feat": "1. Use arrows to move\n2. Press space to shoot"
+  }
+ },
+ {
+  "id": "pulsus",
+  "name": "Pulsus",
+  "icon": "app-logos/pulsus.png",
+  "publisher": "Pulsus",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 4573,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.pulsus.cc/play",
+   "desc": "A brand new rhythm game you play with your numpad.",
+   "feat": "Never seen gameplay style - Play with your numpad."
+  }
+ },
+ {
+  "id": "bemuse",
+  "name": "Bemuse",
+  "icon": "app-logos/bemuse.png",
+  "publisher": "Bemuse team",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 4358,
+  "data": {
+   "type": "IFrame",
+   "url": "https://bemuse.ninja/",
+   "desc": "Web-based rhythm game — play with KEYBOARD or a BMS controller.",
+   "feat": "2 Gamemodes - Play with KEYBOARD or BMS CONTROLLER"
+  }
+ },
+ {
+  "id": "ipados-vm",
+  "name": "iPadOS VM",
+  "icon": "app-logos/ipados-vm.jpg",
+  "publisher": "goldengocoding",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 7129,
+  "data": {
+   "type": "IFrame",
+   "url": "https://goldengocoding.github.io/iPadOS/",
+   "desc": "iPadOS in HTML!! Run a little iPad inside Windows 11.",
+   "feat": "Run iPadOS in Windows 11"
+  }
+ },
+ {
+  "id": "3dtuning",
+  "name": "3D Tuning",
+  "icon": "app-logos/3dtuning.png",
+  "publisher": "3DTuning",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 6265,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.3dtuning.com/en-US/",
+   "desc": "Car tuning and styling in 3D — configure your dream ride online.",
+   "feat": "tuning, cars, 3D."
+  }
+ },
+ {
+  "id": "diep-io",
+  "name": "diep.io",
+  "icon": "app-logos/diep-io.png",
+  "publisher": "Matheus Valadares",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 4851,
+  "data": {
+   "type": "IFrame",
+   "url": "https://diep.io/",
+   "desc": "Tank shooter .io — level up, upgrade your build, dominate the arena."
+  }
+ },
+ {
+  "id": "splix-io",
+  "name": "splix.io",
+  "icon": "app-logos/splix-io.png",
+  "publisher": "JeZz20L",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 6018,
+  "data": {
+   "type": "IFrame",
+   "url": "https://splix.io/",
+   "desc": "Claim territory by closing loops — but never cross your own tail."
+  }
+ },
+ {
+  "id": "mope-io",
+  "name": "mope.io",
+  "icon": "app-logos/mope-io.png",
+  "publisher": "Stanley He",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 4891,
+  "data": {
+   "type": "IFrame",
+   "url": "https://mope.io/",
+   "desc": "Eat, grow and evolve through the food chain in this animal .io survival game."
+  }
+ },
+ {
+  "id": "starve-io",
+  "name": "starve.io",
+  "icon": "app-logos/starve-io.png",
+  "publisher": "LapaMauve",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 7088,
+  "data": {
+   "type": "IFrame",
+   "url": "https://starve.io/",
+   "desc": "Survive the night: gather, craft and build before the wolves come."
+  }
+ },
+ {
+  "id": "zombsroyale",
+  "name": "ZombsRoyale.io",
+  "icon": "app-logos/zombsroyale.png",
+  "publisher": "Two Men Games",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 10345,
+  "data": {
+   "type": "IFrame",
+   "url": "https://zombsroyale.io/",
+   "desc": "A 100-player 2D battle royale — drop in, loot up, be the last one standing."
+  }
+ },
+ {
+  "id": "littlebigsnake",
+  "name": "Little Big Snake",
+  "icon": "app-logos/littlebigsnake.png",
+  "publisher": "Addicting Games",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 14838,
+  "data": {
+   "type": "IFrame",
+   "url": "https://littlebigsnake.com/",
+   "desc": "The snake arena evolved — eat, grow, become the biggest snake in the pit."
+  }
+ },
+ {
+  "id": "taming-io",
+  "name": "taming.io",
+  "icon": "app-logos/taming-io.png",
+  "publisher": "Lapa",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 6981,
+  "data": {
+   "type": "IFrame",
+   "url": "https://taming.io/",
+   "desc": "Survive and tame wild pets in this click-and-slash .io survival."
+  }
+ },
+ {
+  "id": "gulper-io",
+  "name": "Gulper.io",
+  "icon": "app-logos/gulper-io.png",
+  "publisher": "Fulldroper",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 7084,
+  "data": {
+   "type": "IFrame",
+   "url": "https://gulper.io/",
+   "desc": "Snake battle arena — grow longer, trap rivals, rule the map."
+  }
+ },
+ {
+  "id": "defly-io",
+  "name": "defly.io",
+  "icon": "app-logos/defly-io.png",
+  "publisher": "Odd Even Games",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 5924,
+  "data": {
+   "type": "IFrame",
+   "url": "https://defly.io/",
+   "desc": "Build walls, place towers and capture territory — by helicopter."
+  }
+ },
+ {
+  "id": "superhex-io",
+  "name": "Superhex.io",
+  "icon": "app-logos/superhex-io.png",
+  "publisher": "Seduction Gaming",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 9716,
+  "data": {
+   "type": "IFrame",
+   "url": "https://superhex.io/",
+   "desc": "Conquer hex territories with your expanding beam — don't touch your own."
+  }
+ },
+ {
+  "id": "sploop-io",
+  "name": "Sploop.io",
+  "icon": "app-logos/sploop-io.png",
+  "publisher": "Sploop",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 7148,
+  "data": {
+   "type": "IFrame",
+   "url": "https://sploop.io/",
+   "desc": "Farm, build, raid — a fast-paced base-building .io game."
+  }
+ },
+ {
+  "id": "terr-io",
+  "name": "Terr.io",
+  "icon": "app-logos/terr-io.png",
+  "publisher": "Terr",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 4960,
+  "data": {
+   "type": "IFrame",
+   "url": "https://terr.io/",
+   "desc": "Territory control MMO — expand your land mass across a living map."
+  }
+ },
+ {
+  "id": "tldraw",
+  "name": "tldraw",
+  "icon": "app-logos/tldraw.png",
+  "publisher": "tldraw",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 4395,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.tldraw.com/",
+   "desc": "A tiny but mighty collaborative whiteboard — feels like paper, works like magic."
+  }
+ },
+ {
+  "id": "pixilart",
+  "name": "Pixil Art",
+  "icon": "app-logos/pixilart.png",
+  "publisher": "Pixilart",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 6504,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.pixilart.com/draw",
+   "desc": "Pixel art studio in the browser — draw sprites, animate frames, share."
+  }
+ },
+ {
+  "id": "devdocs",
+  "name": "DevDocs",
+  "icon": "app-logos/devdocs.png",
+  "publisher": "DevDocs",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 5298,
+  "data": {
+   "type": "IFrame",
+   "url": "https://devdocs.io/",
+   "desc": "Every API documentation in one fast, searchable, offline-capable interface."
+  }
+ },
+ {
+  "id": "regexr",
+  "name": "RegExr",
+  "icon": "app-logos/regexr.png",
+  "publisher": "gskinner",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 4419,
+  "data": {
+   "type": "IFrame",
+   "url": "https://regexr.com/",
+   "desc": "Build, test and debug regular expressions with live match highlighting."
+  }
+ },
+ {
+  "id": "onecompiler",
+  "name": "OneCompiler",
+  "icon": "app-logos/onecompiler.png",
+  "publisher": "OneCompiler",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 10261,
+  "data": {
+   "type": "IFrame",
+   "url": "https://onecompiler.com/",
+   "desc": "Run 40+ languages online — Python, Java, C++, SQL and more, no setup."
+  }
+ },
+ {
+  "id": "coolors",
+  "name": "Coolors",
+  "icon": "app-logos/coolors.png",
+  "publisher": "Coolors",
+  "type": "app",
+  "category": "Creativity",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 5468,
+  "data": {
+   "type": "IFrame",
+   "url": "https://coolors.co/",
+   "desc": "The super-fast color palette generator — press space, get inspired."
+  }
+ },
+ {
+  "id": "ptable",
+  "name": "PT — interactive periodic table",
+  "icon": "app-logos/ptable.jpg",
+  "publisher": "Michael Dayah",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 4237,
+  "data": {
+   "type": "IFrame",
+   "url": "https://ptable.com/",
+   "desc": "The dynamic interactive periodic table — elements, properties, orbits."
+  }
+ },
+ {
+  "id": "stellarium",
+  "name": "Stellarium Web",
+  "icon": "app-logos/stellarium.png",
+  "publisher": "Stellarium",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 8965,
+  "data": {
+   "type": "IFrame",
+   "url": "https://stellarium-web.org/",
+   "desc": "A planetarium in your browser — stars, constellations, planets, live."
+  }
+ },
+ {
+  "id": "solar-scope",
+  "name": "Solar System Scope",
+  "icon": "app-logos/solar-scope.png",
+  "publisher": "Inove",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 9772,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.solarsystemscope.com/",
+   "desc": "A 3D interactive model of the Solar System and night sky."
+  }
+ },
+ {
+  "id": "scale-universe",
+  "name": "Scale of the Universe",
+  "icon": "app-logos/scale-universe.png",
+  "publisher": "Cary & Michael Huang",
+  "type": "app",
+  "category": "Reference",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 14715,
+  "data": {
+   "type": "IFrame",
+   "url": "https://htwins.net/scale2/",
+   "desc": "Zoom from quantum foam to the observable universe in one continuous scale."
+  }
+ },
+ {
+  "id": "chosic",
+  "name": "Chosic",
+  "icon": "app-logos/chosic.png",
+  "publisher": "Chosic",
+  "type": "app",
+  "category": "Music & Audio",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 4285,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.chosic.com/free-music/all/",
+   "desc": "Free royalty-free music library — search, listen, download."
+  }
+ },
+ {
+  "id": "password-game",
+  "name": "The Password Game",
+  "icon": "app-logos/password-game.png",
+  "publisher": "Neal Agarwal",
+  "type": "game",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 12569,
+  "data": {
+   "type": "IFrame",
+   "url": "https://neal.fun/password-game/",
+   "desc": "The increasingly absurd password rules that broke the internet."
+  }
+ },
+ {
+  "id": "useless-web",
+  "name": "The Useless Web",
+  "icon": "app-logos/useless-web.png",
+  "publisher": "Tim Holman",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 9671,
+  "data": {
+   "type": "IFrame",
+   "url": "https://theuselessweb.com/",
+   "desc": "One button. Endless wonderfully useless websites. Please press it."
+  }
+ },
+ {
+  "id": "pointerpointer",
+  "name": "Pointer Pointer",
+  "icon": "app-logos/pointerpointer.jpg",
+  "publisher": "Studio Moniek",
+  "type": "app",
+  "category": "Community picks",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 15405,
+  "data": {
+   "type": "IFrame",
+   "url": "https://pointerpointer.com/",
+   "desc": "Move your mouse anywhere — a photo of someone pointing at it appears."
+  }
+ },
+ {
+  "id": "keybr",
+  "name": "keybr",
+  "icon": "app-logos/keybr.png",
+  "publisher": "keybr",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 3516,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.keybr.com/",
+   "desc": "Learn touch typing fast with smart practice that adapts to your weak keys."
+  }
+ },
+ {
+  "id": "ztype",
+  "name": "ZType",
+  "icon": "app-logos/ztype.png",
+  "publisher": "Dominic Szablewski",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 3614,
+  "data": {
+   "type": "IFrame",
+   "url": "https://zty.pe/",
+   "desc": "Typing shooter — destroy incoming missiles by typing the words."
+  }
+ },
+ {
+  "id": "typingtest",
+  "name": "Typing Test",
+  "icon": "app-logos/typingtest.png",
+  "publisher": "TypingTest",
+  "type": "app",
+  "category": "Utilities",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 9127,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.typingtest.com/",
+   "desc": "Measure your WPM with classic one-minute and three-minute tests."
+  }
+ },
+ {
+  "id": "gutenberg-moby-dick-or-the-whale-2701",
+  "name": "Moby Dick; Or, The Whale — Gutenberg",
+  "icon": "app-logos/gutenberg-moby-dick-or-the-whale-2701.jpg",
+  "publisher": "Herman Melville",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 66605,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2701",
+   "desc": "Moby Dick; Or, The Whale by Herman Melville — free to read online or download. Project Gutenberg ebook #2701, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-pride-and-prejudice-1342",
+  "name": "Pride and Prejudice — Gutenberg",
+  "icon": "app-logos/gutenberg-pride-and-prejudice-1342.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 58035,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1342",
+   "desc": "Pride and Prejudice by Jane Austen — free to read online or download. Project Gutenberg ebook #1342, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-odyssey-1727",
+  "name": "The Odyssey — Gutenberg",
+  "icon": "app-logos/gutenberg-the-odyssey-1727.jpg",
+  "publisher": "Homer",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 35569,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1727",
+   "desc": "The Odyssey by Homer — free to read online or download. Project Gutenberg ebook #1727, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-room-with-a-view-2641",
+  "name": "A Room with a View — Gutenberg",
+  "icon": "app-logos/gutenberg-a-room-with-a-view-2641.jpg",
+  "publisher": "E. M.  Forster",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 53209,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2641",
+   "desc": "A Room with a View by E. M.  Forster — free to read online or download. Project Gutenberg ebook #2641, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-crime-and-punishment-2554",
+  "name": "Crime and Punishment — Gutenberg",
+  "icon": "app-logos/gutenberg-crime-and-punishment-2554.jpg",
+  "publisher": "Fyodor Dostoyevsky",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 62967,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2554",
+   "desc": "Crime and Punishment by Fyodor Dostoyevsky — free to read online or download. Project Gutenberg ebook #2554, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-secret-of-chimneys-65238",
+  "name": "The Secret of Chimneys — Gutenberg",
+  "icon": "app-logos/gutenberg-the-secret-of-chimneys-65238.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 71318,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/65238",
+   "desc": "The Secret of Chimneys by Agatha Christie — free to read online or download. Project Gutenberg ebook #65238, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-mysteries-of-udolpho-3268",
+  "name": "The Mysteries of Udolpho — Gutenberg",
+  "icon": "app-logos/gutenberg-the-mysteries-of-udolpho-3268.jpg",
+  "publisher": "Ann Ward Radcliffe",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 77624,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3268",
+   "desc": "The Mysteries of Udolpho by Ann Ward Radcliffe — free to read online or download. Project Gutenberg ebook #3268, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-romeo-and-juliet-1513",
+  "name": "Romeo and Juliet — Gutenberg",
+  "icon": "app-logos/gutenberg-romeo-and-juliet-1513.jpg",
+  "publisher": "William Shakespeare",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 48476,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1513",
+   "desc": "Romeo and Juliet by William Shakespeare — free to read online or download. Project Gutenberg ebook #1513, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-carmen-2465",
+  "name": "Carmen — Gutenberg",
+  "icon": "app-logos/gutenberg-carmen-2465.jpg",
+  "publisher": "Prosper Mérimée",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 23189,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2465",
+   "desc": "Carmen by Prosper Mérimée — free to read online or download. Project Gutenberg ebook #2465, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-green-mummy-2868",
+  "name": "The Green Mummy — Gutenberg",
+  "icon": "app-logos/gutenberg-the-green-mummy-2868.jpg",
+  "publisher": "Fergus Hume",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 46277,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2868",
+   "desc": "The Green Mummy by Fergus Hume — free to read online or download. Project Gutenberg ebook #2868, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-adventures-of-sherlock-holmes-1661",
+  "name": "The Adventures of Sherlock Holmes — Gutenberg",
+  "icon": "app-logos/gutenberg-the-adventures-of-sherlock-holmes-1661.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 18360,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1661",
+   "desc": "The Adventures of Sherlock Holmes by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #1661, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-blue-castle-a-novel-67979",
+  "name": "The Blue Castle: a novel — Gutenberg",
+  "icon": "app-logos/gutenberg-the-blue-castle-a-novel-67979.jpg",
+  "publisher": "L. M.  Montgomery",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 73601,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/67979",
+   "desc": "The Blue Castle: a novel by L. M.  Montgomery — free to read online or download. Project Gutenberg ebook #67979, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-jane-eyre-an-autobiography-1260",
+  "name": "Jane Eyre: An Autobiography — Gutenberg",
+  "icon": "app-logos/gutenberg-jane-eyre-an-autobiography-1260.jpg",
+  "publisher": "Charlotte Brontë",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 85450,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1260",
+   "desc": "Jane Eyre: An Autobiography by Charlotte Brontë — free to read online or download. Project Gutenberg ebook #1260, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-love-letters-of-mary-wollstonecraft-to-gilbert-imlay-344",
+  "name": "The Love Letters of Mary Wollstonecraft to Gilbert Imlay — Gutenberg",
+  "icon": "app-logos/gutenberg-the-love-letters-of-mary-wollstonecraft-to-gilbert-imlay-344.jpg",
+  "publisher": "Mary Wollstonecraft",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 53088,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/34413",
+   "desc": "The Love Letters of Mary Wollstonecraft to Gilbert Imlay by Mary Wollstonecraft — free to read online or download. Project Gutenberg ebook #34413, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-le-fant-me-de-l-op-ra-62215",
+  "name": "Le Fantôme de l'Opéra — Gutenberg",
+  "icon": "app-logos/gutenberg-le-fant-me-de-l-op-ra-62215.jpg",
+  "publisher": "Gaston Leroux",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 61536,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/62215",
+   "desc": "Le Fantôme de l'Opéra by Gaston Leroux — free to read online or download. Project Gutenberg ebook #62215, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-man-who-was-thursday-a-nightmare-1695",
+  "name": "The Man Who Was Thursday: A Nightmare — Gutenberg",
+  "icon": "app-logos/gutenberg-the-man-who-was-thursday-a-nightmare-1695.jpg",
+  "publisher": "G. K.  Chesterton",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 31282,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1695",
+   "desc": "The Man Who Was Thursday: A Nightmare by G. K.  Chesterton — free to read online or download. Project Gutenberg ebook #1695, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-dracula-345",
+  "name": "Dracula — Gutenberg",
+  "icon": "app-logos/gutenberg-dracula-345.jpg",
+  "publisher": "Bram Stoker",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 24084,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/345",
+   "desc": "Dracula by Bram Stoker — free to read online or download. Project Gutenberg ebook #345, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-alice-s-adventures-in-wonderland-11",
+  "name": "Alice's Adventures in Wonderland — Gutenberg",
+  "icon": "app-logos/gutenberg-alice-s-adventures-in-wonderland-11.jpg",
+  "publisher": "Lewis Carroll",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 8113,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/11",
+   "desc": "Alice's Adventures in Wonderland by Lewis Carroll — free to read online or download. Project Gutenberg ebook #11, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-my-life-volume-1-5197",
+  "name": "My Life — Volume 1 — Gutenberg",
+  "icon": "app-logos/gutenberg-my-life-volume-1-5197.jpg",
+  "publisher": "Richard Wagner",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 46196,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/5197",
+   "desc": "My Life — Volume 1 by Richard Wagner — free to read online or download. Project Gutenberg ebook #5197, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-sense-and-sensibility-21839",
+  "name": "Sense and Sensibility — Gutenberg",
+  "icon": "app-logos/gutenberg-sense-and-sensibility-21839.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 69008,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/21839",
+   "desc": "Sense and Sensibility by Jane Austen — free to read online or download. Project Gutenberg ebook #21839, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-strange-case-of-dr-jekyll-and-mr-hyde-43",
+  "name": "The strange case of Dr. Jekyll and Mr. Hyde — Gutenberg",
+  "icon": "app-logos/gutenberg-the-strange-case-of-dr-jekyll-and-mr-hyde-43.jpg",
+  "publisher": "Robert Louis Stevenson",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 45711,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/43",
+   "desc": "The strange case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson — free to read online or download. Project Gutenberg ebook #43, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-extraordinary-adventures-of-ars-ne-lupin-gentleman-burgl",
+  "name": "The Extraordinary Adventures of Arsène Lupin, Gentleman-Burglar — Gutenberg",
+  "icon": "app-logos/gutenberg-the-extraordinary-adventures-of-ars-ne-lupin-gentleman-burgl.jpg",
+  "publisher": "Maurice Leblanc",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 65193,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/6133",
+   "desc": "The Extraordinary Adventures of Arsène Lupin, Gentleman-Burglar by Maurice Leblanc — free to read online or download. Project Gutenberg ebook #6133, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-strange-case-of-dr-jekyll-and-mr-hyde-42",
+  "name": "The strange case of Dr. Jekyll and Mr. Hyde — Gutenberg",
+  "icon": "app-logos/gutenberg-the-strange-case-of-dr-jekyll-and-mr-hyde-42.jpg",
+  "publisher": "Robert Louis Stevenson",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 45655,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/42",
+   "desc": "The strange case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson — free to read online or download. Project Gutenberg ebook #42, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-meditations-2680",
+  "name": "Meditations — Gutenberg",
+  "icon": "app-logos/gutenberg-meditations-2680.jpg",
+  "publisher": "Emperor of Rome Marcus Aurelius",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 36058,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2680",
+   "desc": "Meditations by Emperor of Rome Marcus Aurelius — free to read online or download. Project Gutenberg ebook #2680, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-lady-of-the-lake-3011",
+  "name": "The Lady of the Lake — Gutenberg",
+  "icon": "app-logos/gutenberg-the-lady-of-the-lake-3011.jpg",
+  "publisher": "Walter Scott",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 58611,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3011",
+   "desc": "The Lady of the Lake by Walter Scott — free to read online or download. Project Gutenberg ebook #3011, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-manon-lescaut-468",
+  "name": "Manon Lescaut — Gutenberg",
+  "icon": "app-logos/gutenberg-manon-lescaut-468.jpg",
+  "publisher": "abbé Prévost",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 39234,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/468",
+   "desc": "Manon Lescaut by abbé Prévost — free to read online or download. Project Gutenberg ebook #468, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-book-of-the-thousand-nights-and-a-night-volume-01-of-10-",
+  "name": "The Book of the Thousand Nights and a Night — Volume 01 (of 10) — Gutenberg",
+  "icon": "app-logos/gutenberg-the-book-of-the-thousand-nights-and-a-night-volume-01-of-10.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 33306,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/51252",
+   "desc": "The Book of the Thousand Nights and a Night — Volume 01 (of 10) by Unknown — free to read online or download. Project Gutenberg ebook #51252, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-eloisa-76639",
+  "name": "Eloisa : — Gutenberg",
+  "icon": "app-logos/gutenberg-eloisa-76639.jpg",
+  "publisher": "Jean-Jacques Rousseau",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 24728,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/76639",
+   "desc": "Eloisa : by Jean-Jacques Rousseau — free to read online or download. Project Gutenberg ebook #76639, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-mystery-of-edwin-drood-564",
+  "name": "The Mystery of Edwin Drood — Gutenberg",
+  "icon": "app-logos/gutenberg-the-mystery-of-edwin-drood-564.jpg",
+  "publisher": "Charles Dickens",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 82032,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/564",
+   "desc": "The Mystery of Edwin Drood by Charles Dickens — free to read online or download. Project Gutenberg ebook #564, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-oliver-twist-vol-2-of-3-47530",
+  "name": "Oliver Twist, Vol. 2 (of 3) — Gutenberg",
+  "icon": "app-logos/gutenberg-oliver-twist-vol-2-of-3-47530.jpg",
+  "publisher": "Charles Dickens",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 67995,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/47530",
+   "desc": "Oliver Twist, Vol. 2 (of 3) by Charles Dickens — free to read online or download. Project Gutenberg ebook #47530, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-thuvia-maid-of-mars-72",
+  "name": "Thuvia, maid of Mars — Gutenberg",
+  "icon": "app-logos/gutenberg-thuvia-maid-of-mars-72.jpg",
+  "publisher": "Edgar Rice Burroughs",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 53386,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/72",
+   "desc": "Thuvia, maid of Mars by Edgar Rice Burroughs — free to read online or download. Project Gutenberg ebook #72, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-misplaced-battleship-22541",
+  "name": "The Misplaced Battleship — Gutenberg",
+  "icon": "app-logos/gutenberg-the-misplaced-battleship-22541.jpg",
+  "publisher": "Harry Harrison",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 79828,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/22541",
+   "desc": "The Misplaced Battleship by Harry Harrison — free to read online or download. Project Gutenberg ebook #22541, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-farewell-to-arms-75201",
+  "name": "A farewell to arms — Gutenberg",
+  "icon": "app-logos/gutenberg-a-farewell-to-arms-75201.jpg",
+  "publisher": "Ernest Hemingway",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 55927,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/75201",
+   "desc": "A farewell to arms by Ernest Hemingway — free to read online or download. Project Gutenberg ebook #75201, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-dracula-45839",
+  "name": "Dracula — Gutenberg",
+  "icon": "app-logos/gutenberg-dracula-45839.jpg",
+  "publisher": "Bram Stoker",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 26845,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/45839",
+   "desc": "Dracula by Bram Stoker — free to read online or download. Project Gutenberg ebook #45839, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-confessions-of-st-augustine-3296",
+  "name": "The Confessions of St. Augustine — Gutenberg",
+  "icon": "app-logos/gutenberg-the-confessions-of-st-augustine-3296.jpg",
+  "publisher": "Saint of Hippo Augustine",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 9680,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3296",
+   "desc": "The Confessions of St. Augustine by Saint of Hippo Augustine — free to read online or download. Project Gutenberg ebook #3296, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-yeoman-adventurer-7326",
+  "name": "The Yeoman Adventurer — Gutenberg",
+  "icon": "app-logos/gutenberg-the-yeoman-adventurer-7326.jpg",
+  "publisher": "George W. Gough",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 67192,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/7326",
+   "desc": "The Yeoman Adventurer by George W. Gough — free to read online or download. Project Gutenberg ebook #7326, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-pride-and-prejudice-42671",
+  "name": "Pride and Prejudice — Gutenberg",
+  "icon": "app-logos/gutenberg-pride-and-prejudice-42671.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 60163,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/42671",
+   "desc": "Pride and Prejudice by Jane Austen — free to read online or download. Project Gutenberg ebook #42671, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-middlemarch-145",
+  "name": "Middlemarch — Gutenberg",
+  "icon": "app-logos/gutenberg-middlemarch-145.jpg",
+  "publisher": "George Eliot",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 33743,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/145",
+   "desc": "Middlemarch by George Eliot — free to read online or download. Project Gutenberg ebook #145, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-honeymoon-in-space-19476",
+  "name": "A Honeymoon in Space — Gutenberg",
+  "icon": "app-logos/gutenberg-a-honeymoon-in-space-19476.jpg",
+  "publisher": "George Chetwynd Griffith",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 63300,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/19476",
+   "desc": "A Honeymoon in Space by George Chetwynd Griffith — free to read online or download. Project Gutenberg ebook #19476, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-modern-english-biography-volume-2-of-4-i-q-71046",
+  "name": "Modern English biography, volume 2 (of 4), I-Q — Gutenberg",
+  "icon": "app-logos/gutenberg-modern-english-biography-volume-2-of-4-i-q-71046.jpg",
+  "publisher": "Frederic Boase",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 53674,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/71046",
+   "desc": "Modern English biography, volume 2 (of 4), I-Q by Frederic Boase — free to read online or download. Project Gutenberg ebook #71046, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-bidwell-s-travels-from-wall-street-to-london-prison-fifteen-",
+  "name": "Bidwell's Travels, from Wall Street to London Prison: Fifteen Years in Solitude — Gutenberg",
+  "icon": "app-logos/gutenberg-bidwell-s-travels-from-wall-street-to-london-prison-fifteen.jpg",
+  "publisher": "Austin Bidwell",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 61407,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/24739",
+   "desc": "Bidwell's Travels, from Wall Street to London Prison: Fifteen Years in Solitude by Austin Bidwell — free to read online or download. Project Gutenberg ebook #24739, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-king-in-yellow-8492",
+  "name": "The King in Yellow — Gutenberg",
+  "icon": "app-logos/gutenberg-the-king-in-yellow-8492.jpg",
+  "publisher": "Robert W.  Chambers",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 54933,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/8492",
+   "desc": "The King in Yellow by Robert W.  Chambers — free to read online or download. Project Gutenberg ebook #8492, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-complete-works-of-william-shakespeare-100",
+  "name": "The Complete Works of William Shakespeare — Gutenberg",
+  "icon": "app-logos/gutenberg-the-complete-works-of-william-shakespeare-100.jpg",
+  "publisher": "William Shakespeare",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 56385,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/100",
+   "desc": "The Complete Works of William Shakespeare by William Shakespeare — free to read online or download. Project Gutenberg ebook #100, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-catriona-589",
+  "name": "Catriona — Gutenberg",
+  "icon": "app-logos/gutenberg-catriona-589.jpg",
+  "publisher": "Robert Louis Stevenson",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 26828,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/589",
+   "desc": "Catriona by Robert Louis Stevenson — free to read online or download. Project Gutenberg ebook #589, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-complete-project-gutenberg-works-of-jane-austen-31100",
+  "name": "The Complete Project Gutenberg Works of Jane Austen — Gutenberg",
+  "icon": "app-logos/gutenberg-the-complete-project-gutenberg-works-of-jane-austen-31100.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 23325,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/31100",
+   "desc": "The Complete Project Gutenberg Works of Jane Austen by Jane Austen — free to read online or download. Project Gutenberg ebook #31100, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-king-arthur-and-the-knights-of-the-round-table-36462",
+  "name": "King Arthur and the Knights of the Round Table — Gutenberg",
+  "icon": "app-logos/gutenberg-king-arthur-and-the-knights-of-the-round-table-36462.jpg",
+  "publisher": "Sir Thomas Malory",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 86357,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/36462",
+   "desc": "King Arthur and the Knights of the Round Table by Sir Thomas Malory — free to read online or download. Project Gutenberg ebook #36462, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-study-in-scarlet-244",
+  "name": "A Study in Scarlet — Gutenberg",
+  "icon": "app-logos/gutenberg-a-study-in-scarlet-244.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 52906,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/244",
+   "desc": "A Study in Scarlet by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #244, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-under-the-red-dragon-a-novel-53874",
+  "name": "Under the Red Dragon: A Novel — Gutenberg",
+  "icon": "app-logos/gutenberg-under-the-red-dragon-a-novel-53874.jpg",
+  "publisher": "James Grant",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 92594,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/53874",
+   "desc": "Under the Red Dragon: A Novel by James Grant — free to read online or download. Project Gutenberg ebook #53874, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-around-the-world-in-eighty-days-103",
+  "name": "Around the World in Eighty Days — Gutenberg",
+  "icon": "app-logos/gutenberg-around-the-world-in-eighty-days-103.jpg",
+  "publisher": "Jules Verne",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 4026,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/103",
+   "desc": "Around the World in Eighty Days by Jules Verne — free to read online or download. Project Gutenberg ebook #103, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-little-women-or-meg-jo-beth-and-amy-37106",
+  "name": "Little Women; Or, Meg, Jo, Beth, and Amy — Gutenberg",
+  "icon": "app-logos/gutenberg-little-women-or-meg-jo-beth-and-amy-37106.jpg",
+  "publisher": "Louisa May Alcott",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 23848,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/37106",
+   "desc": "Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott — free to read online or download. Project Gutenberg ebook #37106, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-countess-of-pembroke-s-arcadia-70854",
+  "name": "The Countess of Pembroke's Arcadia — Gutenberg",
+  "icon": "app-logos/gutenberg-the-countess-of-pembroke-s-arcadia-70854.jpg",
+  "publisher": "Philip Sidney",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 22714,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/70854",
+   "desc": "The Countess of Pembroke's Arcadia by Philip Sidney — free to read online or download. Project Gutenberg ebook #70854, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-count-of-monte-cristo-1184",
+  "name": "The Count of Monte Cristo — Gutenberg",
+  "icon": "app-logos/gutenberg-the-count-of-monte-cristo-1184.jpg",
+  "publisher": "Alexandre Dumas and Auguste Maquet",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 80463,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1184",
+   "desc": "The Count of Monte Cristo by Alexandre Dumas and Auguste Maquet — free to read online or download. Project Gutenberg ebook #1184, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-hound-of-the-baskervilles-2852",
+  "name": "The Hound of the Baskervilles — Gutenberg",
+  "icon": "app-logos/gutenberg-the-hound-of-the-baskervilles-2852.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 97575,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2852",
+   "desc": "The Hound of the Baskervilles by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #2852, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-rom-o-et-juliette-18143",
+  "name": "Roméo et Juliette — Gutenberg",
+  "icon": "app-logos/gutenberg-rom-o-et-juliette-18143.jpg",
+  "publisher": "William Shakespeare",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 53317,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/18143",
+   "desc": "Roméo et Juliette by William Shakespeare — free to read online or download. Project Gutenberg ebook #18143, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-twenty-years-after-1259",
+  "name": "Twenty years after — Gutenberg",
+  "icon": "app-logos/gutenberg-twenty-years-after-1259.jpg",
+  "publisher": "Alexandre Dumas and Auguste Maquet",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 55958,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1259",
+   "desc": "Twenty years after by Alexandre Dumas and Auguste Maquet — free to read online or download. Project Gutenberg ebook #1259, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-love-and-freindship-sic-1212",
+  "name": "Love and Freindship [sic] — Gutenberg",
+  "icon": "app-logos/gutenberg-love-and-freindship-sic-1212.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 71776,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1212",
+   "desc": "Love and Freindship [sic] by Jane Austen — free to read online or download. Project Gutenberg ebook #1212, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-camille-la-dame-aux-camilias-1608",
+  "name": "Camille (La Dame aux Camilias) — Gutenberg",
+  "icon": "app-logos/gutenberg-camille-la-dame-aux-camilias-1608.jpg",
+  "publisher": "Alexandre Dumas",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 90550,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1608",
+   "desc": "Camille (La Dame aux Camilias) by Alexandre Dumas — free to read online or download. Project Gutenberg ebook #1608, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-life-on-the-mississippi-245",
+  "name": "Life on the Mississippi — Gutenberg",
+  "icon": "app-logos/gutenberg-life-on-the-mississippi-245.jpg",
+  "publisher": "Mark Twain",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 71831,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/245",
+   "desc": "Life on the Mississippi by Mark Twain — free to read online or download. Project Gutenberg ebook #245, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-works-of-edgar-allan-poe-volume-2-2148",
+  "name": "The Works of Edgar Allan Poe — Volume 2 — Gutenberg",
+  "icon": "app-logos/gutenberg-the-works-of-edgar-allan-poe-volume-2-2148.jpg",
+  "publisher": "Edgar Allan Poe",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 30009,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2148",
+   "desc": "The Works of Edgar Allan Poe — Volume 2 by Edgar Allan Poe — free to read online or download. Project Gutenberg ebook #2148, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-as-you-like-it-1523",
+  "name": "As You Like It — Gutenberg",
+  "icon": "app-logos/gutenberg-as-you-like-it-1523.jpg",
+  "publisher": "William Shakespeare",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 41337,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1523",
+   "desc": "As You Like It by William Shakespeare — free to read online or download. Project Gutenberg ebook #1523, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-i-am-a-woman-76178",
+  "name": "I am a woman — Gutenberg",
+  "icon": "app-logos/gutenberg-i-am-a-woman-76178.jpg",
+  "publisher": "Ann Bannon",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 37239,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/76178",
+   "desc": "I am a woman by Ann Bannon — free to read online or download. Project Gutenberg ebook #76178, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-innocence-of-father-brown-204",
+  "name": "The innocence of Father Brown — Gutenberg",
+  "icon": "app-logos/gutenberg-the-innocence-of-father-brown-204.jpg",
+  "publisher": "G. K.  Chesterton",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 93677,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/204",
+   "desc": "The innocence of Father Brown by G. K.  Chesterton — free to read online or download. Project Gutenberg ebook #204, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-sense-and-sensibility-161",
+  "name": "Sense and Sensibility — Gutenberg",
+  "icon": "app-logos/gutenberg-sense-and-sensibility-161.jpg",
+  "publisher": "Jane Austen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 64733,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/161",
+   "desc": "Sense and Sensibility by Jane Austen — free to read online or download. Project Gutenberg ebook #161, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-works-of-edgar-allan-poe-volume-1-2147",
+  "name": "The Works of Edgar Allan Poe — Volume 1 — Gutenberg",
+  "icon": "app-logos/gutenberg-the-works-of-edgar-allan-poe-volume-1-2147.jpg",
+  "publisher": "Edgar Allan Poe",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 29906,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2147",
+   "desc": "The Works of Edgar Allan Poe — Volume 1 by Edgar Allan Poe — free to read online or download. Project Gutenberg ebook #2147, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-sonnets-from-the-portuguese-2002",
+  "name": "Sonnets from the Portuguese — Gutenberg",
+  "icon": "app-logos/gutenberg-sonnets-from-the-portuguese-2002.jpg",
+  "publisher": "Elizabeth Barrett Browning",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 90537,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2002",
+   "desc": "Sonnets from the Portuguese by Elizabeth Barrett Browning — free to read online or download. Project Gutenberg ebook #2002, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-wisdom-of-father-brown-223",
+  "name": "The wisdom of Father Brown — Gutenberg",
+  "icon": "app-logos/gutenberg-the-wisdom-of-father-brown-223.jpg",
+  "publisher": "G. K.  Chesterton",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 81550,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/223",
+   "desc": "The wisdom of Father Brown by G. K.  Chesterton — free to read online or download. Project Gutenberg ebook #223, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-turn-of-the-screw-209",
+  "name": "The Turn of the Screw — Gutenberg",
+  "icon": "app-logos/gutenberg-the-turn-of-the-screw-209.jpg",
+  "publisher": "Henry James",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 62201,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/209",
+   "desc": "The Turn of the Screw by Henry James — free to read online or download. Project Gutenberg ebook #209, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-pair-of-blue-eyes-224",
+  "name": "A pair of blue eyes — Gutenberg",
+  "icon": "app-logos/gutenberg-a-pair-of-blue-eyes-224.jpg",
+  "publisher": "Thomas Hardy",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 54360,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/224",
+   "desc": "A pair of blue eyes by Thomas Hardy — free to read online or download. Project Gutenberg ebook #224, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-return-of-sherlock-holmes-108",
+  "name": "The Return of Sherlock Holmes — Gutenberg",
+  "icon": "app-logos/gutenberg-the-return-of-sherlock-holmes-108.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 95107,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/108",
+   "desc": "The Return of Sherlock Holmes by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #108, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-kama-sutra-of-vatsyayana-27827",
+  "name": "The Kama Sutra of Vatsyayana — Gutenberg",
+  "icon": "app-logos/gutenberg-the-kama-sutra-of-vatsyayana-27827.jpg",
+  "publisher": "Vatsyayana",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 95881,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/27827",
+   "desc": "The Kama Sutra of Vatsyayana by Vatsyayana — free to read online or download. Project Gutenberg ebook #27827, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-memoirs-of-sherlock-holmes-834",
+  "name": "The Memoirs of Sherlock Holmes — Gutenberg",
+  "icon": "app-logos/gutenberg-the-memoirs-of-sherlock-holmes-834.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 1625,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/834",
+   "desc": "The Memoirs of Sherlock Holmes by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #834, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-undine-2825",
+  "name": "Undine — Gutenberg",
+  "icon": "app-logos/gutenberg-undine-2825.jpg",
+  "publisher": "Freiherr de Friedrich Heinrich Karl La Motte-Fouqué",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 23318,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2825",
+   "desc": "Undine by Freiherr de Friedrich Heinrich Karl La Motte-Fouqué — free to read online or download. Project Gutenberg ebook #2825, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-complete-short-works-of-george-meredith-4499",
+  "name": "Complete Short Works of George Meredith — Gutenberg",
+  "icon": "app-logos/gutenberg-complete-short-works-of-george-meredith-4499.jpg",
+  "publisher": "George Meredith",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 48764,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/4499",
+   "desc": "Complete Short Works of George Meredith by George Meredith — free to read online or download. Project Gutenberg ebook #4499, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-narrative-of-the-life-of-frederick-douglass-an-american-slav",
+  "name": "Narrative of the Life of Frederick Douglass, an American Slave — Gutenberg",
+  "icon": "app-logos/gutenberg-narrative-of-the-life-of-frederick-douglass-an-american-slav.jpg",
+  "publisher": "Frederick Douglass",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 59705,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/23",
+   "desc": "Narrative of the Life of Frederick Douglass, an American Slave by Frederick Douglass — free to read online or download. Project Gutenberg ebook #23, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-home-book-of-verse-volume-2-2620",
+  "name": "The Home Book of Verse — Volume 2 — Gutenberg",
+  "icon": "app-logos/gutenberg-the-home-book-of-verse-volume-2-2620.jpg",
+  "publisher": "Burton Egbert Stevenson",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 2470,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2620",
+   "desc": "The Home Book of Verse — Volume 2 by Burton Egbert Stevenson — free to read online or download. Project Gutenberg ebook #2620, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-cynthia-s-chauffeur-31472",
+  "name": "Cynthia's Chauffeur — Gutenberg",
+  "icon": "app-logos/gutenberg-cynthia-s-chauffeur-31472.jpg",
+  "publisher": "Louis Tracy",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 60594,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/31472",
+   "desc": "Cynthia's Chauffeur by Louis Tracy — free to read online or download. Project Gutenberg ebook #31472, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-red-lily-complete-3922",
+  "name": "The Red Lily — Complete — Gutenberg",
+  "icon": "app-logos/gutenberg-the-red-lily-complete-3922.jpg",
+  "publisher": "Anatole France",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 65289,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3922",
+   "desc": "The Red Lily — Complete by Anatole France — free to read online or download. Project Gutenberg ebook #3922, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-cask-of-amontillado-1063",
+  "name": "The Cask of Amontillado — Gutenberg",
+  "icon": "app-logos/gutenberg-the-cask-of-amontillado-1063.jpg",
+  "publisher": "Edgar Allan Poe",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 72348,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/1063",
+   "desc": "The Cask of Amontillado by Edgar Allan Poe — free to read online or download. Project Gutenberg ebook #1063, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-murder-of-roger-ackroyd-69087",
+  "name": "The murder of Roger Ackroyd — Gutenberg",
+  "icon": "app-logos/gutenberg-the-murder-of-roger-ackroyd-69087.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 91020,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/69087",
+   "desc": "The murder of Roger Ackroyd by Agatha Christie — free to read online or download. Project Gutenberg ebook #69087, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-one-of-the-six-hundred-a-novel-55179",
+  "name": "One of the Six Hundred: A Novel — Gutenberg",
+  "icon": "app-logos/gutenberg-one-of-the-six-hundred-a-novel-55179.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 3267,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/55179",
+   "desc": "One of the Six Hundred: A Novel by Unknown — free to read online or download. Project Gutenberg ebook #55179, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-el-crimen-y-el-castigo-61851",
+  "name": "El crimen y el castigo — Gutenberg",
+  "icon": "app-logos/gutenberg-el-crimen-y-el-castigo-61851.jpg",
+  "publisher": "Fyodor Dostoyevsky",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 69404,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/61851",
+   "desc": "El crimen y el castigo by Fyodor Dostoyevsky — free to read online or download. Project Gutenberg ebook #61851, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-mysterious-affair-at-styles-863",
+  "name": "The Mysterious Affair at Styles — Gutenberg",
+  "icon": "app-logos/gutenberg-the-mysterious-affair-at-styles-863.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 6971,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/863",
+   "desc": "The Mysterious Affair at Styles by Agatha Christie — free to read online or download. Project Gutenberg ebook #863, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-phantom-of-the-opera-175",
+  "name": "The Phantom of the Opera — Gutenberg",
+  "icon": "app-logos/gutenberg-the-phantom-of-the-opera-175.jpg",
+  "publisher": "Gaston Leroux",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 72809,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/175",
+   "desc": "The Phantom of the Opera by Gaston Leroux — free to read online or download. Project Gutenberg ebook #175, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-call-of-cthulhu-68283",
+  "name": "The call of Cthulhu — Gutenberg",
+  "icon": "app-logos/gutenberg-the-call-of-cthulhu-68283.jpg",
+  "publisher": "H. P.  Lovecraft",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 59925,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/68283",
+   "desc": "The call of Cthulhu by H. P.  Lovecraft — free to read online or download. Project Gutenberg ebook #68283, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-passionate-elopement-38177",
+  "name": "The Passionate Elopement — Gutenberg",
+  "icon": "app-logos/gutenberg-the-passionate-elopement-38177.jpg",
+  "publisher": "Compton MacKenzie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 80982,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/38177",
+   "desc": "The Passionate Elopement by Compton MacKenzie — free to read online or download. Project Gutenberg ebook #38177, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-what-will-people-say-a-novel-38311",
+  "name": "What Will People Say? A Novel — Gutenberg",
+  "icon": "app-logos/gutenberg-what-will-people-say-a-novel-38311.jpg",
+  "publisher": "Rupert Hughes",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 93004,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/38311",
+   "desc": "What Will People Say? A Novel by Rupert Hughes — free to read online or download. Project Gutenberg ebook #38311, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-sign-of-the-four-2097",
+  "name": "The Sign of the Four — Gutenberg",
+  "icon": "app-logos/gutenberg-the-sign-of-the-four-2097.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 60159,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2097",
+   "desc": "The Sign of the Four by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #2097, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-de-profundis-921",
+  "name": "De Profundis — Gutenberg",
+  "icon": "app-logos/gutenberg-de-profundis-921.jpg",
+  "publisher": "Oscar Wilde",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 36448,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/921",
+   "desc": "De Profundis by Oscar Wilde — free to read online or download. Project Gutenberg ebook #921, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-trial-76668",
+  "name": "Trial — Gutenberg",
+  "icon": "app-logos/gutenberg-trial-76668.jpg",
+  "publisher": "water by Sewell Peaslee Wright",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 22651,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/76668",
+   "desc": "Trial by water by Sewell Peaslee Wright — free to read online or download. Project Gutenberg ebook #76668, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-autobiography-of-benjamin-franklin-20203",
+  "name": "Autobiography of Benjamin Franklin — Gutenberg",
+  "icon": "app-logos/gutenberg-autobiography-of-benjamin-franklin-20203.jpg",
+  "publisher": "Benjamin Franklin",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 25634,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/20203",
+   "desc": "Autobiography of Benjamin Franklin by Benjamin Franklin — free to read online or download. Project Gutenberg ebook #20203, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-return-of-sherlock-holmes-221",
+  "name": "The Return of Sherlock Holmes — Gutenberg",
+  "icon": "app-logos/gutenberg-the-return-of-sherlock-holmes-221.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 94923,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/221",
+   "desc": "The Return of Sherlock Holmes by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #221, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-that-which-hath-wings-a-novel-of-the-day-51428",
+  "name": "That Which Hath Wings: A Novel of the Day — Gutenberg",
+  "icon": "app-logos/gutenberg-that-which-hath-wings-a-novel-of-the-day-51428.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 49353,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/51428",
+   "desc": "That Which Hath Wings: A Novel of the Day by Unknown — free to read online or download. Project Gutenberg ebook #51428, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-cameron-of-lochiel-53154",
+  "name": "Cameron of Lochiel — Gutenberg",
+  "icon": "app-logos/gutenberg-cameron-of-lochiel-53154.jpg",
+  "publisher": "Philippe Aubert de Gaspé",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 56496,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/53154",
+   "desc": "Cameron of Lochiel by Philippe Aubert de Gaspé — free to read online or download. Project Gutenberg ebook #53154, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-woman-in-white-583",
+  "name": "The Woman in White — Gutenberg",
+  "icon": "app-logos/gutenberg-the-woman-in-white-583.jpg",
+  "publisher": "Wilkie Collins",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 52659,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/583",
+   "desc": "The Woman in White by Wilkie Collins — free to read online or download. Project Gutenberg ebook #583, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-pirate-42389",
+  "name": "The Pirate — Gutenberg",
+  "icon": "app-logos/gutenberg-the-pirate-42389.jpg",
+  "publisher": "Walter Scott",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 33763,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/42389",
+   "desc": "The Pirate by Walter Scott — free to read online or download. Project Gutenberg ebook #42389, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-moods-28203",
+  "name": "Moods — Gutenberg",
+  "icon": "app-logos/gutenberg-moods-28203.jpg",
+  "publisher": "Louisa May Alcott",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 22389,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/28203",
+   "desc": "Moods by Louisa May Alcott — free to read online or download. Project Gutenberg ebook #28203, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-poirot-investigates-61262",
+  "name": "Poirot Investigates — Gutenberg",
+  "icon": "app-logos/gutenberg-poirot-investigates-61262.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 62885,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/61262",
+   "desc": "Poirot Investigates by Agatha Christie — free to read online or download. Project Gutenberg ebook #61262, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-india-s-love-lyrics-8197",
+  "name": "India's Love Lyrics — Gutenberg",
+  "icon": "app-logos/gutenberg-india-s-love-lyrics-8197.jpg",
+  "publisher": "Laurence Hope",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 58417,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/8197",
+   "desc": "India's Love Lyrics by Laurence Hope — free to read online or download. Project Gutenberg ebook #8197, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-his-last-bow-2350",
+  "name": "His last bow : — Gutenberg",
+  "icon": "app-logos/gutenberg-his-last-bow-2350.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 36581,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2350",
+   "desc": "His last bow : by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #2350, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-hypnerotomachia-the-strife-of-loue-in-a-dreame-18459",
+  "name": "Hypnerotomachia: The Strife of Loue in a Dreame — Gutenberg",
+  "icon": "app-logos/gutenberg-hypnerotomachia-the-strife-of-loue-in-a-dreame-18459.jpg",
+  "publisher": "Francesco Colonna",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 84968,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/18459",
+   "desc": "Hypnerotomachia: The Strife of Loue in a Dreame by Francesco Colonna — free to read online or download. Project Gutenberg ebook #18459, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-lock-and-key-library-classic-mystery-and-detective-stori",
+  "name": "The Lock and Key Library: Classic Mystery and Detective Stories: Modern English — Gutenberg",
+  "icon": "app-logos/gutenberg-the-lock-and-key-library-classic-mystery-and-detective-stori.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 65970,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2038",
+   "desc": "The Lock and Key Library: Classic Mystery and Detective Stories: Modern English by Unknown — free to read online or download. Project Gutenberg ebook #2038, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-only-a-girl-s-love-53416",
+  "name": "Only a girl's love — Gutenberg",
+  "icon": "app-logos/gutenberg-only-a-girl-s-love-53416.jpg",
+  "publisher": "Charles Garvice",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 55003,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/53416",
+   "desc": "Only a girl's love by Charles Garvice — free to read online or download. Project Gutenberg ebook #53416, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-anabasis-of-alexander-46976",
+  "name": "The Anabasis of Alexander : — Gutenberg",
+  "icon": "app-logos/gutenberg-the-anabasis-of-alexander-46976.jpg",
+  "publisher": "Arrian",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.7,
+  "ratingsCount": 82623,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/46976",
+   "desc": "The Anabasis of Alexander : by Arrian — free to read online or download. Project Gutenberg ebook #46976, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-secret-of-father-brown-70175",
+  "name": "The secret of Father Brown — Gutenberg",
+  "icon": "app-logos/gutenberg-the-secret-of-father-brown-70175.jpg",
+  "publisher": "G. K.  Chesterton",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 86061,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/70175",
+   "desc": "The secret of Father Brown by G. K.  Chesterton — free to read online or download. Project Gutenberg ebook #70175, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-mystery-of-the-blue-train-72824",
+  "name": "The mystery of the Blue Train — Gutenberg",
+  "icon": "app-logos/gutenberg-the-mystery-of-the-blue-train-72824.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 98266,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/72824",
+   "desc": "The mystery of the Blue Train by Agatha Christie — free to read online or download. Project Gutenberg ebook #72824, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-moonstone-155",
+  "name": "The Moonstone — Gutenberg",
+  "icon": "app-logos/gutenberg-the-moonstone-155.jpg",
+  "publisher": "Wilkie Collins",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 39597,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/155",
+   "desc": "The Moonstone by Wilkie Collins — free to read online or download. Project Gutenberg ebook #155, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-thirty-nine-steps-558",
+  "name": "The Thirty-Nine Steps — Gutenberg",
+  "icon": "app-logos/gutenberg-the-thirty-nine-steps-558.jpg",
+  "publisher": "John Buchan",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 64292,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/558",
+   "desc": "The Thirty-Nine Steps by John Buchan — free to read online or download. Project Gutenberg ebook #558, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-aus-dem-leben-eines-taugenichts-novelle-35312",
+  "name": "Aus dem Leben eines Taugenichts: Novelle — Gutenberg",
+  "icon": "app-logos/gutenberg-aus-dem-leben-eines-taugenichts-novelle-35312.jpg",
+  "publisher": "Freiherr von Joseph Eichendorff",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 51411,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/35312",
+   "desc": "Aus dem Leben eines Taugenichts: Novelle by Freiherr von Joseph Eichendorff — free to read online or download. Project Gutenberg ebook #35312, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-green-mouse-10441",
+  "name": "The Green Mouse — Gutenberg",
+  "icon": "app-logos/gutenberg-the-green-mouse-10441.jpg",
+  "publisher": "Robert W.  Chambers",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 47107,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/10441",
+   "desc": "The Green Mouse by Robert W.  Chambers — free to read online or download. Project Gutenberg ebook #10441, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-man-in-the-brown-suit-61168",
+  "name": "The Man in the Brown Suit — Gutenberg",
+  "icon": "app-logos/gutenberg-the-man-in-the-brown-suit-61168.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 81324,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/61168",
+   "desc": "The Man in the Brown Suit by Agatha Christie — free to read online or download. Project Gutenberg ebook #61168, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-victorian-short-stories-stories-of-courtship-15381",
+  "name": "Victorian Short Stories: Stories of Courtship — Gutenberg",
+  "icon": "app-logos/gutenberg-victorian-short-stories-stories-of-courtship-15381.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 83797,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/15381",
+   "desc": "Victorian Short Stories: Stories of Courtship by Unknown — free to read online or download. Project Gutenberg ebook #15381, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-prairie-wife-18875",
+  "name": "The Prairie Wife — Gutenberg",
+  "icon": "app-logos/gutenberg-the-prairie-wife-18875.jpg",
+  "publisher": "Arthur Stringer",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 50451,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/18875",
+   "desc": "The Prairie Wife by Arthur Stringer — free to read online or download. Project Gutenberg ebook #18875, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-valley-of-fear-3289",
+  "name": "The Valley of Fear — Gutenberg",
+  "icon": "app-logos/gutenberg-the-valley-of-fear-3289.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 53795,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3289",
+   "desc": "The Valley of Fear by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #3289, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-boy-with-wings-36223",
+  "name": "The Boy with Wings — Gutenberg",
+  "icon": "app-logos/gutenberg-the-boy-with-wings-36223.jpg",
+  "publisher": "Berta Ruck",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 56740,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/36223",
+   "desc": "The Boy with Wings by Berta Ruck — free to read online or download. Project Gutenberg ebook #36223, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-diary-of-samuel-pepys-complete-4200",
+  "name": "The Diary of Samuel Pepys — Complete — Gutenberg",
+  "icon": "app-logos/gutenberg-the-diary-of-samuel-pepys-complete-4200.jpg",
+  "publisher": "Samuel Pepys",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 22188,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/4200",
+   "desc": "The Diary of Samuel Pepys — Complete by Samuel Pepys — free to read online or download. Project Gutenberg ebook #4200, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-a-journey-to-the-centre-of-the-earth-18857",
+  "name": "A Journey to the Centre of the Earth — Gutenberg",
+  "icon": "app-logos/gutenberg-a-journey-to-the-centre-of-the-earth-18857.jpg",
+  "publisher": "Jules Verne",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 31390,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/18857",
+   "desc": "A Journey to the Centre of the Earth by Jules Verne — free to read online or download. Project Gutenberg ebook #18857, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-celebrated-crimes-complete-2760",
+  "name": "Celebrated Crimes (Complete) — Gutenberg",
+  "icon": "app-logos/gutenberg-celebrated-crimes-complete-2760.jpg",
+  "publisher": "Alexandre Dumas",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 85539,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2760",
+   "desc": "Celebrated Crimes (Complete) by Alexandre Dumas — free to read online or download. Project Gutenberg ebook #2760, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-twenty-five-ghost-stories-53419",
+  "name": "Twenty-Five Ghost Stories — Gutenberg",
+  "icon": "app-logos/gutenberg-twenty-five-ghost-stories-53419.jpg",
+  "publisher": "Unknown",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 84787,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/53419",
+   "desc": "Twenty-Five Ghost Stories by Unknown — free to read online or download. Project Gutenberg ebook #53419, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-dainty-s-cruel-rivals-or-the-fatal-birthday-31257",
+  "name": "Dainty's Cruel Rivals; Or, The Fatal Birthday — Gutenberg",
+  "icon": "app-logos/gutenberg-dainty-s-cruel-rivals-or-the-fatal-birthday-31257.jpg",
+  "publisher": "Mrs. Alex. McVeigh Miller",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 70833,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/31257",
+   "desc": "Dainty's Cruel Rivals; Or, The Fatal Birthday by Mrs. Alex. McVeigh Miller — free to read online or download. Project Gutenberg ebook #31257, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-love-letters-of-henry-viii-to-anne-boleyn-with-notes-321",
+  "name": "The Love Letters of Henry VIII to Anne Boleyn; With Notes — Gutenberg",
+  "icon": "app-logos/gutenberg-the-love-letters-of-henry-viii-to-anne-boleyn-with-notes-321.jpg",
+  "publisher": "King of England Henry VIII",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 47978,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/32155",
+   "desc": "The Love Letters of Henry VIII to Anne Boleyn; With Notes by King of England Henry VIII — free to read online or download. Project Gutenberg ebook #32155, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-great-god-pan-389",
+  "name": "The Great God Pan — Gutenberg",
+  "icon": "app-logos/gutenberg-the-great-god-pan-389.jpg",
+  "publisher": "Arthur Machen",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 48563,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/389",
+   "desc": "The Great God Pan by Arthur Machen — free to read online or download. Project Gutenberg ebook #389, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-murder-on-the-links-58866",
+  "name": "The Murder on the Links — Gutenberg",
+  "icon": "app-logos/gutenberg-the-murder-on-the-links-58866.jpg",
+  "publisher": "Agatha Christie",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 74202,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/58866",
+   "desc": "The Murder on the Links by Agatha Christie — free to read online or download. Project Gutenberg ebook #58866, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-doctor-cupid-a-novel-35548",
+  "name": "Doctor Cupid: A Novel — Gutenberg",
+  "icon": "app-logos/gutenberg-doctor-cupid-a-novel-35548.jpg",
+  "publisher": "Rhoda Broughton",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 63066,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/35548",
+   "desc": "Doctor Cupid: A Novel by Rhoda Broughton — free to read online or download. Project Gutenberg ebook #35548, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-love-at-arms-3530",
+  "name": "Love-at-arms : — Gutenberg",
+  "icon": "app-logos/gutenberg-love-at-arms-3530.jpg",
+  "publisher": "Rafael Sabatini",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.9,
+  "ratingsCount": 36512,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/3530",
+   "desc": "Love-at-arms : by Rafael Sabatini — free to read online or download. Project Gutenberg ebook #3530, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-secret-agent-a-simple-tale-974",
+  "name": "The Secret Agent: A Simple Tale — Gutenberg",
+  "icon": "app-logos/gutenberg-the-secret-agent-a-simple-tale-974.jpg",
+  "publisher": "Joseph Conrad",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.1,
+  "ratingsCount": 96727,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/974",
+   "desc": "The Secret Agent: A Simple Tale by Joseph Conrad — free to read online or download. Project Gutenberg ebook #974, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-silent-barrier-31635",
+  "name": "The Silent Barrier — Gutenberg",
+  "icon": "app-logos/gutenberg-the-silent-barrier-31635.jpg",
+  "publisher": "Louis Tracy",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 57333,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/31635",
+   "desc": "The Silent Barrier by Louis Tracy — free to read online or download. Project Gutenberg ebook #31635, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-lives-of-the-twelve-caesars-complete-6400",
+  "name": "The Lives of the Twelve Caesars, Complete — Gutenberg",
+  "icon": "app-logos/gutenberg-the-lives-of-the-twelve-caesars-complete-6400.jpg",
+  "publisher": "Suetonius",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.6,
+  "ratingsCount": 52579,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/6400",
+   "desc": "The Lives of the Twelve Caesars, Complete by Suetonius — free to read online or download. Project Gutenberg ebook #6400, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-chambers-s-edinburgh-journal-no-452-22187",
+  "name": "Chambers's Edinburgh Journal, No. 452 — Gutenberg",
+  "icon": "app-logos/gutenberg-chambers-s-edinburgh-journal-no-452-22187.jpg",
+  "publisher": "Various",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 20612,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/22187",
+   "desc": "Chambers's Edinburgh Journal, No. 452 by Various — free to read online or download. Project Gutenberg ebook #22187, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-the-phantom-rickshaw-and-other-ghost-stories-2806",
+  "name": "The Phantom 'Rickshaw, and Other Ghost Stories — Gutenberg",
+  "icon": "app-logos/gutenberg-the-phantom-rickshaw-and-other-ghost-stories-2806.jpg",
+  "publisher": "Rudyard Kipling",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 77289,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/2806",
+   "desc": "The Phantom 'Rickshaw, and Other Ghost Stories by Rudyard Kipling — free to read online or download. Project Gutenberg ebook #2806, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-mr-standfast-560",
+  "name": "Mr. Standfast — Gutenberg",
+  "icon": "app-logos/gutenberg-mr-standfast-560.jpg",
+  "publisher": "John Buchan",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.2,
+  "ratingsCount": 36385,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/560",
+   "desc": "Mr. Standfast by John Buchan — free to read online or download. Project Gutenberg ebook #560, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-tales-of-terror-and-mystery-537",
+  "name": "Tales of Terror and Mystery — Gutenberg",
+  "icon": "app-logos/gutenberg-tales-of-terror-and-mystery-537.jpg",
+  "publisher": "Arthur Conan Doyle",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 87518,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/537",
+   "desc": "Tales of Terror and Mystery by Arthur Conan Doyle — free to read online or download. Project Gutenberg ebook #537, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "gutenberg-washington-confidential-63469",
+  "name": "Washington Confidential — Gutenberg",
+  "icon": "app-logos/gutenberg-washington-confidential-63469.jpg",
+  "publisher": "Jack Lait and Lee Mortimer",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.3,
+  "ratingsCount": 77542,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.gutenberg.org/ebooks/63469",
+   "desc": "Washington Confidential by Jack Lait and Lee Mortimer — free to read online or download. Project Gutenberg ebook #63469, public domain.",
+   "feat": "Read in the browser\nEPUB & Kindle downloads\nPublic domain"
+  }
+ },
+ {
+  "id": "bibled",
+  "name": "Bible Gateway",
+  "icon": "app-logos/bibled.png",
+  "publisher": "HaperCollins Christian",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 4159,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.biblegateway.com/",
+   "desc": "Read and search 200+ Bible versions in 70 languages."
+  }
+ },
+ {
+  "id": "poetry",
+  "name": "Poetry Foundation",
+  "icon": "app-logos/poetry.png",
+  "publisher": "Poetry Foundation",
+  "type": "app",
+  "category": "Books & Reading",
+  "price": "Free",
+  "rating": 4.4,
+  "ratingsCount": 4547,
+  "data": {
+   "type": "IFrame",
+   "url": "https://www.poetryfoundation.org/",
+   "desc": "Tens of thousands of classic and contemporary poems, essays and more."
+  }
+ },
+ {
+  "id": "wiktionary-wotd",
+  "name": "Word of the Day — Wiktionary",
+  "icon": "app-logos/wiktionary-wotd.ico",
+  "publisher": "Wikimedia",
+  "type": "app",
+  "category": "Dictionary",
+  "price": "Free",
+  "rating": 4.5,
+  "ratingsCount": 16569,
+  "data": {
+   "type": "IFrame",
+   "url": "https://en.wiktionary.org/wiki/Wiktionary:Main_Page",
+   "desc": "Wiktionary's word of the day and the whole dictionary, one tap away."
+  }
+ },
+ {
+  "id": "geo-dash",
+  "name": "Geometry Dash",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 3456,
+  "data": {
+   "type": "IFrame",
+   "url": "https://web-dashers.github.io",
+   "desc": "Geometry Dash is a fast-paced, precision-based platformer game where players take control of agile, neon-infused avatars navigating through a treacherous digital landscape. It is built in the web by Web Dashers."
+  },
+  "icon": "app-logos/geo-dash.png",
+  "publisher": "Rob Top"
+ },
+ {
+  "id": "arcade-hub",
+  "name": "Arcade Hub",
+  "type": "game",
+  "category": "Games",
+  "price": "Free",
+  "rating": 4.8,
+  "ratingsCount": 5673,
+  "data": {
+   "type": "IFrame",
+   "url": "https://bittuhere.github.io",
+   "desc": "Play the arcade games free on the web!"
+  },
+  "publisher": "Bittuhere",
+  "icon": "app-logos/arcade-hub.svg"
+ }
+]

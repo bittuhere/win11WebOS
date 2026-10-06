@@ -1,0 +1,489 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ==================================================================
+   Notepad — Windows 11 look: tab strip, menu bar, find panel,
+   status bar.  Colours follow body[data-theme].
+   ================================================================== */
+
+.notepad.win11notepad {
+  --np-bg: #ffffff;
+  --np-chrome: #f3f3f3;
+  --np-stroke: rgba(0, 0, 0, 0.07);
+  --np-txt: #1b1b1f;
+  --np-txt2: #5d6169;
+  --np-txt3: #8b8f96;
+  --np-hover: rgba(0, 0, 0, 0.045);
+  --np-accent: #0067c0;
+  --np-drop: #ffffff;
+}
+
+body[data-theme="dark"] .notepad.win11notepad {
+  --np-bg: #191919;
+  --np-chrome: #1f1f1f;
+  --np-stroke: rgba(255, 255, 255, 0.07);
+  --np-txt: #f2f2f5;
+  --np-txt2: #b4b6bd;
+  --np-txt3: #86888f;
+  --np-hover: rgba(255, 255, 255, 0.055);
+  --np-accent: #4cc2ff;
+  --np-drop: #2b2b2b;
+}
+
+.notepad.win11notepad {
+  background: var(--np-bg);
+  color: var(--np-txt);
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.notepad.win11notepad .windowScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.notepad.win11notepad .restWindow {
+  min-height: 0;
+  display: flex;
+}
+
+/* ----------------------------- tabs ------------------------------ */
+
+.npTabs {
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 4px 6px 0;
+  background: var(--np-chrome);
+  border-bottom: 1px solid var(--np-stroke);
+}
+
+.npTabScroller {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.npTabScroller::-webkit-scrollbar {
+  display: none;
+}
+
+.npTab {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  max-width: 190px;
+  min-width: 90px;
+  padding: 0 6px 0 10px;
+  border-radius: 6px 6px 0 0;
+  background: transparent;
+  color: var(--np-txt2);
+  font-size: 12px;
+  cursor: default;
+  user-select: none;
+  position: relative;
+  transition:
+    background 110ms ease,
+    color 110ms ease;
+}
+.npTab:hover {
+  background: var(--np-hover);
+  color: var(--np-txt);
+}
+.npTab.on {
+  background: var(--np-bg);
+  color: var(--np-txt);
+  box-shadow:
+    0 -1px 0 var(--np-stroke),
+    -1px 0 0 var(--np-stroke),
+    1px 0 0 var(--np-stroke);
+}
+.npTabIco {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+}
+.npTabName {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.npTabDot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--np-txt2);
+}
+.npTabX {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  color: var(--np-txt2);
+  opacity: 0;
+  transition:
+    background 100ms ease,
+    opacity 100ms ease;
+}
+.npTab:hover .npTabX,
+.npTab.on .npTabX {
+  opacity: 1;
+}
+.npTabX:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--np-txt);
+}
+body[data-theme="dark"] .npTabX:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.npAdd {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 2px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--np-txt2);
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    color 110ms ease;
+}
+.npAdd:hover {
+  background: var(--np-hover);
+  color: var(--np-txt);
+}
+
+/* ---------------------------- menu bar --------------------------- */
+
+.npMenu {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  height: 30px;
+  padding: 0 8px;
+  background: var(--np-chrome);
+  border-bottom: 1px solid var(--np-stroke);
+}
+.npMenuSlot {
+  position: relative;
+  display: flex;
+}
+.npMenuBtn {
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--np-txt);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+.npMenuBtn:hover {
+  background: var(--np-hover);
+}
+.npMenuBtn.on {
+  background: var(--np-hover);
+}
+
+.npDrop {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  min-width: 224px;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--np-stroke);
+  background: var(--np-drop);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+  z-index: 30;
+  animation: npDropIn 130ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  transform-origin: top left;
+}
+@keyframes npDropIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.npDrop button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 28px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--np-txt);
+  font-size: 12px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 90ms ease;
+}
+.npDrop button:hover:not(:disabled) {
+  background: var(--np-hover);
+}
+.npDrop button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.npMiLbl {
+  flex: 1;
+  white-space: nowrap;
+}
+.npMiLbl i {
+  font-style: normal;
+  color: var(--np-accent);
+  margin-right: 7px;
+}
+.npMiKbd {
+  flex: none;
+  font-size: 11px;
+  color: var(--np-txt3);
+}
+.npDropSep {
+  height: 1px;
+  margin: 4px 8px;
+  background: var(--np-stroke);
+}
+
+/* --------------------------- find panel -------------------------- */
+
+.npFind {
+  flex: none;
+  padding: 8px 10px 10px;
+  background: var(--np-chrome);
+  border-bottom: 1px solid var(--np-stroke);
+  animation: npFindIn 170ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+@keyframes npFindIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.npFindHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--np-txt2);
+}
+.npFindX {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--np-txt2);
+  cursor: pointer;
+}
+.npFindX:hover {
+  background: var(--np-hover);
+  color: var(--np-txt);
+}
+.npFindRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.npFindRow > span {
+  flex: none;
+  width: 92px;
+  font-size: 11.5px;
+  color: var(--np-txt2);
+  text-align: right;
+}
+.npFindRow input {
+  flex: 1;
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--np-stroke);
+  border-radius: 4px;
+  background: var(--np-bg);
+  color: var(--np-txt);
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+}
+.npFindRow input:focus {
+  border-color: var(--np-accent);
+  box-shadow: 0 0 0 1px var(--np-accent);
+}
+.npFindActs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 100px;
+}
+.npCheck {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--np-txt2);
+  cursor: pointer;
+  flex: 1;
+}
+.npCheck input {
+  accent-color: var(--np-accent);
+}
+.npFindBtn {
+  height: 26px;
+  padding: 0 12px;
+  border: 1px solid var(--np-stroke);
+  border-radius: 5px;
+  background: var(--np-hover);
+  color: var(--np-txt);
+  font-size: 11.5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 100ms ease,
+    transform 80ms ease;
+}
+.npFindBtn:hover {
+  background: rgba(0, 103, 192, 0.14);
+}
+body[data-theme="dark"] .npFindBtn:hover {
+  background: rgba(76, 194, 255, 0.16);
+}
+.npFindBtn:active {
+  transform: scale(0.97);
+}
+.npFindBtn.accent {
+  background: var(--np-accent);
+  border-color: var(--np-accent);
+  color: #fff;
+}
+body[data-theme="dark"] .npFindBtn.accent {
+  color: #00151f;
+}
+
+/* ---------------------------- the text --------------------------- */
+
+.notepad.win11notepad .noteText {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 10px 14px 24px;
+  background: var(--np-bg);
+  color: var(--np-txt);
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.55;
+  tab-size: 4;
+  caret-color: var(--np-txt);
+  overflow: auto;
+  scrollbar-width: thin;
+}
+.notepad.win11notepad .noteText::selection {
+  background: rgba(0, 103, 192, 0.24);
+}
+body[data-theme="dark"] .notepad.win11notepad .noteText::selection {
+  background: rgba(76, 194, 255, 0.28);
+}
+
+/* --------------------------- status bar -------------------------- */
+
+.npStatus {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 24px;
+  padding: 0 8px;
+  background: var(--np-chrome);
+  border-top: 1px solid var(--np-stroke);
+  font-size: 11px;
+  color: var(--np-txt2);
+  overflow: hidden;
+}
+.npStatusSpacer {
+  flex: 1;
+}
+.npStatusSel {
+  border: none;
+  background: transparent;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--np-txt2);
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.npStatusSel:hover:not(.static) {
+  background: var(--np-hover);
+  color: var(--np-txt);
+}
+.npStatusSel.static {
+  cursor: default;
+  padding: 2px 4px;
+}
+
+@media (max-width: 560px) {
+  .npFindRow > span {
+    width: 70px;
+  }
+  .npFindActs {
+    padding-left: 78px;
+    flex-wrap: wrap;
+  }
+  .npTab {
+    min-width: 70px;
+    max-width: 130px;
+  }
+}

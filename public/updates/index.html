@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Win11 WebOS v1.02 — Release notes</title>
+<meta name="description" content="Release notes for Windows 11 WebOS v1.02 by bittuhere, released 5 October 2026.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070d1a">
+<link rel="canonical" href="https://win11webos.pages.dev/updates/">
+<meta property="og:title" content="Win11 WebOS v1.02 — Release notes">
+<meta property="og:image" content="https://win11webos.pages.dev/og-image.png">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+
+:root{
+  --bg:#070d1a;
+  --text:#e4edfb;
+  --muted:#9db1d1;
+  --dim:#7f93b3;
+  --line:rgba(146,180,235,.16);
+  --line-2:rgba(146,180,235,.30);
+  --glass:rgba(130,170,235,.06);
+  --glass-2:rgba(130,170,235,.10);
+  --accent:#4aa3ff;
+  --accent-2:#8b6cff;
+  --radius:18px;
+  --wrap:900px;
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font:16px/1.72 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1000px 620px at 6% -14%,rgba(74,163,255,.24),transparent 62%),
+    radial-gradient(880px 560px at 102% -8%,rgba(139,108,255,.22),transparent 58%),
+    radial-gradient(1200px 820px at 50% 120%,rgba(23,109,195,.18),transparent 64%);
+  background-attachment:fixed;background-repeat:no-repeat;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+  mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+}
+body.modal-open{overflow:hidden}
+
+a{color:#8fc6ff;text-decoration-color:rgba(143,198,255,.35);text-underline-offset:3px;transition:color .18s ease}
+a:hover{color:#bfdcff;text-decoration-color:currentColor}
+:focus-visible{outline:3px solid #8fc6ff;outline-offset:3px;border-radius:8px}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(to bottom,rgba(7,13,26,.88),rgba(7,13,26,.62));
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  backdrop-filter:blur(18px) saturate(160%);
+}
+.site-header .wrap{
+  max-width:var(--wrap);margin:0 auto;padding:11px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:650;font-size:15px;letter-spacing:-.01em;text-decoration:none}
+.brand-mark{
+  width:26px;height:26px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:linear-gradient(140deg,#4aa3ff,#8b6cff);
+  box-shadow:0 8px 20px -8px rgba(74,163,255,.95);
+}
+.brand-mark svg{width:13px;height:13px;display:block}
+.site-nav{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.site-nav a{
+  padding:7px 13px;border-radius:10px;border:1px solid transparent;
+  color:var(--muted);font-size:14.5px;font-weight:520;text-decoration:none;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.site-nav a:hover{color:#fff;background:var(--glass-2);border-color:var(--line)}
+.site-nav a[aria-current="page"]{color:#fff;background:var(--glass-2);border-color:var(--line-2)}
+.site-nav a.gh{border-color:var(--line-2);color:#cfe2ff}
+.site-nav a.gh:hover{background:rgba(74,163,255,.16);border-color:rgba(74,163,255,.5)}
+
+/* ---------- layout ---------- */
+main{position:relative;z-index:1;max-width:var(--wrap);margin:0 auto;padding:60px 24px 72px}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px 5px 12px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--glass);
+  color:#bdd7f8;font-size:12px;font-weight:650;letter-spacing:.09em;text-transform:uppercase;
+}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#57d38c;box-shadow:0 0 0 3px rgba(87,211,140,.16)}
+
+h1{margin:22px 0 18px;font-size:clamp(34px,6.2vw,58px);line-height:1.07;letter-spacing:-.038em;font-weight:700;color:#fff}
+.grad{background:linear-gradient(100deg,#8fc6ff,#c6b6ff 52%,#7fe3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main h2{margin:56px 0 16px;font-size:clamp(21px,2.7vw,27px);line-height:1.25;letter-spacing:-.022em;font-weight:650;color:#fff}
+main h2::before{content:"";display:block;width:36px;height:3px;border-radius:3px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+p,li{max-width:74ch}
+p{margin:0 0 16px}
+ul,ol{padding-left:1.15em}
+li{margin:.35em 0}
+
+.lead{font-size:clamp(16.5px,2vw,19px);color:#cbdaf0;max-width:68ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 6px}
+
+/* ---------- release meta ---------- */
+.release-meta{
+  display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 26px;
+}
+.release-meta span{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 14px;border-radius:11px;
+  border:1px solid var(--line);background:var(--glass);
+  font-size:13.5px;color:#b8cbe8;font-weight:520;
+}
+.release-meta svg{width:14px;height:14px;color:#8fc6ff;flex:none}
+
+/* ---------- buttons ---------- */
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 22px;border-radius:12px;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(135deg,#2b8ef0,#176dc3);
+  color:#fff;font-size:15.5px;font-weight:620;text-decoration:none;
+  font-family:inherit;cursor:pointer;
+  box-shadow:0 16px 34px -16px rgba(43,142,240,.95);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease,background .2s ease;
+}
+.cta:hover{color:#fff;transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 22px 42px -16px rgba(43,142,240,1)}
+.cta svg{width:16px;height:16px;flex:none}
+.cta.secondary{background:var(--glass-2);border-color:var(--line-2);color:#dbe9ff;box-shadow:none}
+.cta.secondary:hover{background:rgba(130,170,235,.18);filter:none}
+
+/* ---------- highlights ---------- */
+.highlights{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.highlights li{
+  max-width:none;margin:0;padding:20px;
+  border:1px solid var(--line);border-radius:16px;
+  background:linear-gradient(160deg,rgba(130,170,235,.09),rgba(130,170,235,.02));
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.highlights li:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 48px -30px rgba(0,0,0,1)}
+.highlights .ico{
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;
+  color:#9fd0ff;background:rgba(74,163,255,.14);border:1px solid rgba(74,163,255,.32);
+}
+.highlights .ico svg{width:18px;height:18px;display:block}
+.highlights strong{display:block;color:#fff;font-weight:620;font-size:15.5px;letter-spacing:-.01em;margin-bottom:4px}
+.highlights span{display:block;color:var(--muted);font-size:14.5px;line-height:1.62}
+
+/* ---------- callout ---------- */
+.callout{
+  margin:22px 0 0;padding:22px 24px;border-radius:var(--radius);
+  border:1px solid rgba(74,163,255,.3);
+  background:linear-gradient(150deg,rgba(74,163,255,.13),rgba(139,108,255,.07));
+}
+.callout p:last-child{margin-bottom:0}
+.callout.warn{border-color:rgba(255,190,90,.32);background:linear-gradient(150deg,rgba(255,190,90,.12),rgba(255,140,60,.05))}
+
+.notes-cta{
+  margin:22px 0 0;padding:26px 24px;border-radius:var(--radius);
+  border:1px solid var(--line-2);
+  background:linear-gradient(150deg,rgba(139,108,255,.14),rgba(74,163,255,.06));
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+}
+.notes-cta p{margin:0;color:#cfdcf0;font-size:15px}
+.notes-cta .title{display:block;color:#fff;font-weight:640;font-size:16.5px;margin-bottom:2px}
+
+/* ---------- footer ---------- */
+.site-footer{position:relative;z-index:1;margin-top:40px;border-top:1px solid var(--line);background:rgba(4,9,18,.4)}
+.site-footer .wrap{max-width:var(--wrap);margin:0 auto;padding:26px 24px 34px;color:var(--muted);font-size:14.5px}
+.site-footer small{display:block;margin-top:6px;color:var(--dim);font-size:13.5px}
+
+/* ================= MODAL ================= */
+.modal[hidden]{display:none}
+.modal{
+  position:fixed;inset:0;z-index:200;
+  display:grid;place-items:center;padding:20px;
+}
+.modal-backdrop{
+  position:absolute;inset:0;border:0;padding:0;margin:0;cursor:pointer;
+  background:rgba(3,7,16,.74);
+  -webkit-backdrop-filter:blur(10px) saturate(140%);
+  backdrop-filter:blur(10px) saturate(140%);
+  animation:fadeIn .22s ease both;
+}
+.modal-panel{
+  position:relative;width:min(760px,100%);max-height:min(86vh,920px);
+  display:flex;flex-direction:column;
+  border:1px solid var(--line-2);border-radius:20px;
+  background:linear-gradient(170deg,rgba(17,27,48,.985),rgba(8,14,26,.985));
+  box-shadow:0 60px 130px -40px rgba(0,0,0,1),0 0 0 1px rgba(255,255,255,.03) inset;
+  animation:popIn .28s cubic-bezier(.2,.9,.3,1) both;
+  overflow:hidden;
+}
+.modal-panel::before{
+  content:"";position:absolute;inset:0 0 auto;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent);
+  opacity:.85;
+}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.975)}}
+
+.modal-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+  padding:22px 24px 18px;border-bottom:1px solid var(--line);
+  background:rgba(130,170,235,.045);
+}
+.modal-kicker{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#8fb6e8;
+}
+.modal-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:#57d38c}
+.modal-title{
+  margin:8px 0 0;font-size:clamp(19px,2.6vw,23px);line-height:1.25;
+  letter-spacing:-.022em;font-weight:660;color:#fff;
+}
+.modal-close{
+  flex:none;width:36px;height:36px;display:grid;place-items:center;
+  border-radius:11px;border:1px solid var(--line-2);background:var(--glass);
+  color:#cfe0f8;cursor:pointer;font-family:inherit;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.modal-close:hover{background:rgba(255,90,90,.16);border-color:rgba(255,120,120,.5);color:#ffd9d9;transform:rotate(90deg)}
+.modal-close svg{width:15px;height:15px;display:block}
+
+.modal-body{
+  overflow-y:auto;overscroll-behavior:contain;
+  padding:26px 28px 34px;
+  scrollbar-width:thin;scrollbar-color:rgba(146,180,235,.32) transparent;
+}
+.modal-body::-webkit-scrollbar{width:11px}
+.modal-body::-webkit-scrollbar-track{background:transparent}
+.modal-body::-webkit-scrollbar-thumb{
+  background:rgba(146,180,235,.28);border-radius:99px;
+  border:3px solid transparent;background-clip:content-box;
+}
+.modal-body::-webkit-scrollbar-thumb:hover{background:rgba(146,180,235,.5);background-clip:content-box}
+
+.modal-loading{
+  display:flex;align-items:center;gap:12px;color:var(--muted);font-size:15px;padding:18px 0;
+}
+.spinner{
+  width:17px;height:17px;flex:none;border-radius:50%;
+  border:2px solid rgba(146,180,235,.25);border-top-color:#8fc6ff;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.modal-foot{
+  margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+}
+.modal-foot small{color:var(--dim);font-size:13px}
+.modal-foot a{font-size:14px;font-weight:560}
+
+/* ---------- markdown prose ---------- */
+.md{color:#d5e2f6;font-size:15.5px;line-height:1.8}
+.md>*:first-child{margin-top:0}
+.md>*:last-child{margin-bottom:0}
+.md p{margin:0 0 16px;max-width:none}
+.md h1,.md h2,.md h3,.md h4{margin:34px 0 12px;line-height:1.3;letter-spacing:-.02em;color:#fff;font-weight:650}
+.md h1{font-size:24px}
+.md h2{font-size:19.5px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.md h3{font-size:16.5px;color:#e8f1ff}
+.md h4{font-size:15px;color:#cfe0f8;text-transform:uppercase;letter-spacing:.07em}
+.md ul,.md ol{padding-left:1.35em;margin:0 0 16px}
+.md li{margin:.42em 0;max-width:none}
+.md li::marker{color:#6fa8e8}
+.md strong{color:#fff;font-weight:640}
+.md em{color:#c9dcf5}
+.md a{font-weight:520}
+.md hr{margin:28px 0;border:0;border-top:1px solid var(--line)}
+.md blockquote{
+  margin:0 0 18px;padding:14px 18px;border-left:3px solid var(--accent);
+  border-radius:0 12px 12px 0;background:rgba(74,163,255,.08);color:#c6d8f0;
+}
+.md blockquote p:last-child{margin-bottom:0}
+.md code{
+  font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  padding:2px 7px;border-radius:7px;
+  background:rgba(130,170,235,.14);border:1px solid var(--line);color:#cfe6ff;
+  overflow-wrap:anywhere;
+}
+.md pre{
+  margin:0 0 18px;padding:16px 18px;border-radius:14px;overflow-x:auto;
+  border:1px solid var(--line-2);background:rgba(3,7,15,.75);
+}
+.md pre code{
+  padding:0;border:0;background:none;font-size:13.5px;line-height:1.75;white-space:pre;
+}
+.md table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:14.5px}
+.md th,.md td{padding:9px 12px;border:1px solid var(--line);text-align:left}
+.md th{background:var(--glass-2);color:#fff;font-weight:620}
+
+@media (max-width:640px){
+  main{padding:40px 20px 56px}
+  .site-header .wrap{padding:10px 20px}
+  .site-footer .wrap{padding-left:20px;padding-right:20px}
+  .site-nav a{padding:6px 10px;font-size:14px}
+  .brand-text{display:none}
+  main h2{margin-top:46px}
+  .modal{padding:10px}
+  .modal-panel{max-height:92vh;border-radius:16px}
+  .modal-head{padding:18px 18px 15px}
+  .modal-body{padding:20px 18px 26px}
+  .notes-cta{padding:20px 18px}
+  .notes-cta .cta{width:100%;justify-content:center}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Win11 WebOS v1.02 \u2014 Release notes", "url": "https://win11webos.pages.dev/updates/", "description": "Release notes for Windows 11 WebOS v1.02 by bittuhere, released 5 October 2026.", "about": {"@type": "SoftwareApplication", "name": "Windows 11 WebOS", "alternateName": ["Win11 WebOS by Bittu", "Windows 11 WebOS by bittuhere"], "softwareVersion": "1.02", "applicationCategory": "DesktopEnhancementApplication", "operatingSystem": "Web browser", "author": {"@type": "Person", "name": "bittuhere", "alternateName": "Bittu", "url": "https://github.com/bittuhere"}}}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#fff"><rect x="2" y="2" width="9" height="9" rx="2.2"/><rect x="13" y="2" width="9" height="9" rx="2.2" opacity=".8"/><rect x="2" y="13" width="9" height="9" rx="2.2" opacity=".8"/><rect x="13" y="13" width="9" height="9" rx="2.2" opacity=".6"/></svg>
+      </span>
+      <span class="brand-text">Win11&nbsp;WebOS</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../">Desktop</a>
+      <a href="../about/">About</a>
+      <a href="../docs/">Docs</a>
+      <a href="../updates/" aria-current="page">Releases</a>
+      <a class="gh" href="https://github.com/bittuhere/win11webos">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="pill">Release notes · Stable</span>
+    <h1>v1.02<br><span class="grad">Ready for offline.</span></h1>
+
+    <div class="release-meta">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 10h18"/></svg>
+        Released 5 October 2026
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v6c0 4.2-3.4 7.4-8 8.5C7.4 20.4 4 17.2 4 13V7z"/></svg>
+        Build 2
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        Apache-2.0
+      </span>
+    </div>
+
+    <div class="actions">
+      <a class="cta" href="../">
+        Open the desktop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="cta secondary js-open-notes" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M9 13h6M9 17h4"/></svg>
+        Read full notes
+      </button>
+    </div>
+  </section>
+
+  <h2>What's new</h2>
+  <ul class="highlights">
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 10.5l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+      <strong>Complete verified offline download</strong>
+      <span>Visible progress across BitBot weights, fonts and every bundled app.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 4v5h-5"/><path d="M12 7.5V12l3 2"/></svg></span>
+      <strong>Scheduled update checks</strong>
+      <span>Checks run after login, and staged installs always preserve the last working build.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+      <strong>Consistent version reporting</strong>
+      <span>About and Settings agree, with installed release notes, responsive update screens and smooth taskbar-origin menu slides.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></span>
+      <strong>Crawlable docs, leaner code</strong>
+      <span>Project documentation is now discoverable, and the unused Firebase login path is gone.</span>
+    </li>
+  </ul>
+
+  <h2>Production packaging</h2>
+  <p>Current docs, Node build checks, Pages configuration and Git ignore rules are aligned. The installer now uses the favicon SVG and supports verified Cloudflare clean-URL redirects.</p>
+
+  <h2>Read the full notes</h2>
+  <div class="notes-cta">
+    <p>
+      <span class="title">v1.02 release notes</span>
+      Full changelog, migration details and packaging notes — rendered right here in a modal, no raw Markdown file needed.
+    </p>
+    <button class="cta js-open-notes" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M9 13h6M9 17h4"/></svg>
+      Open notes
+    </button>
+  </div>
+
+  <h2>Installing</h2>
+  <div class="callout warn">
+    <p>Use <strong>Windows Update</strong> inside the desktop. It only offers installation when the published version is newer than the running version. This public page is documentation, not an update prompt.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Win11 WebOS by <a href="https://github.com/bittuhere">bittuhere (Bittu)</a> · Apache-2.0 · Not affiliated with Microsoft.
+    <small>Project documentation · Updated 2026-10-05</small>
+  </div>
+</footer>
+
+<!-- ================= MARKDOWN MODAL ================= -->
+<div class="modal" id="notesModal" role="dialog" aria-modal="true" aria-labelledby="notesModalTitle" hidden>
+  <button class="modal-backdrop" type="button" tabindex="-1" data-close aria-label="Close release notes"></button>
+
+  <div class="modal-panel" role="document">
+    <header class="modal-head">
+      <div>
+        <span class="modal-kicker">Release notes</span>
+        <h2 class="modal-title" id="notesModalTitle">v1.02 — Ready for offline</h2>
+      </div>
+      <button class="modal-close" type="button" data-close aria-label="Close release notes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+
+    <div class="modal-body" id="notesModalBody" tabindex="-1">
+      <div class="modal-loading"><span class="spinner" aria-hidden="true"></span> Loading release notes…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Fallback markdown (used when notes/1.02.md cannot be fetched, e.g. file://) -->
+<script type="text/plain" id="fallbackNotes"># Win11 WebOS v1.02 — Release notes
+
+**Released:** 5 October 2026 · **Build:** 2 · **License:** Apache-2.0
+
+This release focuses on making the offline install genuinely reliable: the
+desktop now downloads, verifies and stores its full local payload before it
+claims to be usable without a connection.
+
+## Highlights
+
+- **Complete verified offline download** with visible progress, including
+  BitBot weights, fonts and bundled apps.
+- **Scheduled update checks** after login; staged installs preserve the last
+  working build if anything goes wrong.
+- **Consistent About/Settings version**, installed release notes, responsive
+  update screens and smooth taskbar-origin menu slides.
+- **Crawlable project documentation** and removal of the unused Firebase
+  login path.
+
+## Offline installer
+
+The installer walks the hashed offline manifest and counts *completed,
+verified files* — not network bytes. Files that already verify are reused, so
+a retry after a dropped connection is cheap.
+

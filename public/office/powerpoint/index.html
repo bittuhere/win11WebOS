@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!--
+  Copyright 2026 bittuhere
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Presentation1 - PowerPoint</title>
+<link rel="stylesheet" href="ppt.css"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C43E1C'/%3E%3Cpath d='M10 8h8a7 7 0 010 14h-3v4h-5V8zm5 5v4h2.5a2 2 0 000-4H15z' fill='%23fff'/%3E%3C/svg%3E"/>
+</head>
+<body class="app">
+<!-- ======================= title bar ======================= -->
+<div id="titlebar">
+  <span id="tb-icon" title="PowerPoint"></span>
+  <div id="qat"></div>
+  <div id="doc-title" title="Presentation1.pptx - Saved to this PC"><span id="doc-name">Presentation1</span> - PowerPoint</div>
+  <div id="tb-right">
+    <span id="tb-user"></span>
+    <span id="tb-ribbon-toggle" title="Collapse the Ribbon (Ctrl+F1)"></span>
+    <span class="win-btn" id="win-min" title="Minimize"></span>
+    <span class="win-btn" id="win-max" title="Maximize"></span>
+    <span class="win-btn" id="win-close" title="Close"></span>
+  </div>
+</div>
+<!-- ======================= tab row + tell me ======================= -->
+<div id="tabrow">
+  <div id="tabs"></div>
+  <div id="tellme-wrap">
+    <input id="tellme" placeholder="Tell me what you want to do" spellcheck="false"/>
+    <span id="tellme-ico"></span>
+    <div id="tellme-pop" hidden></div>
+  </div>
+</div>
+<!-- ======================= ribbon ======================= -->
+<div id="ribbon"></div>
+<div id="ribbon-collapsed-strip" hidden></div>
+<!-- ======================= main area ======================= -->
+<div id="mainarea">
+  <div id="thumbs">
+    <div id="thumb-list"></div>
+    <div id="thumb-dropend"></div>
+  </div>
+  <div id="work">
+    <div id="stage" tabindex="0">
+      <div id="stage-pad">
+        <div id="slide-wrap">
+          <div id="slide"></div>
+          <div id="obj-overlay"></div>
+        </div>
+      </div>
+    </div>
+    <div id="sorter" hidden></div>
+    <div id="notesbar"><span id="notes-label">Notes</span><div id="notes-editor" contenteditable="false">Click to add notes</div></div>
+  </div>
+  <div id="sidepane" hidden></div>
+</div>
+<!-- ======================= status bar ======================= -->
+<div id="statusbar">
+  <span id="sb-slide">Slide 1 of 1</span>
+  <button id="sb-notes" class="sb-btn">Notes</button>
+  <button id="sb-comments" class="sb-btn">Comments</button>
+  <span class="sb-stretch"></span>
+  <span id="sb-msg"></span>
+  <button class="sb-view" id="view-normal" title="Normal"></button>
+  <button class="sb-view" id="view-sorter" title="Slide Sorter"></button>
+  <button class="sb-view" id="view-reading" title="Reading View"></button>
+  <button class="sb-view" id="view-show" title="Slide Show"></button>
+  <span id="zoom-box">
+    <button id="zoom-out" title="Zoom Out">−</button>
+    <input id="zoom-slider" type="range" min="10" max="400" value="100"/>
+    <button id="zoom-in" title="Zoom In">+</button>
+    <button id="zoom-pct" title="Zoom to Fit">Fit</button>
+  </span>
+</div>
+<!-- overlays -->
+<div id="pop-root"></div>
+<div id="menu-root"></div>
+<div id="dlg-root"></div>
+<div id="ctx-root"></div>
+<div id="show-root" hidden></div>
+<div id="reading-root" hidden></div>
+<script src="idb.js"></script>
+<script src="icons.js"></script>
+<script src="pptx.js"></script>
+<script src="legacy.js"></script>
+<script src="rib.js"></script>
+<script src="app.js"></script>
+<script src="app2.js"></script>
+<script src="app3.js"></script>
+<script src="app4.js"></script>
+<script src="boot.js"></script>
+</body>
+</html>

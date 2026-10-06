@@ -1,0 +1,190 @@
+# ---------------------------------------------------------------------------
+#  Windows 11 WebOS — what must never be committed
+#
+#  The goal of this file: `git status` should stay quiet no matter what you do
+#  locally — builds, tests, screenshots, scratch files, editor and OS junk,
+#  secrets. If you ever see something here you DID want to commit, the file
+#  says how to un-ignore it (a `!` rule, or `git add -f <path>`).
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+#  Framework caches (nothing here is ever edited by hand)
+# ---------------------------------------------------------------------------
+.cache/
+.parcel-cache/
+.turbo/
+.next/
+.nuxt/
+.svelte-kit/
+.output/
+.temp/
+
+# ---------------------------------------------------------------------------
+#  Dependencies
+# ---------------------------------------------------------------------------
+node_modules/
+.pnp
+.pnp.js
+.pnp.cjs
+.yarn/cache/
+.yarn/install-state.gz
+.yarn/build-state.yml
+
+# ---------------------------------------------------------------------------
+#  Build output — always generated, never edited by hand
+#  (`npm run build` writes build/, `npm start` uses .vite/ cache)
+# ---------------------------------------------------------------------------
+build/
+dist/
+dist-ssr/
+dev-dist/
+.vite/
+*.local
+
+# ---------------------------------------------------------------------------
+#  Secrets and machine-specific configuration
+#  CONTROL.env holds the SHIPPED defaults (ES:, EMAIL:) and IS versioned;
+#  anything that looks like a real credential is not.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+.npmrc
+.crowdin.yml.local
+api_token
+tsconfig.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+#  Logs and crash reports
+# ---------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.pid
+*.seed
+
+# ---------------------------------------------------------------------------
+#  Tests and coverage
+# ---------------------------------------------------------------------------
+coverage/
+.nyc_output/
+.eslintcache
+.stylelintcache
+.prettiercache
+test-results/
+playwright-report/
+blob-report/
+.jest-cache/
+/cypress/videos/
+/cypress/screenshots/
+
+# ---------------------------------------------------------------------------
+#  Python
+#  The browser suites in tests/ ARE part of the project and must be committed.
+#  Python source is NOT globally ignored; new tooling must stay visible.
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Suites write their screenshots next to themselves — keep those out of git.
+/tests/*.png
+/tests/*.jpg
+/tests/*.webm
+/tests/*.log
+
+# ---------------------------------------------------------------------------
+#  Local scratch — anything you drop at the root that should not ship
+# ---------------------------------------------------------------------------
+/scratch/
+/notes/
+/tmp/
+/uploads/
+todo*
+rough*
+*.bak
+*.orig
+*.rej
+*.tmp
+*.swp
+
+# ---------------------------------------------------------------------------
+#  Editors and IDEs
+# ---------------------------------------------------------------------------
+.idea/
+.fleet/
+.history/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ---------------------------------------------------------------------------
+#  Operating systems
+# ---------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------------------
+#  Desktop shell (Tauri) — the Rust toolchain writes these
+# ---------------------------------------------------------------------------
+src-tauri/target/
+src-tauri/gen/
+# Cargo.lock IS committed on purpose: this is an application, not a library,
+# and a reproducible desktop build is worth more than a tidier tree.
+
+# ---------------------------------------------------------------------------
+#  Hosting / deployment scratch
+# ---------------------------------------------------------------------------
+.vercel/
+.netlify/
+.firebase/
+.wrangler/
+/release/
+/artifacts/
+
+# Release archives stay out of the tree; `git add -f win11webos.zip` if you ever
+# need to commit one.
+/*.zip
+/*.tar.gz
+/*.7z
+
+# Download bundles and machine-local release/QA output are not source.
+/deliverables/
+/*.patch
+/_dbg*.js
+/.python-version.local
+/playwright/.auth/
+/tools/.local/
+# Keep these reproducibility/deployment inputs committed (never ignore them):
+!package-lock.json
+!release.json
+!wrangler.jsonc
+!public/_headers
+!public/favicon.svg

@@ -1,0 +1,425 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.desktopCont {
+  /* full cover: this is the drop/band surface for the whole wallpaper —
+     at width 0 it only ever caught clicks on the icon strip itself */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.dskApp {
+  margin: 4px;
+  height: 84px;
+  width: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
+  transition: all ease-in-out 200ms;
+  justify-content: center;
+  border: 1px solid transparent;
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.24);
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  &:focus {
+    border: 1px dotted white;
+  }
+
+  .appName {
+    text-align: center;
+    color: #fafafa;
+    margin-top: 4px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.startMenu {
+  --bg1: rgba(242, 242, 242, 0.9);
+  --bg2: rgba(255, 255, 255, 0.9);
+  --bg3: rgba(0, 0, 0, 0.033);
+  --bg4: #aaa;
+  --roundRad: 8px;
+
+  position: absolute;
+  bottom: 12px;
+  width: min(640px, calc(100vw - 16px));
+  height: min(100% - 24px, 720px);
+  left: 0;
+
+  color: var(--dark-txt);
+  background: var(--bg1);
+  -webkit-backdrop-filter: blur(30px) saturate(1.4);
+  backdrop-filter: blur(30px) saturate(1.4);
+  border-radius: var(--roundRad);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform-origin: bottom center;
+  /* rises from the taskbar with the exact window-open feel: same 220ms
+     decelerate curve the windows use; opacity snaps in fast so it reads
+     as a slide, not a fade */
+  transition:
+    transform 220ms cubic-bezier(0.1, 0.9, 0.2, 1),
+    opacity 140ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: transform, opacity;
+  z-index: 9999;
+  box-sizing: border-box;
+
+  &[data-align="center"] {
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    text-align: center;
+  }
+
+  &[data-align="left"] {
+    left: 8px;
+  }
+
+  &[data-hide="true"] {
+    /* parked almost fully behind the taskbar — it physically comes
+       from the bottom instead of fading in place */
+    transform: translateY(calc(100% - 64px)) scale(1);
+    opacity: 0;
+    transition:
+      transform 220ms cubic-bezier(0.1, 0.9, 0.2, 1),
+      opacity 180ms cubic-bezier(0.4, 0, 1, 1);
+    pointer-events: none;
+  }
+}
+
+body[data-theme="dark"] .startMenu {
+  --bg1: rgba(36, 36, 36, 0.8);
+  --bg2: rgba(255, 255, 255, 0.1);
+  --bg3: rgba(0, 0, 0, 0.15);
+  --bg4: #444;
+
+  .blueicon {
+    filter: brightness(4);
+  }
+}
+
+.allCont,
+.stmenu {
+  position: relative;
+  height: calc(100% - 64px);
+
+  &[data-allapps="false"] {
+    opacity: 0;
+    transition: cubic-bezier(0, 0.58, 0.42, 1) 300ms;
+  }
+
+  &[data-allapps="true"] {
+    transform: translateX(-640px);
+    transition: cubic-bezier(0, 0.58, 0.42, 1) 300ms;
+  }
+}
+
+.stmenu {
+  &[data-allapps="false"] {
+    opacity: 1;
+  }
+  &[data-allapps="true"] {
+    opacity: 0;
+  }
+}
+
+.allCont {
+  top: 0;
+  position: absolute;
+  left: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+.menuBar {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 64px;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg3);
+  border-top: 1px solid var(--bg4);
+}
+
+.profile {
+  // height: 2.5rem;
+  padding: 0.6em 0.8em;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--bg2);
+  }
+
+  .usName {
+    margin-left: 12px;
+    font-size: 0.7em;
+    font-weight: 500;
+    color: var(--txt-col);
+  }
+}
+
+.powerMenu {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--bg2);
+  }
+}
+
+.menuUp {
+  padding: 24px 32px 12px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pinnedApps {
+  flex: 0 0 auto;
+  min-height: 0;
+}
+
+.stAcbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32px;
+
+  .gpname {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--dark-col);
+  }
+
+  .gpbtn {
+    background: var(--bg2);
+    padding: 0 8px 2px;
+    font-size: 0.64em;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(34, 34, 34, 0.25);
+    cursor: pointer;
+
+    svg {
+      margin-left: 4px;
+      padding-top: 2px;
+      color: var(--med-txt);
+    }
+
+    .chevLeft svg {
+      margin-left: 0;
+      margin-right: 4px;
+    }
+  }
+}
+
+.appCont .stAcbar {
+  padding-right: 64px;
+}
+
+.pnApps {
+  padding: 14px 0 6px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 2px;
+
+  .pnApp {
+    width: 100%;
+    height: 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+    transition:
+      background ease-in-out 100ms,
+      transform ease-out 100ms;
+
+    &:hover {
+      background: var(--bg2);
+    }
+
+    &:active {
+      transform: scale(0.94);
+      background: var(--bg3);
+    }
+
+    &:hover .pnIcon {
+      transform: scale(1.06);
+    }
+
+    .pnIcon {
+      transition: transform ease-out 160ms;
+    }
+
+    .appName {
+      width: 100%;
+      padding: 0 4px;
+      box-sizing: border-box;
+      display: flex;
+      color: var(--dark-txt);
+      margin-top: 5px;
+      font-size: 11.5px;
+      line-height: 1.25;
+      text-align: center;
+      justify-content: center;
+      cursor: default;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: break-word;
+    }
+  }
+}
+
+.pnEmpty {
+  pointer-events: none;
+}
+
+.appCont {
+  position: relative;
+  padding: 32px;
+  padding-right: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.allApps {
+  margin-top: 16px;
+  padding: 0 16px;
+  height: 100%;
+  overflow: auto;
+  transition: all ease-in-out 200ms;
+  transform-origin: center;
+
+  &[data-alpha="true"] {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .allApp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 536px;
+    height: 42px;
+    box-sizing: border-box;
+    padding-left: 12px;
+    z-index: 1;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--bg2);
+    }
+
+    .ltName {
+      width: 22px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .appName {
+      text-align: left;
+      padding-left: 16px;
+      color: var(--dark-txt);
+      font-size: 12px;
+    }
+  }
+}
+
+.alphaBox {
+  position: absolute;
+  top: 14%;
+  width: 94%;
+  height: 80%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform-origin: center;
+  transition: all ease-in-out 200ms;
+
+  &[data-alpha="false"] {
+    opacity: 0;
+    transform: scale(2);
+    pointer-events: none;
+  }
+}
+
+.alphaCont {
+  margin-left: -48px;
+  width: 160px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  color: var(--txt-col);
+  cursor: pointer;
+
+  .allApp {
+    display: grid;
+    place-items: center;
+  }
+
+  .dullApp {
+    cursor: default;
+    color: var(--sat-txt);
+  }
+}
+
+/* ---- drag-select rubber band + selected icons ---- */
+.dselBand {
+  position: fixed;
+  display: none;
+  border: 1px solid rgba(0, 103, 192, 0.85);
+  background: rgba(0, 103, 192, 0.14);
+  border-radius: 2px;
+  z-index: 9998;
+  pointer-events: none;
+}
+.dskApp.dsksel {
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(76, 194, 255, 0.85);
+}
+.dskApp.dsksel:hover {
+  background: rgba(255, 255, 255, 0.26);
+}

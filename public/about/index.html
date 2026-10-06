@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Windows 11 WebOS by bittuhere — About the project</title>
+<meta name="description" content="Windows 11 WebOS by bittuhere (Bittu) is a free, open-source browser desktop built with React, Redux and SCSS. Explore local apps, offline BitBot AI and a Windows 11-style interface.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070d1a">
+<link rel="canonical" href="https://win11webos.pages.dev/about/">
+<meta property="og:title" content="Windows 11 WebOS by bittuhere — About the project">
+<meta property="og:image" content="https://win11webos.pages.dev/og-image.png">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+
+:root{
+  --bg:#070d1a;
+  --text:#e4edfb;
+  --muted:#9db1d1;
+  --dim:#7f93b3;
+  --line:rgba(146,180,235,.16);
+  --line-2:rgba(146,180,235,.30);
+  --glass:rgba(130,170,235,.06);
+  --glass-2:rgba(130,170,235,.10);
+  --accent:#4aa3ff;
+  --accent-2:#8b6cff;
+  --radius:18px;
+  --wrap:900px;
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font:16px/1.72 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1000px 620px at 6% -14%,rgba(74,163,255,.24),transparent 62%),
+    radial-gradient(880px 560px at 102% -8%,rgba(139,108,255,.22),transparent 58%),
+    radial-gradient(1200px 820px at 50% 120%,rgba(23,109,195,.18),transparent 64%);
+  background-attachment:fixed;background-repeat:no-repeat;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+  mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+}
+
+a{color:#8fc6ff;text-decoration-color:rgba(143,198,255,.35);text-underline-offset:3px;transition:color .18s ease}
+a:hover{color:#bfdcff;text-decoration-color:currentColor}
+:focus-visible{outline:3px solid #8fc6ff;outline-offset:3px;border-radius:8px}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(to bottom,rgba(7,13,26,.88),rgba(7,13,26,.62));
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  backdrop-filter:blur(18px) saturate(160%);
+}
+.site-header .wrap{
+  max-width:var(--wrap);margin:0 auto;padding:11px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:650;font-size:15px;letter-spacing:-.01em;text-decoration:none}
+.brand-mark{
+  width:26px;height:26px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:linear-gradient(140deg,#4aa3ff,#8b6cff);
+  box-shadow:0 8px 20px -8px rgba(74,163,255,.95);
+}
+.brand-mark svg{width:13px;height:13px;display:block}
+.site-nav{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.site-nav a{
+  padding:7px 13px;border-radius:10px;border:1px solid transparent;
+  color:var(--muted);font-size:14.5px;font-weight:520;text-decoration:none;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.site-nav a:hover{color:#fff;background:var(--glass-2);border-color:var(--line)}
+.site-nav a[aria-current="page"]{color:#fff;background:var(--glass-2);border-color:var(--line-2)}
+.site-nav a.gh{border-color:var(--line-2);color:#cfe2ff}
+.site-nav a.gh:hover{background:rgba(74,163,255,.16);border-color:rgba(74,163,255,.5)}
+
+/* ---------- layout ---------- */
+main{position:relative;z-index:1;max-width:var(--wrap);margin:0 auto;padding:60px 24px 72px}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px 5px 12px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--glass);
+  color:#bdd7f8;font-size:12px;font-weight:650;letter-spacing:.09em;text-transform:uppercase;
+}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#57d38c;box-shadow:0 0 0 3px rgba(87,211,140,.16)}
+
+h1{margin:22px 0 18px;font-size:clamp(34px,6.2vw,58px);line-height:1.07;letter-spacing:-.038em;font-weight:700;color:#fff}
+.grad{background:linear-gradient(100deg,#8fc6ff,#c6b6ff 52%,#7fe3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+h2{margin:58px 0 16px;font-size:clamp(21px,2.7vw,27px);line-height:1.25;letter-spacing:-.022em;font-weight:650;color:#fff}
+h2::before{content:"";display:block;width:36px;height:3px;border-radius:3px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+p,li{max-width:74ch}
+p{margin:0 0 16px}
+ul,ol{padding-left:1.15em}
+li{margin:.35em 0}
+
+.lead{font-size:clamp(16.5px,2vw,19px);color:#cbdaf0;max-width:68ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 6px}
+
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 22px;border-radius:12px;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(135deg,#2b8ef0,#176dc3);
+  color:#fff;font-size:15.5px;font-weight:620;text-decoration:none;
+  box-shadow:0 16px 34px -16px rgba(43,142,240,.95);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease,background .2s ease;
+}
+.cta:hover{color:#fff;transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 22px 42px -16px rgba(43,142,240,1)}
+.cta svg{width:16px;height:16px}
+.cta.secondary{background:var(--glass-2);border-color:var(--line-2);color:#dbe9ff;box-shadow:none}
+.cta.secondary:hover{background:rgba(130,170,235,.18)}
+
+.shot{margin:44px 0 8px;padding:0}
+.shot img{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line-2);box-shadow:0 50px 90px -50px rgba(0,0,0,1)}
+
+/* ---------- feature grid ---------- */
+.features{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+.features li{
+  max-width:none;margin:0;padding:20px;
+  border:1px solid var(--line);border-radius:16px;
+  background:linear-gradient(160deg,rgba(130,170,235,.09),rgba(130,170,235,.02));
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.features li:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 48px -30px rgba(0,0,0,1)}
+.features .ico{
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;
+  color:#9fd0ff;background:rgba(74,163,255,.14);border:1px solid rgba(74,163,255,.32);
+}
+.features .ico svg{width:18px;height:18px;display:block}
+.features strong{display:block;color:#fff;font-weight:620;font-size:15.5px;letter-spacing:-.01em;margin-bottom:4px}
+.features span{display:block;color:var(--muted);font-size:14.5px;line-height:1.62}
+
+/* ---------- callout ---------- */
+.callout{
+  margin:22px 0 0;padding:22px 24px;border-radius:var(--radius);
+  border:1px solid rgba(74,163,255,.3);
+  background:linear-gradient(150deg,rgba(74,163,255,.13),rgba(139,108,255,.07));
+}
+.callout p:last-child{margin-bottom:0}
+
+/* ---------- footer ---------- */
+.site-footer{position:relative;z-index:1;margin-top:40px;border-top:1px solid var(--line);background:rgba(4,9,18,.4)}
+.site-footer .wrap{max-width:var(--wrap);margin:0 auto;padding:26px 24px 34px;color:var(--muted);font-size:14.5px}
+.site-footer small{display:block;margin-top:6px;color:var(--dim);font-size:13.5px}
+
+@media (max-width:640px){
+  main{padding:40px 20px 56px}
+  .site-header .wrap{padding:10px 20px}
+  .site-footer .wrap{padding-left:20px;padding-right:20px}
+  .site-nav a{padding:6px 10px;font-size:14px}
+  .brand-text{display:none}
+  h2{margin-top:46px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Windows 11 WebOS by bittuhere \u2014 About the project", "url": "https://win11webos.pages.dev/about/", "description": "Windows 11 WebOS by bittuhere (Bittu) is a free, open-source browser desktop built with React, Redux and SCSS. Explore local apps, offline BitBot AI and a Windows 11-style interface.", "about": {"@type": "SoftwareApplication", "name": "Windows 11 WebOS", "alternateName": ["Win11 WebOS by Bittu", "Windows 11 WebOS by bittuhere"], "softwareVersion": "1.02", "applicationCategory": "DesktopEnhancementApplication", "operatingSystem": "Web browser", "author": {"@type": "Person", "name": "bittuhere", "alternateName": "Bittu", "url": "https://github.com/bittuhere"}}}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#fff"><rect x="2" y="2" width="9" height="9" rx="2.2"/><rect x="13" y="2" width="9" height="9" rx="2.2" opacity=".8"/><rect x="2" y="13" width="9" height="9" rx="2.2" opacity=".8"/><rect x="13" y="13" width="9" height="9" rx="2.2" opacity=".6"/></svg>
+      </span>
+      <span class="brand-text">Win11&nbsp;WebOS</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../">Desktop</a>
+      <a href="../about/" aria-current="page">About</a>
+      <a href="../docs/">Docs</a>
+      <a href="../updates/">Releases</a>
+      <a class="gh" href="https://github.com/bittuhere/win11webos">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="pill">Open source · v1.02</span>
+    <h1>Win11 WebOS<br><span class="grad">by Bittu.</span></h1>
+    <p class="lead">Windows 11 WebOS by <strong>bittuhere (Bittu)</strong> recreates a Windows 11-style desktop in your web browser. It is a web application built with React, Redux, JavaScript and SCSS—not Windows itself and not a remote Windows PC.</p>
+
+    <div class="actions">
+      <a class="cta" href="../">
+        Try the desktop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="cta secondary" href="https://github.com/bittuhere/win11webos">View source on GitHub</a>
+    </div>
+  </section>
+
+  <figure class="shot">
+    <img src="../og-image.png" width="1200" height="630" decoding="async" alt="The Win11 WebOS browser desktop, taskbar and File Explorer">
+  </figure>
+
+  <h2>What can you do?</h2>
+  <ul class="features">
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 9v12"/></svg></span>
+      <strong>A real desktop feel</strong>
+      <span>Start menu, taskbar, draggable windows and desktop shortcuts.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h3.5l2 2H18a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg></span>
+      <strong>Create and save files</strong>
+      <span>File Explorer, Notepad, Paint and the bundled Office tools—all stored locally.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10.5v4M5 12.5h4M16 11.5h.01M18.5 14h.01"/></svg></span>
+      <strong>Games and BitBot</strong>
+      <span>Play bundled games and chat with the offline BitBot assistant.</span>
+    </li>
+    <li>
+      <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>
+      <strong>Make it yours</strong>
+      <span>Personalize the desktop and manage releases through Windows Update.</span>
+    </li>
+  </ul>
+
+  <h2>Offline and private by design</h2>
+  <div class="callout">
+    <p>The first download saves bundled apps, images, fonts and BitBot resources for offline use. Your local profile, settings and files are stored in this browser. There is no Firebase sign-in. Browser data can be cleared or evicted; export important files. Local login is a simulation, not disk encryption or a security boundary against someone controlling the browser.</p>
+    <p>Live weather, maps, news, external browsing and remote Store apps need internet and contact their respective providers.</p>
+  </div>
+
+  <h2>Who made it?</h2>
+  <p>The project is maintained by <a href="https://github.com/bittuhere">bittuhere</a>, also known as Bittu. The <a href="https://github.com/bittuhere/win11webos">public GitHub repository</a> contains its source, contribution information and attribution. See LICENSE and NOTICE for licensing and third-party credits.</p>
+
+  <h2>How do I learn more?</h2>
+  <p>Read the <a href="../docs/">documentation</a> and <a href="../updates/">v1.02 release notes</a>. This independent project is not affiliated with Microsoft, Windows 365 or Microsoft Windows.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Win11 WebOS by <a href="https://github.com/bittuhere">bittuhere (Bittu)</a> · Apache-2.0 · Not affiliated with Microsoft.
+    <small>Project documentation · Updated 2026-10-05</small>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Win11 WebOS by Bittu (bittuhere)
+
+> Windows 11 WebOS is an independent, Apache-2.0 browser desktop built with React, Redux, JavaScript and SCSS. It is not Microsoft Windows, a VM, or a cloud PC.
+
+- [About and authorship](https://win11webos.pages.dev/about/)
+- [Documentation and offline limitations](https://win11webos.pages.dev/docs/)
+- [Release notes](https://win11webos.pages.dev/updates/)
+- [Source code](https://github.com/bittuhere/win11webos)
+- [Maintainer](https://github.com/bittuhere)
+
+Current release: v1.02, 2026-10-05. Local apps are available offline after the complete download. Live services need internet. Profiles and files use local browser storage; no Firebase sign-in.
+
+Build: Node 22.12+ recommended; npm ci, then npm run build; deploy contents of build/ to Cloudflare Pages. Current repository docs: https://github.com/bittuhere/win11webos/blob/main/docs/README.md
+
+Update discovery source: https://raw.githubusercontent.com/bittuhere/win11WebOS/refs/heads/main/public/updates/feed.json (network-only after sign-in). Installed notes are local; offered future notes are read from GitHub. Start/Quick Settings use taskbar-origin slide motion; standard title bars are opaque and theme-aware.

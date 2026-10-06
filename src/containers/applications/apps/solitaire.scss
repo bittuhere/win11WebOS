@@ -1,0 +1,133 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Solitaire — the Win11 window around the vendored engine.
+   The game itself is styled in ./solitaire-aashish/engine.css (scoped under
+   #solitaireApp); this file only dresses the window and the action bar. */
+
+.solitaireWin {
+  .solFill {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #2a623d;
+  }
+
+  /* action bar above the felt */
+  .solBar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.22);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    flex-wrap: wrap;
+  }
+
+  .solBtn {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    cursor: pointer;
+    transition:
+      background 80ms ease,
+      transform 80ms ease;
+
+    &:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.22);
+    }
+    &:active:not(:disabled) {
+      transform: scale(0.96);
+    }
+    &:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+    &.on {
+      background: #ffcd66;
+      color: #3d2e00;
+      border-color: #ffcd66;
+      font-weight: 600;
+    }
+    &.accent {
+      background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+      border-color: transparent;
+      font-weight: 600;
+    }
+    &.warn {
+      background: #b3541e;
+      border-color: transparent;
+    }
+  }
+
+  .solDrawTog {
+    display: flex;
+    gap: 4px;
+    padding: 2px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  .solMeta {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: #eaffea;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    opacity: 0.95;
+
+    .solStats {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  /* the engine's mount point — it fills what is left of the window */
+  .solAash {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  /* win toast, floating over the finished board */
+  .solToast {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(9, 34, 20, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 13px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    z-index: 50;
+
+    b {
+      color: #ffd980;
+    }
+  }
+}

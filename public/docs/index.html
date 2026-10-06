@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Win11 WebOS documentation — Offline, login and updates</title>
+<meta name="description" content="Documentation for Win11 WebOS by bittuhere: first boot, offline download, local login, updates and limitations.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#070d1a">
+<link rel="canonical" href="https://win11webos.pages.dev/docs/">
+<meta property="og:title" content="Win11 WebOS documentation — Offline, login and updates">
+<meta property="og:image" content="https://win11webos.pages.dev/og-image.png">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+
+:root{
+  --bg:#070d1a;
+  --text:#e4edfb;
+  --muted:#9db1d1;
+  --dim:#7f93b3;
+  --line:rgba(146,180,235,.16);
+  --line-2:rgba(146,180,235,.30);
+  --glass:rgba(130,170,235,.06);
+  --glass-2:rgba(130,170,235,.10);
+  --accent:#4aa3ff;
+  --accent-2:#8b6cff;
+  --radius:18px;
+  --wrap:900px;
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font:16px/1.72 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(1000px 620px at 6% -14%,rgba(74,163,255,.24),transparent 62%),
+    radial-gradient(880px 560px at 102% -8%,rgba(139,108,255,.22),transparent 58%),
+    radial-gradient(1200px 820px at 50% 120%,rgba(23,109,195,.18),transparent 64%);
+  background-attachment:fixed;background-repeat:no-repeat;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+  mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 15%,transparent 78%);
+}
+
+a{color:#8fc6ff;text-decoration-color:rgba(143,198,255,.35);text-underline-offset:3px;transition:color .18s ease}
+a:hover{color:#bfdcff;text-decoration-color:currentColor}
+:focus-visible{outline:3px solid #8fc6ff;outline-offset:3px;border-radius:8px}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(to bottom,rgba(7,13,26,.88),rgba(7,13,26,.62));
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  backdrop-filter:blur(18px) saturate(160%);
+}
+.site-header .wrap{
+  max-width:var(--wrap);margin:0 auto;padding:11px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:650;font-size:15px;letter-spacing:-.01em;text-decoration:none}
+.brand-mark{
+  width:26px;height:26px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:linear-gradient(140deg,#4aa3ff,#8b6cff);
+  box-shadow:0 8px 20px -8px rgba(74,163,255,.95);
+}
+.brand-mark svg{width:13px;height:13px;display:block}
+.site-nav{display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.site-nav a{
+  padding:7px 13px;border-radius:10px;border:1px solid transparent;
+  color:var(--muted);font-size:14.5px;font-weight:520;text-decoration:none;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.site-nav a:hover{color:#fff;background:var(--glass-2);border-color:var(--line)}
+.site-nav a[aria-current="page"]{color:#fff;background:var(--glass-2);border-color:var(--line-2)}
+.site-nav a.gh{border-color:var(--line-2);color:#cfe2ff}
+.site-nav a.gh:hover{background:rgba(74,163,255,.16);border-color:rgba(74,163,255,.5)}
+
+/* ---------- layout ---------- */
+main{position:relative;z-index:1;max-width:var(--wrap);margin:0 auto;padding:60px 24px 72px}
+
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 14px 5px 12px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--glass);
+  color:#bdd7f8;font-size:12px;font-weight:650;letter-spacing:.09em;text-transform:uppercase;
+}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:#57d38c;box-shadow:0 0 0 3px rgba(87,211,140,.16)}
+
+h1{margin:22px 0 18px;font-size:clamp(34px,6.2vw,58px);line-height:1.07;letter-spacing:-.038em;font-weight:700;color:#fff}
+.grad{background:linear-gradient(100deg,#8fc6ff,#c6b6ff 52%,#7fe3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+main h2{margin:56px 0 16px;font-size:clamp(21px,2.7vw,27px);line-height:1.25;letter-spacing:-.022em;font-weight:650;color:#fff}
+main h2::before{content:"";display:block;width:36px;height:3px;border-radius:3px;margin-bottom:14px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+p,li{max-width:74ch}
+p{margin:0 0 16px}
+ul,ol{padding-left:1.15em}
+li{margin:.35em 0}
+
+.lead{font-size:clamp(16.5px,2vw,19px);color:#cbdaf0;max-width:68ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 6px}
+
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 22px;border-radius:12px;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(135deg,#2b8ef0,#176dc3);
+  color:#fff;font-size:15.5px;font-weight:620;text-decoration:none;
+  box-shadow:0 16px 34px -16px rgba(43,142,240,.95);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease,background .2s ease;
+}
+.cta:hover{color:#fff;transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 22px 42px -16px rgba(43,142,240,1)}
+.cta svg{width:16px;height:16px}
+.cta.secondary{background:var(--glass-2);border-color:var(--line-2);color:#dbe9ff;box-shadow:none}
+.cta.secondary:hover{background:rgba(130,170,235,.18)}
+
+/* ---------- steps ---------- */
+.steps{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px;counter-reset:step}
+.steps li{
+  max-width:none;margin:0;counter-increment:step;position:relative;
+  padding:18px 20px 18px 62px;
+  border:1px solid var(--line);border-radius:16px;
+  background:linear-gradient(160deg,rgba(130,170,235,.09),rgba(130,170,235,.02));
+  color:#cfdcf0;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.steps li:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 48px -30px rgba(0,0,0,1)}
+.steps li::before{
+  content:counter(step);position:absolute;left:20px;top:17px;
+  width:26px;height:26px;border-radius:9px;display:grid;place-items:center;
+  font-size:13px;font-weight:700;color:#cfe6ff;
+  background:rgba(74,163,255,.16);border:1px solid rgba(74,163,255,.38);
+}
+.steps strong{display:block;color:#fff;font-weight:620;font-size:15.5px;letter-spacing:-.01em;margin-bottom:3px}
+
+/* ---------- tips ---------- */
+.tips{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+.tips li{
+  max-width:none;margin:0;position:relative;padding:15px 18px 15px 46px;
+  border:1px solid var(--line);border-radius:14px;background:var(--glass);
+  color:#cfdcf0;font-size:15px;line-height:1.66;
+}
+.tips li::before{
+  content:"";position:absolute;left:18px;top:22px;
+  width:14px;height:14px;border-radius:50%;
+  border:1.5px solid rgba(74,163,255,.55);
+  background:radial-gradient(circle,rgba(74,163,255,.95) 0 3px,transparent 3.5px);
+}
+.tips strong{color:#fff;font-weight:620}
+
+/* ---------- callout ---------- */
+.callout{
+  margin:22px 0 0;padding:22px 24px;border-radius:var(--radius);
+  border:1px solid rgba(74,163,255,.3);
+  background:linear-gradient(150deg,rgba(74,163,255,.13),rgba(139,108,255,.07));
+}
+.callout p:last-child{margin-bottom:0}
+.callout.warn{border-color:rgba(255,190,90,.32);background:linear-gradient(150deg,rgba(255,190,90,.12),rgba(255,140,60,.05))}
+
+/* ---------- code ---------- */
+.code-block{
+  margin:20px 0;border:1px solid var(--line-2);border-radius:16px;overflow:hidden;
+  background:rgba(3,7,15,.72);box-shadow:0 30px 60px -40px rgba(0,0,0,1);
+}
+.code-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 16px;border-bottom:1px solid var(--line);
+  background:rgba(130,170,235,.06);
+  font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:650;
+}
+.code-block pre{margin:0;padding:18px;overflow-x:auto}
+.code-block code{
+  font:14px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  color:#cfe6ff;white-space:pre;overflow-wrap:normal;
+}
+:not(pre) > code{
+  font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  padding:2px 7px;border-radius:7px;
+  background:rgba(130,170,235,.13);border:1px solid var(--line);
+  color:#cfe6ff;overflow-wrap:anywhere;
+}
+
+/* ---------- footer ---------- */
+.site-footer{position:relative;z-index:1;margin-top:40px;border-top:1px solid var(--line);background:rgba(4,9,18,.4)}
+.site-footer .wrap{max-width:var(--wrap);margin:0 auto;padding:26px 24px 34px;color:var(--muted);font-size:14.5px}
+.site-footer small{display:block;margin-top:6px;color:var(--dim);font-size:13.5px}
+
+@media (max-width:640px){
+  main{padding:40px 20px 56px}
+  .site-header .wrap{padding:10px 20px}
+  .site-footer .wrap{padding-left:20px;padding-right:20px}
+  .site-nav a{padding:6px 10px;font-size:14px}
+  .brand-text{display:none}
+  main h2{margin-top:46px}
+  .steps li{padding-left:58px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Win11 WebOS documentation \u2014 Offline, login and updates", "url": "https://win11webos.pages.dev/docs/", "description": "Documentation for Win11 WebOS by bittuhere: first boot, offline download, local login, updates and limitations.", "about": {"@type": "SoftwareApplication", "name": "Windows 11 WebOS", "alternateName": ["Win11 WebOS by Bittu", "Windows 11 WebOS by bittuhere"], "softwareVersion": "1.02", "applicationCategory": "DesktopEnhancementApplication", "operatingSystem": "Web browser", "author": {"@type": "Person", "name": "bittuhere", "alternateName": "Bittu", "url": "https://github.com/bittuhere"}}}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="#fff"><rect x="2" y="2" width="9" height="9" rx="2.2"/><rect x="13" y="2" width="9" height="9" rx="2.2" opacity=".8"/><rect x="2" y="13" width="9" height="9" rx="2.2" opacity=".8"/><rect x="13" y="13" width="9" height="9" rx="2.2" opacity=".6"/></svg>
+      </span>
+      <span class="brand-text">Win11&nbsp;WebOS</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../">Desktop</a>
+      <a href="../about/">About</a>
+      <a href="../docs/" aria-current="page">Docs</a>
+      <a href="../updates/">Releases</a>
+      <a class="gh" href="https://github.com/bittuhere/win11webos">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="pill">Documentation</span>
+    <h1>Your browser.<br><span class="grad">Your desktop.</span></h1>
+    <p class="lead">Everything you need to install, run and update Win11 WebOS — including what actually works offline and where your files live.</p>
+    <div class="actions">
+      <a class="cta" href="../">
+        Open the desktop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="cta secondary" href="../updates/">Release notes</a>
+    </div>
+  </section>
+
+  <h2>First boot</h2>
+  <ol class="steps">
+    <li>
+      <strong>Open over HTTPS</strong>
+      Load the desktop from a secure origin and keep the tab open while the offline installer saves the full local payload.
+    </li>
+    <li>
+      <strong>Watch the progress count</strong>
+      Progress counts completed, verified files — not network bytes. If a download fails, retry; already verified files are reused.
+    </li>
+    <li>
+      <strong>Create your local account</strong>
+      Complete the local account setup, then sign in to reach the desktop.
+    </li>
+  </ol>
+  <div class="callout warn">
+    <p>Continuing online only does <strong>not</strong> promise offline availability. You need the verified download to finish for the desktop to work without a connection.</p>
+  </div>
+
+  <h2>The download logo</h2>
+  <p>The installer uses the same four-pane blue SVG as the favicon, with subtle motion that respects reduced-motion settings. It is embedded locally, not downloaded from a logo service.</p>
+
+  <h2>What works offline?</h2>
+  <p>The bundled desktop, local files, fonts, wallpapers, BitBot resources and bundled app code are cached. Online browsing, remote Store apps, live maps/weather/news, music services and checking for releases require a connection. No static site can automatically archive every external website it can open.</p>
+
+  <h2>Where are my files and password?</h2>
+  <p>The profile and virtual file system live in browser storage. Login uses local password verification, not Firebase or a cloud account. It is not a substitute for device security. Export important files before clearing site data or switching browser profiles.</p>
+
+  <h2>How do updates work?</h2>
+  <p>Each boot schedules one automatic check after successful login, using the raw GitHub main-branch update feed. A failed check shows an error rather than silently falling back to old metadata. Restarting or reloading checks again; locking and unlocking does not. You can pause them or use <strong>Check for updates</strong> manually. <strong>Install now</strong> saves and verifies the new local payload before switching builds and restarting. A failed download preserves the installed build. The next boot confirms installation in history. About and Settings display the running build, not merely the server's advertised version.</p>
+
+  <h2>Troubleshooting</h2>
+  <ul class="tips">
+    <li><strong>Download incomplete:</strong> reconnect and retry. Close extra WebOS tabs if activation stalls.</li>
+    <li><strong>Storage unavailable:</strong> use a normal HTTPS browser tab, allow site storage or use online-only mode.</li>
+    <li><strong>Feed newer than files:</strong> deployment may be incomplete. Wait and retry; do not clear all your browser data.</li>
+    <li><strong>App needs internet:</strong> reconnect for its remote service. The desktop can still operate offline.</li>
+    <li><strong>Old release after deployment:</strong> check Windows Update. Installing once replaces the old worker; an ordinary reload intentionally keeps your installed offline build.</li>
+  </ul>
+
+  <h2>Build from source</h2>
+  <div class="code-block">
+    <div class="code-head"><span>Terminal</span><span>Node 22.12+</span></div>
+    <pre><code>git clone https://github.com/bittuhere/win11webos.git
+cd win11webos
+npm ci
+npm run build</code></pre>
+  </div>
+  <p>Deploy the <strong>contents</strong> of <code>build/</code> to Cloudflare Pages (build command <code>npm run build</code>, output <code>build</code>). Use <code>npm run preview</code> for the header-aware, clean-URL local preview and <code>npm run verify</code> for the build checks. The build emits a full hashed offline manifest and service worker. Development mode intentionally skips offline installation.</p>
+  <p>Maintainers should read <a href="https://github.com/bittuhere/win11webos/blob/main/docs/DEPLOYMENT.md">the deployment guide</a>, <a href="https://github.com/bittuhere/win11webos/blob/main/docs/README.md">documentation index</a> and <code>docs/DISCOVERABILITY.md</code> in the repository.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Win11 WebOS by <a href="https://github.com/bittuhere">bittuhere (Bittu)</a> · Apache-2.0 · Not affiliated with Microsoft.
+    <small>Project documentation · Updated 2026-10-05</small>
+  </div>
+</footer>
+
+</body>
+</html>

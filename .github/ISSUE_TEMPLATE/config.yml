@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/bittuhere/win11WebOS/security/advisories/new
+    about: Please report vulnerabilities privately, never in a public issue.
+  - name: Question or idea
+    url: https://github.com/bittuhere/win11WebOS/discussions
+    about: For open-ended questions and show-and-tell.

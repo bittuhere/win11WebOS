@@ -1,0 +1,393 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.searchMenu {
+  min-height: 500px;
+  padding: 32px;
+  text-align: left;
+}
+
+.searchBar {
+  height: 30px;
+  border-bottom: solid 2px var(--clrPrm);
+  border-radius: 4px;
+  background: var(--comp-clr);
+  display: flex;
+  padding: 0 10px;
+
+  .uicon {
+    filter: brightness(0.6);
+    margin-right: 12px;
+  }
+
+  input {
+    width: 100%;
+    background: inherit;
+    color: var(--dark-txt);
+
+    &::placeholder {
+      color: var(--txt-col);
+    }
+  }
+}
+
+.smatch {
+  background: var(--bg2);
+}
+
+.opts {
+  color: var(--med-txt);
+
+  div {
+    border: solid 0 var(--clrPrm);
+    cursor: pointer;
+
+    &[value="true"] {
+      border-bottom-width: 2px;
+      color: var(--dark-txt);
+    }
+  }
+}
+
+.leftSide {
+  width: 100%;
+}
+
+.leftSide[data-width="true"] {
+  width: 32%;
+}
+
+.rightSide {
+  margin: 8px;
+  height: 560px;
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hline {
+    width: 90%;
+    height: 1px;
+    border-radius: 10px;
+    background: var(--bg2);
+  }
+}
+
+.topApp {
+  background: var(--bg2);
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.qksrch {
+  border-radius: 4px;
+
+  .uicon {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: var(--bg2);
+  }
+}
+
+.powerCont {
+  position: absolute;
+  top: -118px;
+  left: -36px;
+  width: 118px;
+  font-size: 12px;
+  /* OPAQUE — this flyout floated over the wallpaper like glass; a menu
+     you read must not be transparent */
+  background: #f3f3f3;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1b1b1b;
+  padding: 4px 6px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 200ms ease-in-out;
+
+  &[data-vis="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .flex {
+    padding: 5px 7px;
+    border-radius: 5px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.07);
+    }
+  }
+
+  .uicon {
+    margin-right: 8px;
+  }
+}
+
+body[data-theme="dark"] .powerCont {
+  background: #2b2b2b;
+  border-color: rgba(255, 255, 255, 0.09);
+  color: #f3f3f3;
+
+  .flex:hover {
+    background: rgba(255, 255, 255, 0.09);
+  }
+}
+
+/* ---- suggester polish (Win11 search feel) ---- */
+
+.shSec {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--med-txt);
+  padding: 2px 12px 0;
+  letter-spacing: 0.2px;
+}
+
+.textResult .smatch {
+  background: transparent;
+  border-radius: 6px;
+  animation: shRowIn 200ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  transition:
+    background 80ms ease,
+    transform 80ms ease;
+
+  &:hover,
+  &[data-sel="true"] {
+    background: var(--bg2);
+  }
+  &[data-sel="true"] {
+    box-shadow: inset 0 0 0 1px var(--clrPrm);
+  }
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.smatchHero {
+  background: var(--bg2) !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  .matchInfo .text-xss {
+    color: var(--med-txt);
+  }
+}
+
+@keyframes shRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.rightSide {
+  padding: 24px 20px;
+  text-align: center;
+  background: var(--bg2);
+  animation: shPrevIn 220ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+@keyframes shPrevIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.shPrevIcon {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+
+.shPrevName {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.openlink {
+  margin: 10px auto 0;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--clrPrm);
+  color: #fff;
+  width: auto !important;
+  transition:
+    filter 100ms ease,
+    transform 100ms ease;
+
+  &:hover {
+    filter: brightness(1.08);
+  }
+  &:active {
+    transform: scale(0.97);
+  }
+
+  .text-xss {
+    color: #fff;
+    font-weight: 600;
+  }
+  .uicon {
+    filter: none;
+  }
+}
+
+/* search box: rounded, like Win11 */
+.searchMenu .searchBar {
+  height: 38px;
+  border: 1px solid var(--clrPrm);
+  border-bottom-width: 2px;
+  border-radius: 18px;
+  align-items: center;
+
+  input {
+    font-size: 13px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Search results — matched letters, file hits, the empty state and the
+   little "clear" cross in the box.
+   ------------------------------------------------------------------ */
+.searchBar {
+  position: relative;
+}
+.srchClear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+.srchClear:hover {
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.textResult {
+  max-height: 430px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.shHi {
+  color: var(--clrPrm);
+  font-weight: 800;
+}
+.shEmpty {
+  padding: 10px 10px 4px 4px;
+}
+.shHint {
+  font-size: 11px;
+  opacity: 0.68;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+.shWebBtn {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 5px;
+  background: rgba(128, 128, 128, 0.14);
+}
+.shWebBtn:hover {
+  background: rgba(128, 128, 128, 0.24);
+}
+.shPrevPath {
+  font-size: 10.5px;
+  opacity: 0.62;
+  margin-top: 6px;
+  word-break: break-all;
+  max-width: 90%;
+}
+
+/* A bounded Search view inside the shared Start shell. Only the results
+   scroll; focusing a result must not move the shell or the desktop. */
+.startMenu .searchMenu {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow: hidden;
+
+  .searchBar { flex: 0 0 38px; min-width: 0; }
+  .searchBar input { min-width: 0; padding-right: 18px; }
+  > .flex { flex-shrink: 0; }
+  .shResult {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+  .leftSide, .matchInfo { min-width: 0; overflow-wrap: anywhere; }
+  .rightSide {
+    height: auto;
+    min-height: 220px;
+    min-width: 0;
+    flex: 1 1 0;
+    width: auto;
+    margin: 0 0 0 12px;
+    padding: 16px;
+  }
+  .shPrevName { max-width: 100%; }
+  .topApps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+  .topApp { width: auto; min-width: 0; text-align: center; overflow-wrap: anywhere; }
+}
+@media (max-width: 600px) {
+  .startMenu .searchMenu {
+    padding: 16px;
+    .topApps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .shResult { flex-direction: column; gap: 12px; }
+    .leftSide[data-width="true"] { width: 100%; }
+    .rightSide { width: 100%; flex: 0 0 auto; margin: 0; box-sizing: border-box; }
+  }
+}

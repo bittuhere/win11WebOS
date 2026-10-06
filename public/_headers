@@ -1,0 +1,58 @@
+# Security headers for static hosts that support them.
+#
+# Cloudflare Pages and Netlify read this file as-is. GitHub Pages ignores it —
+# that is expected: Pages already sends its own baseline headers, and the CSP
+# below is the part worth copying by hand if you proxy the site elsewhere.
+#
+# Nothing here blocks the OS itself: styles and scripts are same-origin (the
+# app ships no remote fonts, no CDNs and no analytics), while `blob:` and
+# `data:` are allowed because the Browser app renders local HTML from a blob
+# URL and the Store/catalog art travels as data URIs. `connect-src` keeps the
+# live widgets (Open-Meteo, Wikipedia, OpenStreetMap) and the optional
+# /webos-proxy relay working when this file is served by a dev/host server.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' blob: data: https: wss:; frame-src 'self' blob: data: https:; worker-src 'self' blob:; object-src 'self' blob: data:; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), camera=(self), microphone=(self), payment=(), usb=(), magnetometer=(), gyroscope=(self), accelerometer=(self)
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-DNS-Prefetch-Control: off
+
+# Hashed build output never changes: cache it for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The shell and the data files must stay fresh so a new build is picked up.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/manifest.json
+  Cache-Control: public, max-age=3600
+/robots.txt
+  Cache-Control: public, max-age=86400
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+# ---------------------------------------------------------------------------
+#  The update feed is the one thing on this site that must never be cached:
+#  a cached feed means a person never hears about a release.
+# ---------------------------------------------------------------------------
+/updates/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+  Pragma: no-cache
+
+# Worker and inventory are network-only discovery resources. Never immutable.
+/sw.js
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/offline-manifest.json
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/about/*
+  Cache-Control: public, max-age=0, must-revalidate
+/docs/*
+  Cache-Control: public, max-age=0, must-revalidate
+/llms.txt
+  Cache-Control: public, max-age=0, must-revalidate

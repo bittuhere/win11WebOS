@@ -1,0 +1,2570 @@
+/*
+ * Copyright 2026 bittuhere (anurag670singh@gmail.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* ==================================================================
+   Microsoft Edge — a faithful rebuild of the Windows 11 Edge chrome.
+   Light and dark are driven by the OS theme (body[data-theme]) *and*
+   by the browser's own "follow the Windows theme" setting.
+   ================================================================== */
+
+.edgeBrowser.eg {
+  /* light */
+  --eg-chrome: #e8ebef;
+  --eg-chrome-2: #f3f5f7;
+  --eg-tab-on: #fbfcfd;
+  --eg-tab-off: transparent;
+  --eg-tab-hover: rgba(0, 0, 0, 0.055);
+  --eg-txt: #1b1b1f;
+  --eg-txt-2: #5d6169;
+  --eg-txt-3: #85898f;
+  --eg-field: #ffffff;
+  --eg-field-brd: rgba(0, 0, 0, 0.09);
+  --eg-hover: rgba(0, 0, 0, 0.05);
+  --eg-press: rgba(0, 0, 0, 0.03);
+  --eg-stroke: rgba(0, 0, 0, 0.08);
+  --eg-accent: #0067c0;
+  --eg-page: #ffffff;
+  --eg-page-2: #f6f7f9;
+  --eg-card: #ffffff;
+  --eg-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  background: var(--eg-chrome);
+  color: var(--eg-txt);
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.edgeBrowser.eg.eg-dark,
+body[data-theme="dark"] .edgeBrowser.eg:not(.eg-light) {
+  --eg-chrome: #1b1a1f;
+  --eg-chrome-2: #232228;
+  --eg-tab-on: #2b2a30;
+  --eg-tab-hover: rgba(255, 255, 255, 0.07);
+  --eg-txt: #f2f2f5;
+  --eg-txt-2: #b4b6bd;
+  --eg-txt-3: #86888f;
+  --eg-field: #2b2a30;
+  --eg-field-brd: rgba(255, 255, 255, 0.09);
+  --eg-hover: rgba(255, 255, 255, 0.07);
+  --eg-press: rgba(255, 255, 255, 0.04);
+  --eg-stroke: rgba(255, 255, 255, 0.08);
+  --eg-accent: #4cc2ff;
+  --eg-page: #201f24;
+  --eg-page-2: #26252b;
+  --eg-card: #2b2a30;
+  --eg-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.edgeBrowser.eg .windowScreen {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--eg-chrome);
+}
+
+/* ------------------------- tab strip ----------------------------- */
+
+.egTabRow {
+  flex: none;
+  height: 36px;
+  padding: 4px 8px 0;
+  background: var(--eg-chrome);
+  overflow: hidden;
+}
+
+.egTabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.egTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.egTab {
+  position: relative;
+  flex: 1 1 200px;
+  min-width: 46px;
+  max-width: 232px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 8px;
+  border-radius: 8px 8px 0 0;
+  background: var(--eg-tab-off);
+  color: var(--eg-txt-2);
+  font-size: 12px;
+  cursor: default;
+  user-select: none;
+  transition:
+    background 130ms ease,
+    color 130ms ease;
+}
+.egTab:hover {
+  background: var(--eg-tab-hover);
+  color: var(--eg-txt);
+}
+.egTab.on {
+  background: var(--eg-tab-on);
+  color: var(--eg-txt);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.06);
+}
+.egTab.pin {
+  flex: 0 0 42px;
+  min-width: 42px;
+  max-width: 42px;
+  justify-content: center;
+  padding: 0;
+}
+
+.egTabFav {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  color: var(--eg-txt-2);
+}
+.egTabFav img {
+  border-radius: 2px;
+}
+.egTabLetter {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--eg-txt-3);
+}
+
+.egTabTitle {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.05px;
+}
+
+.egTabX {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  opacity: 0;
+  transition:
+    opacity 120ms ease,
+    background 120ms ease;
+}
+.egTab:hover .egTabX,
+.egTab.on .egTabX {
+  opacity: 0.75;
+}
+.egTabX:hover {
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+body[data-theme="dark"] .egTabX:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.egTabAdd {
+  flex: none;
+  width: 30px;
+  height: 28px;
+  margin: 0 2px 2px 6px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--eg-txt-2);
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+.egTabAdd:hover {
+  background: var(--eg-hover);
+  color: var(--eg-txt);
+}
+
+/* the little loading spinner Edge shows on a tab */
+.egSpin {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 1.8px solid var(--eg-stroke);
+  border-top-color: var(--eg-accent);
+  border-radius: 50%;
+  animation: egSpin 760ms linear infinite;
+}
+.egSpin.big {
+  width: 15px;
+  height: 15px;
+}
+@keyframes egSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------------------- nav toolbar ----------------------------- */
+
+.egToolbar {
+  position: relative;
+  flex: none;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  background: var(--eg-tab-on);
+  border-bottom: 1px solid var(--eg-stroke);
+}
+
+.egNavBtns,
+.egRightBtns {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex: none;
+}
+
+.egNav {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--eg-txt);
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    transform 80ms ease;
+}
+.egNav:hover:not(:disabled) {
+  background: var(--eg-hover);
+}
+.egNav:active:not(:disabled) {
+  transform: scale(0.92);
+  background: var(--eg-press);
+}
+.egNav:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+.egNav svg {
+  display: block;
+}
+
+.egDot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffb900;
+  box-shadow: 0 0 0 2px var(--eg-tab-on);
+}
+
+/* ------------------------ omnibox -------------------------------- */
+
+.egOmni {
+  position: relative;
+  flex: 1;
+  min-width: 60px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 10px;
+  margin: 0 4px;
+  border-radius: 999px;
+  background: var(--eg-field);
+  border: 1px solid var(--eg-field-brd);
+  transition:
+    box-shadow 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease;
+}
+.egOmni:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+.egOmni.focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--eg-accent);
+  background: var(--eg-field);
+}
+.eg-dark .egOmni:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.egOmniLock {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--eg-txt-2);
+}
+.egOmniLock svg {
+  display: block;
+}
+
+.egOmniInput {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+  letter-spacing: -0.05px;
+}
+.egOmniInput::placeholder {
+  color: var(--eg-txt-3);
+}
+.egOmniInput::selection {
+  background: rgba(0, 103, 192, 0.28);
+}
+
+.egOmniStar,
+.egOmniClear {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--eg-txt-2);
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    color 110ms ease;
+}
+.egOmniStar:hover,
+.egOmniClear:hover {
+  background: var(--eg-hover);
+  color: var(--eg-txt);
+}
+.egOmniStar.on {
+  color: #ffb900;
+}
+
+.egOmniPop {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--eg-stroke);
+  background: var(--eg-card);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+  animation: egPop 150ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  max-height: 380px;
+  overflow: auto;
+}
+@keyframes egPop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.egOmniPop button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.egOmniPop button:hover,
+.egOmniPop button.on {
+  background: var(--eg-hover);
+}
+.egOmniPopIco {
+  flex: none;
+  color: var(--eg-txt-2);
+  display: grid;
+  place-items: center;
+  width: 16px;
+}
+.egOmniPopText {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egOmniPopKind {
+  flex: none;
+  font-size: 11px;
+  color: var(--eg-txt-3);
+}
+
+/* the thin progress line under the toolbar */
+.egProgress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--eg-accent);
+  border-radius: 2px;
+  transition: width 220ms ease;
+  box-shadow: 0 0 8px var(--eg-accent);
+}
+
+/* ---------------------- favourites bar --------------------------- */
+
+.egFavBar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 32px;
+  padding: 0 8px;
+  background: var(--eg-tab-on);
+  border-bottom: 1px solid var(--eg-stroke);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.egFavBar::-webkit-scrollbar {
+  display: none;
+}
+
+.egFavBtn {
+  flex: none;
+  max-width: 190px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--eg-txt);
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 110ms ease;
+}
+.egFavBtn:hover {
+  background: var(--eg-hover);
+}
+.egFavBtn span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egFavBtn img {
+  flex: none;
+  border-radius: 2px;
+}
+
+.egFavMore {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--eg-txt-2);
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.egFavMore:hover {
+  background: var(--eg-hover);
+}
+
+/* ------------------------- find bar ------------------------------ */
+
+.egFind {
+  position: absolute;
+  top: 84px;
+  right: 18px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--eg-stroke);
+  background: var(--eg-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+  animation: egPop 160ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.egFind input {
+  width: 190px;
+  height: 28px;
+  padding: 0 9px;
+  border: 1px solid var(--eg-field-brd);
+  border-radius: 5px;
+  background: var(--eg-field);
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+.egFind input:focus {
+  border-color: var(--eg-accent);
+}
+.egFind button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--eg-txt);
+  cursor: pointer;
+}
+.egFind button:hover {
+  background: var(--eg-hover);
+}
+
+/* --------------------------- content ----------------------------- */
+
+.egContent {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  background: var(--eg-page);
+  overflow: hidden;
+}
+
+.egFrameWrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+/* one layer per web tab — hidden, not unmounted, so tab switches never reload */
+.egFrameLayer {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.egFrameLayer[data-active="on"] {
+  display: block;
+}
+.egFrameLayer .egFrame {
+  width: 100%;
+  height: 100%;
+}
+.egEmbedNote {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  font-size: 12px;
+  color: var(--eg-txt-2);
+  background: rgba(255, 244, 206, 0.96);
+  color: #5c4a12;
+  border-bottom: 1px solid rgba(92, 74, 18, 0.18);
+  animation: egExtPop 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.eg-dark .egEmbedNote {
+  background: rgba(63, 55, 24, 0.96);
+  color: #f5deb0;
+  border-bottom-color: rgba(245, 222, 176, 0.18);
+}
+.egEmbedNoteTxt {
+  flex: 1;
+  min-width: 0;
+}
+.egEmbedNoteX {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+}
+.egEmbedNoteX:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+.egFrameWrap[data-zoom] {
+  zoom: 1;
+}
+.egFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+/* -------------------------- status bar --------------------------- */
+
+.egStatus {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 40;
+  max-width: 62%;
+  padding: 3px 10px;
+  border-radius: 0 6px 0 0;
+  background: var(--eg-card);
+  border: 1px solid var(--eg-stroke);
+  border-left: none;
+  border-bottom: none;
+  color: var(--eg-txt-2);
+  font-size: 11.5px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 140ms ease,
+    transform 140ms ease;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egStatus[data-on="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------- masks ------------------------------- */
+
+.egMask {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.32);
+  animation: egFade 160ms ease both;
+}
+.egMask.light {
+  background: transparent;
+  place-items: start end;
+}
+@keyframes egFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.egSheet {
+  width: min(420px, calc(100% - 40px));
+  padding: 22px;
+  border-radius: 10px;
+  background: var(--eg-card);
+  border: 1px solid var(--eg-stroke);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+  color: var(--eg-txt);
+  animation: egSheetIn 240ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+@keyframes egSheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.egSheetIco {
+  color: #ffb900;
+  margin-bottom: 10px;
+}
+.egSheet h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.egSheet code {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--eg-page-2);
+  font-size: 12px;
+  word-break: break-all;
+  color: var(--eg-txt-2);
+  margin-bottom: 10px;
+}
+.egSheet p {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--eg-txt-2);
+  line-height: 1.5;
+}
+.egSheetActs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.egZoom {
+  margin: 10px 12px 0 0;
+  width: 250px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--eg-card);
+  border: 1px solid var(--eg-stroke);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+  color: var(--eg-txt);
+  animation: egPop 160ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.egZoom > b {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 10px;
+}
+.egZoomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.egZoomRow span {
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 52px;
+  text-align: center;
+}
+.egZoomRow button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--eg-stroke);
+  background: var(--eg-hover);
+  color: var(--eg-txt);
+  font-size: 17px;
+  cursor: pointer;
+}
+.egZoomRow button:hover {
+  background: var(--eg-press);
+}
+.egZoom .egBtn {
+  margin-top: 6px;
+}
+
+/* --------------------------- buttons ----------------------------- */
+
+.egBtn {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 6px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-hover);
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 110ms ease,
+    transform 80ms ease;
+}
+.egBtn:hover {
+  background: var(--eg-press);
+}
+.egBtn:active {
+  transform: scale(0.98);
+}
+.egBtn.accent {
+  background: var(--eg-accent);
+  border-color: transparent;
+  color: #fff;
+}
+.eg-dark .egBtn.accent {
+  color: #10222e;
+}
+.egBtn.accent:hover {
+  filter: brightness(1.08);
+}
+.egBtn.ghost {
+  background: transparent;
+  border-color: transparent;
+}
+.egBtn.ghost:hover {
+  background: var(--eg-hover);
+}
+.egBtn.wide {
+  width: 100%;
+}
+
+/* ======================= internal pages ========================== */
+
+.egPage {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 26px 34px 60px;
+  background: var(--eg-page);
+  color: var(--eg-txt);
+  scrollbar-width: thin;
+}
+.egPage::-webkit-scrollbar {
+  width: 10px;
+}
+.egPage::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.35);
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.egPageHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+.egPageHead h1 {
+  margin: 2px 0 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.egPageHead p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--eg-txt-2);
+  max-width: 640px;
+  line-height: 1.5;
+}
+.egEyebrow {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--eg-txt-3);
+  font-weight: 600;
+}
+.egPageHeadRight {
+  flex: none;
+}
+.egRowBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.egSearchField {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 34px;
+  padding: 0 12px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-field);
+  color: var(--eg-txt-2);
+  max-width: 460px;
+}
+.egSearchField:focus-within {
+  border-color: var(--eg-accent);
+  box-shadow: 0 0 0 1px var(--eg-accent);
+}
+.egSearchField input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.egEmpty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--eg-txt-3);
+  font-size: 13.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.egList {
+  display: flex;
+  flex-direction: column;
+}
+
+.egRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  transition: background 110ms ease;
+}
+.egRow:hover {
+  background: var(--eg-hover);
+}
+.egRowMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  padding: 2px 0;
+}
+.egRowTitle {
+  flex: none;
+  max-width: 46%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+.egRowUrl {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--eg-txt-3);
+  font-size: 12px;
+}
+.egRowTime {
+  flex: none;
+  font-size: 11.5px;
+  color: var(--eg-txt-3);
+}
+.egRowX {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--eg-txt-2);
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 120ms ease,
+    background 120ms ease;
+}
+.egRow:hover .egRowX {
+  opacity: 1;
+}
+.egRowX:hover {
+  background: rgba(196, 43, 28, 0.14);
+  color: #c42b1c;
+}
+
+.egFav {
+  border-radius: 3px;
+  flex: none;
+}
+.egFavLetter {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  background: var(--eg-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex: none;
+}
+
+.egHistDay h3 {
+  margin: 18px 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--eg-txt-2);
+}
+
+/* downloads */
+.egDl {
+  padding: 11px 10px;
+}
+.egDlIco {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--eg-page-2);
+  color: var(--eg-txt-2);
+}
+.egDlInfo {
+  flex: 1;
+  min-width: 0;
+}
+.egDlName {
+  font-size: 13.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egDlMeta {
+  font-size: 11.5px;
+  color: var(--eg-txt-3);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* favourites */
+.egFavGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.egFavCard {
+  position: relative;
+  border-radius: 9px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-card);
+  overflow: hidden;
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+.egFavCard:hover {
+  box-shadow: var(--eg-shadow);
+  transform: translateY(-1px);
+}
+.egFavOpen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 20px 12px 16px;
+  border: none;
+  background: transparent;
+  color: var(--eg-txt);
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+}
+.egFavOpen span {
+  font-size: 13px;
+  font-weight: 500;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egFavOpen i {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--eg-txt-3);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.egFavActs {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity 140ms ease;
+}
+.egFavCard:hover .egFavActs {
+  opacity: 1;
+}
+.egFavActs button {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 5px;
+  background: var(--eg-page-2);
+  color: var(--eg-txt-2);
+  cursor: pointer;
+}
+.egFavActs button:hover {
+  background: var(--eg-hover);
+  color: var(--eg-txt);
+}
+
+/* settings */
+.egSetSec {
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-card);
+  overflow: hidden;
+}
+.egSetSec h3 {
+  margin: 0;
+  padding: 14px 18px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.egSetRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--eg-stroke);
+}
+.egSetRow > div {
+  min-width: 0;
+}
+.egSetRow b {
+  font-size: 13.5px;
+  font-weight: 500;
+  display: block;
+}
+.egSetRow p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--eg-txt-2);
+  line-height: 1.45;
+}
+
+.egInput {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid var(--eg-field-brd);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.28);
+  background: var(--eg-field);
+  color: var(--eg-txt);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+.eg-dark .egInput {
+  border-bottom-color: rgba(255, 255, 255, 0.4);
+}
+.egInput:focus {
+  border-bottom-color: var(--eg-accent);
+}
+.egInput.wide {
+  width: min(320px, 46%);
+}
+
+.egAbout {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+}
+.egAbout b {
+  font-size: 15px;
+}
+.egAbout p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--eg-txt-2);
+}
+
+/* extensions page */
+.egExtCard {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-card);
+  margin-bottom: 16px;
+}
+.egExtCard.on {
+  border-color: rgba(15, 123, 15, 0.4);
+}
+.egExtIco {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--eg-page-2);
+  color: var(--eg-txt-2);
+}
+.egExtCard.on .egExtIco {
+  color: #0f7b0f;
+  background: rgba(15, 123, 15, 0.1);
+}
+.eg-dark .egExtCard.on .egExtIco {
+  color: #6ccb5f;
+}
+.egExtInfo {
+  flex: 1;
+  min-width: 0;
+}
+.egExtInfo b {
+  font-size: 14.5px;
+}
+.egExtInfo p {
+  margin: 4px 0 8px;
+  font-size: 12.5px;
+  color: var(--eg-txt-2);
+  line-height: 1.5;
+}
+.egExtState {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: var(--eg-txt-3);
+}
+.egExtState .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--eg-txt-3);
+}
+.egExtState .dot.on {
+  background: #0f7b0f;
+  box-shadow: 0 0 8px rgba(15, 123, 15, 0.6);
+}
+.eg-dark .egExtState .dot.on {
+  background: #6ccb5f;
+}
+.egExtActs {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.egExtWhy {
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid var(--eg-field-brd);
+  background: var(--eg-page-2);
+}
+.egExtWhy h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.egExtWhy p {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--eg-txt-2);
+}
+.egExtWhy ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--eg-txt-2);
+}
+.egExtWhy code {
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11.5px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--eg-hover);
+}
+.egExtPriv {
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* error page */
+.egError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 46px;
+}
+.egErrorArt {
+  color: var(--eg-txt-3);
+  margin-bottom: 14px;
+}
+.egError h1 {
+  margin: 0 0 6px;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.egErrorUrl {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--eg-txt-2);
+  max-width: 620px;
+  word-break: break-all;
+}
+.egErrorWhy {
+  margin: 0 0 6px;
+  font-size: 13.5px;
+  color: var(--eg-txt);
+  max-width: 560px;
+  line-height: 1.55;
+}
+.egErrorDetail {
+  margin: 8px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--eg-page-2);
+  color: var(--eg-txt-3);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 11.5px;
+  text-align: left;
+  max-width: 620px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.egErrorActs {
+  display: flex;
+  gap: 8px;
+  margin: 22px 0 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.egErrorHelp {
+  width: min(620px, 100%);
+  text-align: left;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--eg-page-2);
+  border: 1px solid var(--eg-field-brd);
+}
+.egErrorHelp b {
+  font-size: 13px;
+}
+.egErrorHelp ul {
+  margin: 8px 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--eg-txt-2);
+}
+.egErrorHelp code {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--eg-txt-3);
+  word-break: break-all;
+  font-family: "Cascadia Mono", Consolas, monospace;
+}
+
+/* reader */
+.egReader {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.egReaderBar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 18px;
+  background: var(--eg-page-2);
+  border-bottom: 1px solid var(--eg-stroke);
+  font-size: 12.5px;
+}
+.egReaderBar > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+.egReaderBar em {
+  font-style: normal;
+  color: var(--eg-txt-3);
+  font-size: 11.5px;
+}
+.egReaderBody {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 26px 34px 70px;
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.72;
+  scrollbar-width: thin;
+}
+.egReaderBody h1 {
+  font-size: 27px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  letter-spacing: -0.4px;
+}
+.egReaderBody h2 {
+  font-size: 20px;
+  margin: 26px 0 10px;
+}
+.egReaderBody h3 {
+  font-size: 16.5px;
+  margin: 22px 0 8px;
+}
+.egReaderBody p {
+  margin: 0 0 14px;
+}
+.egReaderBody a {
+  color: var(--eg-accent);
+  text-decoration: none;
+}
+.egReaderBody a:hover {
+  text-decoration: underline;
+}
+.egReaderBody img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+.egReaderBody ul,
+.egReaderBody ol {
+  padding-left: 22px;
+  margin: 0 0 14px;
+}
+.egReaderBody li {
+  margin-bottom: 5px;
+}
+.egReaderBody pre,
+.egReaderBody code {
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12.5px;
+  background: var(--eg-page-2);
+  border-radius: 5px;
+}
+.egReaderBody pre {
+  padding: 12px;
+  overflow: auto;
+}
+.egReaderBody blockquote {
+  margin: 14px 0;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid var(--eg-accent);
+  color: var(--eg-txt-2);
+}
+.egReaderBody table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.egReaderBody td,
+.egReaderBody th {
+  border: 1px solid var(--eg-stroke);
+  padding: 6px 9px;
+  text-align: left;
+}
+
+/* ------------------------- new tab page -------------------------- */
+
+.egNewTab {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  /* overflow:auto here let the oversized decorative glow (inset:-30%) inflate
+     the scroll area — the home screen "extended to the right". Clip it. */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background: #0b1c33;
+}
+.egNewTab[data-wall="bloom"] {
+  background:
+    radial-gradient(90% 70% at 12% 8%, #2b6fd4 0%, transparent 60%),
+    radial-gradient(80% 70% at 92% 18%, #6a4bd0 0%, transparent 58%),
+    radial-gradient(90% 80% at 70% 96%, #14a2c9 0%, transparent 62%),
+    linear-gradient(160deg, #0d2144 0%, #0a1a30 55%, #07131f 100%);
+}
+.egNewTab[data-wall="dark"] {
+  background: linear-gradient(180deg, #16161a 0%, #0b0b0e 100%);
+}
+.egNewTab[data-wall="wall0"] {
+  background: #0b3a86 url("/img/wallpaper/default/img0.jpg") center/cover no-repeat;
+}
+.egNewTab[data-wall="wall1"] {
+  background: #0b1020 url("/img/wallpaper/dark/img0.jpg") center/cover no-repeat;
+}
+.egNewTab[data-wall="plain"] {
+  background: var(--eg-page);
+  color: var(--eg-txt);
+}
+
+.egNtpGlow {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 42% 34% at 22% 82%, rgba(76, 194, 255, 0.24), transparent 68%),
+    radial-gradient(ellipse 38% 32% at 82% 16%, rgba(160, 110, 255, 0.2), transparent 70%);
+  animation: ntpBloom 22s ease-in-out infinite alternate;
+}
+@keyframes ntpBloom {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.08) translate3d(-2%, 1%, 0);
+    opacity: 1;
+  }
+}
+
+.egNtpInner {
+  position: relative;
+  z-index: 1;
+  width: min(680px, calc(100% - 48px));
+  max-width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  padding: 8vh 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- extension verify: spinner, verdict line, proven pulse ---- */
+@keyframes egSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.egSpin {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: egSpin 700ms linear infinite;
+  display: inline-block;
+  vertical-align: -2px;
+}
+.egExtVerdict {
+  margin-top: 9px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 11px;
+  border-radius: 7px;
+  font-size: 12px;
+  line-height: 1.45;
+  animation: egExtPop 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.egExtVerdict.busy {
+  background: rgba(0, 120, 212, 0.09);
+  color: var(--eg-txt-2);
+}
+.egExtVerdict.ok {
+  background: rgba(15, 123, 15, 0.1);
+  color: #0f7b0f;
+}
+.eg-dark .egExtVerdict.ok {
+  color: #6ccb5f;
+}
+.egExtVerdict.no {
+  background: rgba(196, 43, 28, 0.09);
+  color: #c42b1c;
+}
+.eg-dark .egExtVerdict.no {
+  color: #ff99a4;
+}
+.egExtMark {
+  font-weight: 700;
+}
+.egExtCard[data-proven="true"] .egExtIco {
+  animation: egPulse 720ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes egPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(15, 123, 15, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(15, 123, 15, 0);
+  }
+}
+@keyframes egExtPop {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- in-Edge install guide ---- */
+.egExtGuide {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--eg-stroke);
+  border-radius: 9px;
+  background: var(--eg-card);
+  animation: egExtPop 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.egExtGuide:nth-of-type(2) {
+  animation-delay: 40ms;
+}
+.egExtGuide:nth-of-type(3) {
+  animation-delay: 80ms;
+}
+.egExtGuideHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.egExtGuideHead b {
+  font-size: 14px;
+}
+.egExtGuide ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.egExtGuide li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--eg-txt-2);
+}
+.egExtStepNum {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--eg-accent, #0078d4);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.egExtGuideActs {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.egNtpBrand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 26px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  opacity: 0.95;
+  animation: ntpIn 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.egNtpSearch {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 6px 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  backdrop-filter: blur(30px) saturate(160%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.26);
+  transition:
+    box-shadow 180ms ease,
+    background 180ms ease,
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: ntpIn 560ms cubic-bezier(0.16, 1, 0.3, 1) both 60ms;
+}
+.egNtpSearch:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.34);
+  transform: translateY(-1px);
+}
+.egNtpMag {
+  flex: none;
+  opacity: 0.85;
+}
+.egNtpSearch input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 14.5px;
+  font-family: inherit;
+}
+.egNtpSearch input::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+.egNtpSearch input::selection {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.egNtpClear {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+.egNtpClear:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.egNtpGo {
+  flex: none;
+  height: 34px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  color: #0b3a86;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 120ms ease;
+}
+.egNtpGo:hover {
+  background: #eaf3ff;
+}
+.egNtpGo:active {
+  transform: scale(0.96);
+}
+
+.egNtpHints {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(24, 32, 48, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  backdrop-filter: blur(40px) saturate(160%);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4);
+  animation: egPop 150ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+.egNtpHints button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.egNtpHints button:hover,
+.egNtpHints button.on {
+  background: rgba(255, 255, 255, 0.13);
+}
+.egNtpHints svg {
+  flex: none;
+  opacity: 0.65;
+}
+
+.egNtpQuick {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+  gap: 6px;
+  width: 100%;
+  margin-top: 38px;
+  animation: ntpIn 600ms cubic-bezier(0.16, 1, 0.3, 1) both 140ms;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+}
+.egNtpQuick > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 4px 10px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.egNtpQuick > button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+.egNtpTile {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+.egNtpTile.add {
+  color: rgba(255, 255, 255, 0.85);
+}
+.egNtpTileName {
+  font-size: 11.5px;
+  max-width: 74px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.egNtpFoot {
+  margin-top: auto;
+  padding-top: 44px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.egNtpFoot button {
+  flex: none;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 11.5px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.egNtpFoot button:hover {
+  color: #fff;
+}
+
+.egNewTab[data-wall="plain"] .egNtpSearch {
+  background: var(--eg-field);
+  border-color: var(--eg-field-brd);
+  box-shadow: var(--eg-shadow);
+}
+.egNewTab[data-wall="plain"] .egNtpSearch input {
+  color: var(--eg-txt);
+}
+.egNewTab[data-wall="plain"] .egNtpSearch input::placeholder {
+  color: var(--eg-txt-3);
+}
+.egNewTab[data-wall="plain"] .egNtpMag {
+  color: var(--eg-txt-2);
+}
+.egNewTab[data-wall="plain"] .egNtpGo {
+  background: var(--eg-accent);
+  color: #fff;
+}
+.egNewTab[data-wall="plain"] .egNtpTile {
+  background: var(--eg-page-2);
+  border-color: var(--eg-field-brd);
+}
+.egNewTab[data-wall="plain"] .egNtpQuick > button {
+  color: var(--eg-txt);
+}
+.egNewTab[data-wall="plain"] .egNtpQuick > button:hover {
+  background: var(--eg-hover);
+}
+.egNewTab[data-wall="plain"] .egNtpFoot {
+  color: var(--eg-txt-3);
+}
+.egNewTab[data-wall="plain"] .egNtpFoot button {
+  color: var(--eg-accent);
+}
+.egNewTab[data-wall="plain"] .egNtpBrand {
+  color: var(--eg-txt);
+}
+
+@keyframes ntpIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Bing results page keeps the old classes so its styling still applies */
+.egSearchPage {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 20px 26px 50px;
+}
+
+/* --------------------------- flyouts ----------------------------- */
+
+.egTabFly {
+  z-index: 90;
+}
+.egFly {
+  display: contents;
+}
+
+@media (max-width: 700px) {
+  .egFavBar {
+    display: none;
+  }
+  .egPage {
+    padding: 18px 16px 50px;
+  }
+  .egSetRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .egInput.wide {
+    width: 100%;
+  }
+}
+
+/* ---- snapshot (helper-fetched page with its real CSS) ---- */
+.egSnap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+body[data-theme="dark"] .egSnap {
+  background: #1f1f1f;
+}
+.egSnapBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  flex: none;
+  background: rgba(127, 127, 127, 0.08);
+  border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+  font-size: 11.5px;
+}
+.egSnapTitle {
+  font-weight: 600;
+}
+.egSnapBar em {
+  opacity: 0.6;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.egSnapActs {
+  margin-left: auto;
+  display: flex;
+  gap: 5px;
+  flex: none;
+}
+.egSnapFrame {
+  flex: 1;
+  border: 0;
+  width: 100%;
+  background: #fff;
+}
+
+/* ---- edge-faithful error page ---- */
+.egErrorArt.dns {
+  color: #0078d4;
+}
+.egErrorArt.refused,
+.egErrorArt.timeout {
+  color: #5a626a;
+}
+.egErrorCode {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: rgba(127, 127, 127, 0.14);
+  font-family: Consolas, monospace;
+  font-size: 11.5px;
+  color: var(--sat-txt);
+}
+
+/* ================= WebOS Search — the custom results page ============ */
+.egSearch2 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--egPage, #fff);
+}
+
+.egSrchHead {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px auto 4px;
+  width: min(680px, calc(100% - 40px));
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 21px;
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.12));
+  background: var(--egCard, #fff);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 120ms ease,
+    border-color 120ms ease;
+
+  &:focus-within {
+    border-color: var(--clrPrm, #0067c0);
+    box-shadow: 0 3px 14px rgba(0, 103, 192, 0.18);
+  }
+
+  svg {
+    color: var(--med-txt, #666);
+    flex: 0 0 auto;
+  }
+
+  input {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: 14px;
+    color: inherit;
+  }
+}
+
+.egSrchClr {
+  border: 0;
+  background: transparent;
+  color: var(--med-txt, #666);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+.egSrchBody {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 12px 0 32px;
+  width: min(680px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.egHit {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  margin: 2px 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  animation: egHitIn 260ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  transition: background 90ms ease;
+
+  &:hover {
+    background: var(--egHover, rgba(0, 0, 0, 0.045));
+  }
+  &:active {
+    transform: scale(0.997);
+  }
+}
+
+@keyframes egHitIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.egHitFeat {
+  background: var(--egCard, #fff);
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.1));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  margin-top: 8px;
+
+  .egHitTitle {
+    font-size: 19px;
+  }
+}
+
+.egHitFav {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--egHover, rgba(0, 0, 0, 0.06));
+  padding: 3px;
+  margin-top: 2px;
+}
+
+.egHitMain {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.egHitSrc {
+  font-size: 11.5px;
+  color: var(--med-txt, #666);
+  line-height: 1.3;
+}
+
+.egHitTitle {
+  font-size: 16.5px;
+  font-weight: 500;
+  color: var(--egLink, #1a55c4);
+  margin: 1px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  .egHit:hover & {
+    text-decoration: underline;
+  }
+}
+
+.egHitUrl {
+  font-size: 12px;
+  color: var(--med-txt, #5b5b5b);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.egHitSnap {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--dark-txt, #222);
+  margin-top: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---- AI answer card ---- */
+.egAiCard {
+  margin: 10px 0 14px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.1));
+  background: linear-gradient(135deg, rgba(0, 103, 192, 0.07), rgba(136, 84, 208, 0.07));
+  animation: egHitIn 260ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+
+.egAiHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--clrPrm, #0067c0);
+
+  em {
+    font-style: normal;
+    font-weight: 400;
+    opacity: 0.7;
+    font-size: 11.5px;
+  }
+}
+
+.egAiText {
+  margin: 8px 0 10px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.egAiMore {
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.14));
+  background: var(--egCard, #fff);
+  color: inherit;
+  border-radius: 14px;
+  font-size: 12px;
+  padding: 4px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--egHover, rgba(0, 0, 0, 0.05));
+  }
+}
+
+.egAiOff {
+  opacity: 0.85;
+}
+
+/* ---- chips / more / meta / empty ---- */
+.egChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 16px 0 6px;
+}
+
+.egChipsLbl {
+  font-size: 12px;
+  color: var(--med-txt, #666);
+}
+
+.egChip {
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.12));
+  background: var(--egCard, #fff);
+  border-radius: 15px;
+  font-size: 12.5px;
+  padding: 5px 13px;
+  cursor: pointer;
+  color: inherit;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--egHover, rgba(0, 0, 0, 0.05));
+  }
+}
+
+.egMore {
+  display: block;
+  margin: 18px auto 6px;
+  padding: 7px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.14));
+  background: var(--egCard, #fff);
+  color: inherit;
+  font-size: 13px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--egHover, rgba(0, 0, 0, 0.05));
+  }
+}
+
+.egSrchMeta {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--med-txt, #888);
+  margin-top: 10px;
+}
+
+.egSrchEmpty {
+  text-align: center;
+  padding: 60px 20px;
+
+  h3 {
+    margin: 12px 0 4px;
+    font-size: 17px;
+  }
+  p {
+    font-size: 13px;
+    color: var(--med-txt, #666);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+.egSrchEmptyActs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+/* ================= WebOS AI sidepane ================= */
+.egCopilot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(380px, 40%);
+  display: flex;
+  flex-direction: column;
+  background: var(--egCard, #fff);
+  border-left: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.1));
+  box-shadow: -8px 0 28px rgba(0, 0, 0, 0.12);
+  z-index: 30;
+  animation: egCopIn 240ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+}
+
+@keyframes egCopIn {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+}
+
+.egCopHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.08));
+}
+
+.egCopBrand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--clrPrm, #0067c0);
+}
+
+.egCopSub {
+  font-size: 11px;
+  color: var(--med-txt, #888);
+  flex: 1;
+}
+
+.egCopX {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: inherit;
+  padding: 0 6px;
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--egHover, rgba(0, 0, 0, 0.06));
+  }
+}
+
+.egCopBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.egCopEmpty {
+  text-align: center;
+  margin: auto;
+  color: var(--med-txt, #666);
+
+  h3 {
+    margin: 8px 0 4px;
+    font-size: 16px;
+    color: inherit;
+  }
+  p {
+    font-size: 12.5px;
+    max-width: 260px;
+    margin: 0 auto 12px;
+    line-height: 1.5;
+  }
+}
+
+.egCopMsg {
+  max-width: 88%;
+  padding: 9px 13px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  animation: egHitIn 200ms cubic-bezier(0.1, 0.9, 0.2, 1) both;
+
+  &.user {
+    align-self: flex-end;
+    background: var(--clrPrm, #0067c0);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+  }
+  &.ai {
+    align-self: flex-start;
+    background: var(--egHover, rgba(0, 0, 0, 0.055));
+    border-bottom-left-radius: 4px;
+  }
+}
+
+.egCopThinking {
+  color: var(--med-txt, #888);
+  font-size: 12.5px;
+}
+
+.egCopInput {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.08));
+
+  input {
+    flex: 1;
+    height: 34px;
+    border-radius: 17px;
+    border: 1px solid var(--egBrdr, rgba(0, 0, 0, 0.16));
+    background: var(--egPage, #fff);
+    color: inherit;
+    padding: 0 14px;
+    outline: none;
+    font-size: 13px;
+
+    &:focus {
+      border-color: var(--clrPrm, #0067c0);
+    }
+    &:disabled {
+      opacity: 0.55;
+    }
+  }
+
+  button {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--clrPrm, #0067c0);
+    color: #fff;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}
+
+.egNavOn {
+  background: var(--egHover, rgba(0, 0, 0, 0.08)) !important;
+  color: var(--clrPrm, #0067c0);
+}
+
+/* ---- dark theme coverage for the new surfaces ---- */
+body[data-theme="dark"] {
+  .egSearch2 {
+    --egPage: #1b1d1f;
+    --egCard: #232529;
+    --egBrdr: rgba(255, 255, 255, 0.1);
+    --egHover: rgba(255, 255, 255, 0.06);
+    --egLink: #6cb2f5;
+    --dark-txt: #f2f2f2;
+    --med-txt: #9d9d9d;
+  }
+  .egSrchHead {
+    background: var(--egCard);
+    box-shadow: none;
+  }
+  .egHitFeat {
+    box-shadow: none;
+  }
+  .egCopilot {
+    background: #202227;
+    box-shadow: -8px 0 28px rgba(0, 0, 0, 0.4);
+  }
+  .egCopInput input {
+    background: #17181b;
+  }
+  .egAiCard {
+    background: linear-gradient(135deg, rgba(0, 103, 192, 0.16), rgba(136, 84, 208, 0.14));
+  }
+}
+
+/* ---- edge://surf : the vendored Let's Surf game, full-bleed ---- */
+.egSurf {
+  position: absolute;
+  inset: 0;
+  background: #0b4c6f;
+
+  .egSurfFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+}

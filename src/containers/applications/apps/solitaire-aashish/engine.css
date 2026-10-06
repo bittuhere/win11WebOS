@@ -1,0 +1,295 @@
+/*
+ * engine.css — AashishChakravarty/solitaire stylesheet, adapted for WebOS.
+ *
+ * Source: https://github.com/AashishChakravarty/solitaire (index.html <style>),
+ * MIT License, © 2025 Aashish Chakravarty.
+ *
+ * Adaptation: page-level rules (`html`, `body`) are gone, every selector is
+ * scoped under `#solitaireApp`, and the Google Fonts `@import` is dropped —
+ * the OS ships no remote requests, so the game uses the system UI font stack.
+ * Geometry keeps the upstream custom properties, which the app window sets to
+ * fit whatever size the window is. Values are otherwise upstream, plus
+ * `.card.selected` for click-to-move.
+ */
+
+/* ------------------------------------------------------------------ *
+ *  Board geometry — the window overrides the px values at runtime
+ * ------------------------------------------------------------------ */
+#solitaireApp {
+  --card-width: 100px;
+  --card-height: 140px;
+  --card-border-radius: 8px;
+  --board-gap: 15px;
+  --stack-offset: 30px;
+  --felt-green: #2a623d;
+  --felt-green-dark: #1e472c;
+  --card-back: #4a90e2;
+  --card-back-pattern: #357abd;
+  --animation-speed: 0.2s;
+  --move-animation-speed: 0.3s;
+  /* the engine reads the numeric form of the two durations above */
+  --animation-speed-ms: 200;
+  --move-animation-speed-ms: 300;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Game surface
+ * ------------------------------------------------------------------ */
+#solitaireApp .solAash {
+  position: relative; /* containing block for the flying-card clones */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--felt-green);
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #fff;
+  -webkit-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px 0 0;
+}
+
+#solitaireApp #game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Board layout
+ * ------------------------------------------------------------------ */
+#solitaireApp .game-board {
+  display: grid;
+  grid-template-columns: repeat(7, var(--card-width));
+  grid-template-rows: var(--card-height) auto;
+  gap: var(--board-gap);
+  justify-content: center;
+  width: 100%;
+  max-width: calc(7 * var(--card-width) + 6 * var(--board-gap));
+  position: relative;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#solitaireApp .top-piles {
+  grid-column: 1 / span 7;
+  display: flex;
+  justify-content: space-between;
+}
+
+#solitaireApp .stock-waste-piles,
+#solitaireApp .foundation-piles {
+  display: flex;
+  gap: var(--board-gap);
+}
+
+#solitaireApp .tableau-piles {
+  grid-column: 1 / span 7;
+  display: contents;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Piles
+ * ------------------------------------------------------------------ */
+#solitaireApp .pile,
+#solitaireApp .card {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: var(--card-border-radius);
+}
+
+#solitaireApp .pile {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  box-sizing: border-box;
+}
+
+#solitaireApp .pile.foundation::before {
+  position: absolute;
+  opacity: 0.2;
+  font-size: calc(var(--card-width) * 0.55);
+}
+#solitaireApp .pile.foundation.hearts::before {
+  content: "♥";
+  color: #e04b3a;
+}
+#solitaireApp .pile.foundation.diamonds::before {
+  content: "♦";
+  color: #e04b3a;
+}
+#solitaireApp .pile.foundation.clubs::before {
+  content: "♣";
+  color: #1b1b1b;
+}
+#solitaireApp .pile.foundation.spades::before {
+  content: "♠";
+  color: #1b1b1b;
+}
+
+#solitaireApp .tableau-pile {
+  position: relative;
+  height: auto;
+  min-height: var(--card-height);
+  align-items: flex-start;
+  border-style: hidden;
+}
+
+#solitaireApp .pile.drag-over {
+  border-color: #fff;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#solitaireApp #stock-pile.empty::before {
+  content: "⟳";
+  font-size: calc(var(--card-width) * 0.42);
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Cards
+ * ------------------------------------------------------------------ */
+#solitaireApp .card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  cursor: pointer;
+  transition:
+    transform var(--animation-speed) ease-in-out,
+    box-shadow var(--animation-speed) ease-in-out,
+    top var(--animation-speed) ease-out,
+    left var(--animation-speed) ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* while its clone is in flight the original stays in the layout, hidden */
+#solitaireApp .card.ghost {
+  visibility: hidden;
+}
+
+/* the clone that flies between piles — absolute inside the board root, so the
+   app appends it to `#solitaireApp .solAash`, never to <body> */
+#solitaireApp .card.moving {
+  position: absolute;
+  z-index: 100;
+  transition:
+    top var(--move-animation-speed) ease-in-out,
+    left var(--move-animation-speed) ease-in-out;
+}
+
+/* the card under the pointer during an HTML5 drag stays visible, just lifted */
+#solitaireApp .card.dragging {
+  opacity: 0.75;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* click-to-move: the picked-up run */
+#solitaireApp .card.selected {
+  box-shadow:
+    0 0 0 3px #ffd166,
+    0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+#solitaireApp .card.red {
+  color: #d92e2e;
+}
+#solitaireApp .card.black {
+  color: #222;
+}
+
+#solitaireApp .card-corner {
+  position: absolute;
+  font-size: calc(var(--card-width) * 0.155);
+  line-height: 1;
+  font-weight: 600;
+}
+#solitaireApp .card-corner.top {
+  top: 5px;
+  left: 7px;
+}
+#solitaireApp .card-corner.bottom {
+  bottom: 5px;
+  right: 7px;
+  transform: rotate(180deg);
+}
+
+#solitaireApp .card-suit-main {
+  font-size: calc(var(--card-width) * 0.4);
+  line-height: 1;
+}
+
+#solitaireApp .card.face-down {
+  background-color: var(--card-back);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--card-back-pattern),
+    var(--card-back-pattern) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  color: transparent;
+  cursor: pointer;
+}
+
+#solitaireApp #stock-pile .card.face-down {
+  cursor: pointer;
+}
+
+#solitaireApp .tableau-pile .card {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ------------------------------------------------------------------ *
+ *  Feedback: hint pulse, flip
+ * ------------------------------------------------------------------ */
+#solitaireApp .card.flipping {
+  animation: solAashFlip var(--animation-speed) ease-in-out forwards;
+}
+
+#solitaireApp .hint-highlight {
+  animation: solAashHint 0.5s ease-in-out 2;
+  box-shadow: 0 0 20px 5px #ffeb3b;
+  z-index: 20;
+}
+
+@keyframes solAashFlip {
+  from {
+    transform: rotateY(180deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes solAashHint {
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-5px) scale(1.04);
+  }
+  75% {
+    transform: translateX(5px) scale(1.04);
+  }
+}
